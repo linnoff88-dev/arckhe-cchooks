@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+
+<html data-theme="dark" lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="cchooks:guard" name="curso"/>
+<title>Guardrails · Hooks do Claude Code · INEMA.CLUB PRO</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&amp;family=Inter:wght@400;500;600;700&amp;family=Space+Mono:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="assets/aula.css" rel="stylesheet"/>
+<script>(function(){try{var m=document.querySelector('meta[name=curso]');var CK=(m&&m.content)||'v4:curso';var s=JSON.parse(localStorage.getItem(CK));if(s&&s.prefs&&s.prefs.theme)document.documentElement.setAttribute('data-theme',s.prefs.theme);}catch(e){}})();</script>
+<style>
+  /* ---- roteador de página única ---- */
+  .view{display:none}
+  .view.active{display:block}
+
+  /* ---- navegação entre aulas (rodapé de cada aula) ---- */
+  .lnav{max-width:1160px;margin:0 auto 5vh;padding:0 clamp(24px,5vw,60px);display:flex;justify-content:space-between;gap:12px}
+  .lnav a{font-family:var(--mono);font-size:12px;color:var(--muted);text-decoration:none;border:1px solid var(--line2);border-radius:12px;padding:12px 16px;transition:border-color .2s,color .2s}
+  .lnav a:hover{border-color:var(--accent);color:var(--ink)}
+  .lnav a.dis{opacity:.4;pointer-events:none}
+
+  /* ---- VIEW DA TRILHA (escopo #v-trilha) ---- */
+  #v-trilha .wrap{max-width:1080px;margin:0 auto;padding:0 clamp(24px,5vw,60px)}
+  #v-trilha .t-hero{position:relative;overflow:hidden;padding:20vh 0 8vh;border-bottom:1px solid var(--line)}
+  #v-trilha .t-hero::before{content:"";position:absolute;inset:0;z-index:0;background:radial-gradient(48% 44% at 84% 12%,rgba(124,224,198,.18),transparent 60%),radial-gradient(42% 40% at 6% 92%,rgba(242,180,92,.10),transparent 55%);animation:drift 24s ease-in-out infinite alternate}
+  #v-trilha .t-hero > *{position:relative;z-index:2}
+  #v-trilha .crumb{font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:var(--faint);margin:0 0 20px}
+  #v-trilha .crumb a{text-decoration:none;color:var(--muted)}
+  #v-trilha .crumb a:hover{color:var(--accent)}
+  #v-trilha h1{font-family:var(--serif);font-weight:500;font-size:clamp(40px,6.4vw,72px);line-height:1.0;letter-spacing:-.025em;margin:0 0 22px}
+  #v-trilha h1 em{font-style:italic;color:var(--accent)}
+  #v-trilha .lead{font-family:var(--serif);font-size:clamp(19px,2.1vw,24px);line-height:1.5;color:var(--ink-soft);max-width:46ch;margin:0 0 30px}
+  #v-trilha .statcards{display:flex;gap:14px;flex-wrap:wrap}
+  #v-trilha .sc{border:1px solid var(--line);border-radius:14px;background:var(--panel);padding:16px 22px;min-width:120px}
+  #v-trilha .sc b{font-family:var(--serif);font-weight:500;font-size:28px;color:var(--ink);display:block;line-height:1}
+  #v-trilha .sc span{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-top:6px;display:block}
+  #v-trilha section{padding:8vh 0;border-bottom:none}
+  #v-trilha .eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin:0 0 8px}
+  #v-trilha h2{display:block;font-family:var(--serif);font-weight:500;font-size:clamp(26px,3.6vw,38px);letter-spacing:-.015em;line-height:1.1;margin:0 0 28px}
+  #v-trilha h2 em{font-style:italic;color:var(--accent)}
+  #v-trilha .aulas{display:grid;gap:14px}
+  #v-trilha .au{display:grid;grid-template-columns:56px 1fr auto;gap:20px;align-items:center;text-decoration:none;color:inherit;background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:20px 24px;transition:border-color .2s,transform .2s}
+  #v-trilha .au.on:hover{border-color:var(--accent);transform:translateY(-2px)}
+  #v-trilha .au .num{font-family:var(--serif);font-size:30px;color:var(--accent);line-height:1;text-align:center}
+  #v-trilha .au h3{font-family:var(--serif);font-weight:500;font-size:21px;margin:0 0 5px;letter-spacing:-.01em}
+  #v-trilha .au p{margin:0;color:var(--muted);font-size:14.5px}
+  #v-trilha .au .meta{font-family:var(--mono);font-size:11px;letter-spacing:.04em;color:var(--accent);white-space:nowrap;text-align:right}
+  #v-trilha .au .prog{position:static;margin-top:10px;height:5px;border-radius:99px;background:var(--line);overflow:hidden;max-width:220px;width:auto;z-index:auto}
+  #v-trilha .au .prog i{display:block;height:100%;width:100%;background:var(--accent);transform:scaleX(0);transform-origin:left;transition:transform .5s}
+  #v-trilha .nav{display:flex;justify-content:space-between;gap:12px;border-top:1px solid var(--line);padding-top:6vh;margin-top:2vh}
+  #v-trilha .nav a{font-family:var(--mono);font-size:12px;color:var(--muted);text-decoration:none;border:1px solid var(--line2);border-radius:12px;padding:14px 18px}
+  #v-trilha .nav a:hover{border-color:var(--accent);color:var(--ink)}
+  #v-trilha .nav a.dis{opacity:.4;pointer-events:none}
+  #v-trilha footer{max-width:1080px;margin:0 auto;padding:6vh clamp(24px,5vw,60px) 12vh;color:var(--faint);font-size:14px;text-align:center;font-family:var(--serif);font-style:italic;border-top:1px solid var(--line)}
+  @media(max-width:640px){#v-trilha .au{grid-template-columns:44px 1fr;gap:14px}#v-trilha .au .meta{grid-column:2;text-align:left;margin-top:6px}}
+</style>
+<link href="https://inematds.github.io/cchooks/curso-guardrails.html" hreflang="pt-BR" rel="alternate"/><link href="https://inematds.github.io/cchooks/en/curso-guardrails.html" hreflang="en" rel="alternate"/><link href="https://inematds.github.io/cchooks/es/curso-guardrails.html" hreflang="es" rel="alternate"/></head>
+<body><div class="inema-lang" style="position:fixed;right:14px;bottom:14px;z-index:9999;display:flex;gap:2px;padding:4px;border-radius:10px;background:rgba(12,12,16,.82);border:1px solid rgba(226,162,59,.45);font:600 12px/1 Sora,Inter,system-ui,sans-serif;backdrop-filter:blur(8px)" translate="no"><a href="curso-guardrails.html" hreflang="pt-BR" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#1a1206;background:#E2A23B">PT</a><a href="en/curso-guardrails.html" hreflang="en" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#e9e9ee">EN</a><a href="es/curso-guardrails.html" hreflang="es" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#e9e9ee">ES</a></div>
+<div class="bar"><div class="bar-inner">
+<span class="brand"><a class="mark" href="https://inema.club" rel="noopener" target="_blank">INEMA.CLUB</a><a class="pro" href="https://inema.pro" rel="noopener" target="_blank">PRO</a><a class="course" href="landing.html">Hooks do Claude Code</a></span>
+<a class="back" href="#trilha" style="display:none">← trilha</a>
+<button class="pill" id="pill" style="display:none">0 lido</button>
+<button id="revbtn">revisar <span id="revn">0</span></button>
+<button id="jorbtn">jornada</button>
+<button aria-label="Como o curso funciona" id="helpbtn">?</button>
+<button aria-label="Preferências de leitura" id="prefsbtn">Aa</button>
+<button id="themebtn">tema: escuro</button>
+</div>
+<div class="subnav"><div class="subnav-inner">
+<a href="curso.html#trilha">01 Fundamentos</a>
+<a class="cur" href="curso-guardrails.html#trilha">02 Guardrails</a>
+<a href="curso-automacao.html#trilha">03 Automação</a>
+<a href="curso-time.html#trilha">04 Equipe &amp; CI</a>
+</div></div>
+</div>
+<!-- ===================== VIEW: TRILHA ===================== -->
+<section class="view" id="v-trilha">
+<header class="t-hero"><div class="wrap">
+<p class="crumb"><a href="landing.html">Hooks do Claude Code</a> / Trilha 02</p>
+<p class="kicker">Trilha 02 · Guardrails</p>
+<h1>Guardrails:<br/>pare o <em>perigoso</em></h1>
+<p class="lead">Transforme "por favor não faça isso" numa trava de verdade: barrar comandos e arquivos perigosos antes de acontecer, decidir allow/ask/deny e proteger segredos — sem depender de o modelo lembrar.</p>
+<div class="statcards">
+<div class="sc"><b>4</b><span>aulas</span></div>
+<div class="sc"><b>~36</b><span>minutos</span></div>
+<div class="sc"><b>intermediário</b><span>nível</span></div>
+</div>
+</div></header>
+<section><div class="wrap">
+<p class="eyebrow">Aulas desta trilha</p>
+<h2>Da <em>trava</em> simples ao guard de produção</h2>
+<div class="aulas">
+<a class="au on" data-aula="1" href="#aula-1">
+<div class="num">1</div>
+<div>
+<h3>A ideia de trava</h3>
+<p>PreToolUse e <code style="font-family:var(--mono);font-size:.8em;color:var(--accent)">exit 2</code>: o bloqueio mais simples que existe, e como o motivo volta pro Claude.</p>
+<div class="prog"><i></i></div>
+</div>
+<div class="meta">4 seções · abrir →</div>
+</a>
+<a class="au on" data-aula="2" href="#aula-2">
+<div class="num">2</div>
+<div>
+<h3>Ler o que vai rodar</h3>
+<p>O comando chega em <code style="font-family:var(--mono);font-size:.8em">tool_input.command</code>: extrair com jq, casar padrões perigosos e não se machucar com aspas.</p>
+<div class="prog"><i></i></div>
+</div>
+<div class="meta">4 seções · abrir →</div>
+</a>
+<a class="au on" data-aula="3" href="#aula-3">
+<div class="num">3</div>
+<div>
+<h3>Casos que valem a pena</h3>
+<p><code style="font-family:var(--mono);font-size:.8em">rm -rf</code>, push --force na main, tocar em <code style="font-family:var(--mono);font-size:.8em">.env</code> e outros arquivos protegidos.</p>
+<div class="prog"><i></i></div>
+</div>
+<div class="meta">4 seções · abrir →</div>
+</a>
+<a class="au on" data-aula="4" href="#aula-4">
+<div class="num">4</div>
+<div>
+<h3>allow / ask / deny + higiene</h3>
+<p>A decisão em JSON, fail-open pra nunca travar por bug seu, e as regras de higiene de um hook.</p>
+<div class="prog"><i></i></div>
+</div>
+<div class="meta">4 seções · abrir →</div>
+</a>
+</div>
+<div class="nav">
+<a href="curso.html#trilha">← Trilha 01 · Fundamentos</a>
+<a href="curso-automacao.html#trilha">Trilha 03 · Automação →</a>
+</div>
+</div></section>
+<footer><div class="wrap">Trilha 02 · Guardrails · INEMA.CLUB PRO</div></footer>
+</section>
+<!-- ===================== VIEW: AULA 1 ===================== -->
+<section class="view" data-aula="1" id="v-aula-1">
+<header class="hero"><div class="hero-inner">
+<div>
+<p class="kicker">Trilha 02 · Aula 1 · Intermediário</p>
+<h1>A ideia de<br/>uma <em>trava</em></h1>
+<p class="lead">Uma trava é só um hook de PreToolUse que decide, antes de a ferramenta rodar, se ela pode seguir. O sinal é o código de saída — e é tudo que você precisa pra começar.</p>
+<p class="cue"><span class="arw">↓</span> role para estudar</p>
+</div>
+<div class="herofig">
+<svg aria-hidden="true" fill="none" viewbox="0 0 300 240">
+<rect fill="#15131d" height="40" rx="9" stroke="#37324a" stroke-width="1.5" width="76" x="24" y="86"></rect>
+<text fill="#C7C2D0" font-family="Space Mono, monospace" font-size="10" text-anchor="middle" x="62" y="110">comando</text>
+<path class="pulse" d="M104 106 H140" stroke="#948DA6" stroke-width="2"></path><path d="M140 100 l10 6 -10 6z" fill="#948DA6"></path>
+<line stroke="#F2B45C" stroke-dasharray="5 6" stroke-width="3" x1="158" x2="158" y1="56" y2="156"></line>
+<text fill="#F2B45C" font-family="Space Mono, monospace" font-size="11" text-anchor="middle" x="158" y="44">exit 2</text>
+<path class="pulse" d="M144 92 l28 28 M172 92 l-28 28" stroke="#F2B45C" stroke-linecap="round" stroke-width="3"></path>
+<path d="M176 106 H220" stroke="#37324a" stroke-dasharray="3 4" stroke-width="1.5"></path>
+<rect fill="none" height="40" rx="9" stroke="#7CE0C6" width="56" x="220" y="86"></rect>
+<text fill="#7CE0C6" font-family="Space Mono, monospace" font-size="10" text-anchor="middle" x="248" y="110">exit 0</text>
+<text fill="#C7C2D0" font-family="Newsreader, serif" font-size="16" font-style="italic" text-anchor="middle" x="150" y="196">barra antes, não avisa depois</text>
+</svg>
+</div>
+</div></header>
+<div class="layout">
+<div class="col">
+<section class="step" data-fig="1">
+<h2><span class="n">01</span> O que é uma trava</h2>
+<p>Uma trava é um hook de <b class="gterm" data-def="Evento de hook que dispara ANTES de o Claude usar uma ferramenta. Pode barrar a ação saindo com exit 2." tabindex="0">PreToolUse</b>: ele roda <b>antes</b> da ferramenta e decide se ela pode seguir. O sinal é o <b class="gterm" data-def="O número que um script devolve ao terminar. 0 = sucesso; no PreToolUse, 2 = barrado." tabindex="0">código de saída</b>:</p>
+<ul>
+<li><b>exit 0</b> — tudo bem, pode rodar.</li>
+<li><b class="gterm" data-def="Código de saída que, num hook PreToolUse, BARRA a ação. O texto impresso no stderr vira o motivo mostrado ao Claude." tabindex="0">exit 2</b> — <b>barra</b>. O Claude não executa, e o que você imprimiu no <code>stderr</code> vira o motivo.</li>
+</ul>
+<p>Repare na diferença: a trava não "avisa depois" — ela <b>impede antes</b>. É a diferença entre um extintor e um relatório de incêndio. Nas próximas aulas você vai ensinar essa trava a ler o comando, cobrir os casos que doem de verdade, e falar allow/ask/deny — mas a base é só isto: <i>exit 0 segue, exit 2 barra</i>.</p>
+<div class="mobfig" data-mobfig="1"></div>
+<div class="quiz" data-answer="c">
+<p class="qk">Teste-se</p>
+<p class="q">Qual código de saída BARRA a ação no PreToolUse?</p>
+<button class="opt" data-k="a">exit 0</button>
+<button class="opt" data-k="b">exit 1</button>
+<button class="opt" data-fb="No PreToolUse, exit 2 barra a ação antes de rodar; exit 0 deixa seguir." data-k="c">exit 2</button>
+<p class="qfb"></p>
+</div>
+<button class="readbtn" data-read="s1">marcar como lido</button>
+</section>
+<section class="step" data-fig="2">
+<h2><span class="n">02</span> O motivo volta pro Claude</h2>
+<p>Quando a trava barra, o Claude não fica no escuro: tudo que seu script imprime no <b>stderr</b> antes do <code>exit 2</code> vira o <b>motivo</b> que ele lê. É a sua única chance de explicar por que — escreva pra ele, não pra você:</p>
+<pre><span class="c"># ruim: não diz nada útil</span>
+exit 2
+
+<span class="c"># bom: o Claude sabe exatamente o que evitar da próxima vez</span>
+echo "trava: rm -rf apaga tudo sem confirmação — use um caminho específico" &gt;&amp;2
+exit 2</pre>
+<p>Pense na mensagem como uma instrução curta pro próprio Claude tentar de novo do jeito certo, não como um log de erro genérico. "bloqueado" diz pouco; "bloqueado: use <code>rm arquivo.txt</code>, não <code>rm -rf pasta/</code>" ensina.</p>
+<div class="mobfig" data-mobfig="2"></div>
+<div class="quiz" data-answer="b">
+<p class="qk">Teste-se</p>
+<p class="q">O texto que vira o "motivo" mostrado ao Claude quando a trava barra sai por onde?</p>
+<button class="opt" data-k="a">pelo stdout (saída padrão)</button>
+<button class="opt" data-fb="No caminho do exit 2, o stderr é o canal que o Claude lê como motivo do bloqueio." data-k="b">pelo stderr (saída de erro)</button>
+<button class="opt" data-k="c">por uma variável de ambiente</button>
+<p class="qfb"></p>
+</div>
+<button class="readbtn" data-read="s2">marcar como lido</button>
+</section>
+<section class="step" data-fig="3">
+<h2><span class="n">03</span> Um exemplo mínimo: barrar rm -rf</h2>
+<p>Junte as duas peças — ler o comando (mais sobre isso na próxima aula) e decidir com exit code — e você já tem uma trava de verdade:</p>
+<pre><span class="c"># .claude/settings.json → PreToolUse, matcher "Bash"</span>
+jq -r '.tool_input.command' | grep -qE 'rm -rf' &amp;&amp; {
+  echo "trava: rm -rf bloqueado" &gt;&amp;2
+  exit 2
+}
+exit 0</pre>
+<p>Leia de dentro pra fora: pega o <code>command</code> do stdin, procura o padrão <code>rm -rf</code>; se achar, imprime o motivo e barra; se não achar, o <code>exit 0</code> no fim deixa seguir. Curto, e já resolve o acidente mais clássico.</p>
+<div class="mobfig" data-mobfig="3"></div>
+<button class="readbtn" data-read="s3">marcar como lido</button>
+</section>
+<section class="step" data-fig="4">
+<h2><span class="n">04</span> exit 0 libera</h2>
+<p>Todo comando que <b>não</b> casa com o padrão perigoso precisa continuar normalmente — e quem garante isso é um <code>exit 0</code> explícito no fim do script. Sem ele, o exit code do último comando rodado (o <code>grep</code>, por exemplo) pode vazar e confundir o Claude Code.</p>
+<ul>
+<li>Termine <b>sempre</b> com <code>exit 0</code> depois do bloco de checagem — mesmo que pareça óbvio.</li>
+<li>Uma trava que só reage a um padrão e deixa tudo o resto passar é o comportamento certo: você quer travar o <b>perigoso</b>, não o resto do trabalho.</li>
+</ul>
+<p>Com isso, o ciclo fecha: ler o comando → comparar com o padrão → exit 2 (barra, com motivo) ou exit 0 (segue). É a menor trava que existe, e já é real — o Claude não pode simplesmente "decidir ignorar" ela.</p>
+<div class="mobfig" data-mobfig="4"></div>
+<details>
+<summary>Indo mais fundo</summary>
+<p>Além do exit code, um hook PreToolUse pode devolver uma decisão mais rica em JSON pelo stdout (com <code>allow</code>/<code>ask</code>/<code>deny</code> e um motivo estruturado). É o assunto da Aula 4 desta trilha — comece pelo exit code, que já resolve a maioria dos casos.</p>
+</details>
+<button class="readbtn" data-read="s4">marcar como lido</button>
+</section>
+<section class="practice" data-practice="p1">
+<p class="pk">Pratique agora <span class="pcount">0/4 feito</span></p>
+<h3 class="ph">Sua primeira trava: bloquear rm -rf</h3>
+<p class="pgoal">Faça um hook barrar de verdade um <code>rm -rf</code> — testando num caminho descartável, sem chegar perto de nada importante. ~5 min.</p>
+<div class="pcodewrap"><button class="pcopy" type="button">copiar</button><pre class="pcode">{
+  <span class="k">"hooks"</span>: {
+    <span class="k">"PreToolUse"</span>: [
+      {
+        <span class="k">"matcher"</span>: "Bash",
+        <span class="k">"hooks"</span>: [
+          { "type": "command", "command": "jq -r '.tool_input.command' | grep -qE 'rm -rf' &amp;&amp; { echo 'trava: rm -rf bloqueado' &gt;&amp;2; exit 2; }; exit 0" }
+        ]
+      }
+    ]
+  }
+}</pre></div>
+<ol class="psteps">
+<li><label><input data-ptask="1" type="checkbox"/> Crie (ou abra) <code>.claude/settings.json</code> na raiz do seu projeto.</label></li>
+<li><label><input data-ptask="2" type="checkbox"/> Cole o bloco acima e salve.</label></li>
+<li><label><input data-ptask="3" type="checkbox"/> Peça ao Claude pra rodar <code>rm -rf /tmp/pasta-de-teste</code> — veja ele ser barrado com o seu motivo.</label></li>
+<li><label><input data-ptask="4" type="checkbox"/> Peça um comando sem o padrão (ex.: <code>ls</code>) e confirme que passa normal.</label></li>
+</ol>
+<p class="pdone">✓ Você tem uma trava real: <code>rm -rf</code> barrado antes de rodar, e tudo mais seguindo normal. Na próxima aula ela aprende a ler qualquer comando, não só este.</p>
+</section>
+</div>
+<aside class="rail"><div class="railsticky">
+<div class="figstage">
+<div class="fig on" data-cap="&lt;b&gt;Fig.&lt;/b&gt; exit 0 segue · exit 2 barra" data-fig="1">
+<svg aria-hidden="true" fill="none" viewbox="0 0 220 200">
+<rect fill="#15131d" height="34" rx="8" stroke="#37324a" width="60" x="18" y="60"></rect><text fill="#C7C2D0" font-family="Space Mono" font-size="9" text-anchor="middle" x="48" y="82">cmd</text>
+<path class="pulse" d="M80 77 H104" stroke="#948DA6" stroke-width="2"></path><path d="M104 71 l9 6 -9 6z" fill="#948DA6"></path>
+<rect class="breathe" fill="none" height="30" rx="8" stroke="#7CE0C6" width="80" x="30" y="122"></rect><text fill="#7CE0C6" font-family="Space Mono" font-size="10" text-anchor="middle" x="70" y="142">exit 0 → segue</text>
+<rect class="breathe" fill="none" height="30" rx="8" stroke="#F2B45C" style="animation-delay:.4s" width="80" x="118" y="122"></rect><text fill="#F2B45C" font-family="Space Mono" font-size="10" text-anchor="middle" x="158" y="142">exit 2 → barra</text>
+</svg>
+</div>
+<div class="fig" data-cap="&lt;b&gt;Fig.&lt;/b&gt; stderr vira o motivo que o Claude lê" data-fig="2">
+<svg aria-hidden="true" fill="none" viewbox="0 0 220 200">
+<rect fill="#221f2e" height="60" rx="9" stroke="#37324a" width="70" x="20" y="70"></rect>
+<text fill="#F2B45C" font-family="Space Mono" font-size="8" x="30" y="92">stderr</text>
+<text fill="#C7C2D0" font-family="Space Mono" font-size="8" x="30" y="108">"trava:</text>
+<text fill="#C7C2D0" font-family="Space Mono" font-size="8" x="30" y="120">use X"</text>
+<path class="breathe" d="M94 100 H140" stroke="#F2B45C" stroke-width="2"></path><path d="M140 94 l9 6 -9 6z" fill="#F2B45C"></path>
+<circle cx="168" cy="100" fill="none" r="24" stroke="#7CE0C6" stroke-width="1.5"></circle>
+<text fill="#7CE0C6" font-family="Space Mono" font-size="9" text-anchor="middle" x="168" y="104">Claude</text>
+</svg>
+</div>
+<div class="fig" data-cap="&lt;b&gt;Fig.&lt;/b&gt; ler → comparar → exit 2 ou exit 0" data-fig="3">
+<svg aria-hidden="true" fill="none" viewbox="0 0 220 200">
+<rect fill="#221f2e" height="32" rx="8" stroke="#37324a" width="56" x="16" y="84"></rect><text fill="#C7C2D0" font-family="Space Mono" font-size="9" text-anchor="middle" x="44" y="104">rm -rf</text>
+<path d="M72 100 H100" stroke="#37324a" stroke-width="2"></path>
+<rect class="breathe" fill="none" height="32" rx="8" stroke="#948DA6" width="46" x="100" y="84"></rect><text fill="#948DA6" font-family="Space Mono" font-size="9" text-anchor="middle" x="123" y="104">grep</text>
+<path d="M146 100 H172" stroke="#37324a" stroke-width="2"></path>
+<text fill="#F2B45C" font-family="Space Mono" font-size="11" text-anchor="middle" x="196" y="104">exit 2</text>
+<text fill="#948DA6" font-family="Newsreader, serif" font-size="13" font-style="italic" text-anchor="middle" x="110" y="160">barrado antes de rodar</text>
+</svg>
+</div>
+<div class="fig" data-cap="&lt;b&gt;Fig.&lt;/b&gt; só o perigoso trava; o resto segue" data-fig="4">
+<svg aria-hidden="true" fill="none" viewbox="0 0 220 200">
+<rect fill="none" height="28" rx="7" stroke="#7CE0C6" width="184" x="18" y="40"></rect><text fill="#7CE0C6" font-family="Space Mono" font-size="9" text-anchor="middle" x="110" y="59">ls, cat, git status…</text>
+<rect fill="none" height="28" rx="7" stroke="#7CE0C6" width="184" x="18" y="80"></rect><text fill="#7CE0C6" font-family="Space Mono" font-size="9" text-anchor="middle" x="110" y="99">edit, write, build…</text>
+<rect class="breathe" fill="none" height="28" rx="7" stroke="#F2B45C" width="184" x="18" y="120"></rect><text fill="#F2B45C" font-family="Space Mono" font-size="9" text-anchor="middle" x="110" y="139">rm -rf pasta/</text>
+<text fill="#C7C2D0" font-family="Newsreader, serif" font-size="13" font-style="italic" text-anchor="middle" x="110" y="176">exit 0 pro resto</text>
+</svg>
+</div>
+</div>
+<p class="railcap"></p>
+<div class="steps-ind"></div>
+<p class="sidenote">Grife qualquer trecho do texto para virar um <b>flashcard</b> de revisão — ele aparece em "revisar".</p>
+</div></aside>
+</div>
+<nav class="lnav"><a href="#trilha">← trilha</a><a href="#aula-2">Aula 2 · Ler o que vai rodar →</a></nav>
+<footer>Aula 1 de 4 · Trilha 02 · Guardrails · INEMA.CLUB PRO</footer>
+<script id="cards-1" type="application/json">
+[
+  {"front":"Que evento de hook serve pra criar uma trava?","back":"PreToolUse — roda antes da ferramenta e pode barrar a ação."},
+  {"front":"O que exit 0 e exit 2 significam numa trava PreToolUse?","back":"exit 0 = pode seguir; exit 2 = barra a ação."},
+  {"front":"Por onde sai o texto que vira o motivo mostrado ao Claude?","back":"Pelo stderr, impresso antes do exit 2."},
+  {"front":"Por que terminar o script sempre com um exit 0 explícito?","back":"Pra garantir que comandos sem correspondência ao padrão perigoso sigam liberados, sem depender do exit code do último comando interno (como o grep)."},
+  {"front":"Qual comando de exemplo a trava mínima desta aula bloqueia?","back":"rm -rf, lido do tool_input.command via jq e comparado com grep."}
+]
+</script>
+</section>
+<!-- ===================== VIEW: AULA 2 ===================== -->
+<section class="view" data-aula="2" id="v-aula-2">
+<header class="hero"><div class="hero-inner">
+<div>
+<p class="kicker">Trilha 02 · Aula 2 · Intermediário</p>
+<h1>Ler o que<br/>vai <em>rodar</em></h1>
+<p class="lead">Antes de decidir, o hook precisa ver o comando de verdade — ele chega pronto no JSON do stdin; cabe a você extraí-lo e comparar com o que é perigoso.</p>
+<p class="cue"><span class="arw">↓</span> role para estudar</p>
+</div>
+<div class="herofig">
+<svg aria-hidden="true" fill="none" viewbox="0 0 300 240">
+<rect fill="#15131d" height="100" rx="10" stroke="#37324a" stroke-width="1.5" width="110" x="20" y="70"></rect>
+<text fill="#948DA6" font-family="Space Mono, monospace" font-size="9" x="32" y="96">{ tool_name</text>
+<text fill="#7CE0C6" font-family="Space Mono, monospace" font-size="9" x="32" y="114">  tool_input</text>
+<text fill="#7CE0C6" font-family="Space Mono, monospace" font-size="9" x="32" y="132">  .command</text>
+<text fill="#948DA6" font-family="Space Mono, monospace" font-size="9" x="32" y="150">  cwd … }</text>
+<text fill="#6C6580" font-family="Space Mono, monospace" font-size="10" text-anchor="middle" x="75" y="188">stdin</text>
+<path class="pulse" d="M138 118 H180" stroke="#7CE0C6" stroke-width="2"></path><path d="M180 112 l10 6 -10 6z" fill="#7CE0C6"></path>
+<rect fill="#221f2e" height="42" rx="10" stroke="#37324a" stroke-width="1.5" width="60" x="196" y="98"></rect>
+<text fill="#7CE0C6" font-family="Space Mono, monospace" font-size="13" text-anchor="middle" x="226" y="124">jq</text>
+<text fill="#C7C2D0" font-family="Newsreader, serif" font-size="13" font-style="italic" text-anchor="middle" x="226" y="164">extrai o texto</text>
+</svg>
+</div>
+</div></header>
+<div class="layout">
+<div class="col">
+<section class="step" data-fig="1">
+<h2><span class="n">01</span> O comando chega em tool_input.command</h2>
+<p>Antes de rodar, o Claude entrega ao seu hook um <b class="gterm" data-def="Entrada padrão de um processo. É por aqui que o Claude Code entrega o JSON com o contexto do evento ao seu hook." tabindex="0">JSON pela entrada padrão (stdin)</b> com o contexto do momento. Alguns campos estão <b>sempre</b> presentes (<code>session_id</code>, <code>cwd</code>, <code>hook_event_name</code>); no <code>PreToolUse</code>, vêm também <code>tool_name</code> e o <b class="gterm" data-def="Campo do JSON de entrada de um hook com os parâmetros da ferramenta prestes a rodar — em Bash, isso inclui .command." tabindex="0">tool_input</b>:</p>
+<pre>{
+  "hook_event_name": "PreToolUse",
+  "tool_name": "Bash",
+  "tool_input": { "command": "rm -rf build/" },
+  "cwd": "/home/voce/projeto"
+}</pre>
+<p>Repare: como a ferramenta ainda não rodou, não existe <code>tool_response</code> nesse momento — só a <b>intenção</b>. É exatamente essa intenção que sua trava examina antes de deixar (ou não) ela virar ação.</p>
+<div class="mobfig" data-mobfig="1"></div>
+<div class="quiz" data-answer="b">
+<p class="qk">Teste-se</p>
+<p class="q">Onde chega o comando que o Bash está prestes a rodar?</p>
+<button class="opt" data-k="a">numa variável de ambiente $COMMAND</button>
+<button class="opt" data-fb="O comando chega no JSON do stdin, dentro de tool_input.command. Não é variável de ambiente nem vem do settings.json." data-k="b">no JSON do stdin, em tool_input.command</button>
+<button class="opt" data-k="c">no arquivo settings.json</button>
+<p class="qfb"></p>
+</div>
+<button class="readbtn" data-read="s1">marcar como lido</button>
+</section>
+<section class="step" data-fig="2">
+<h2><span class="n">02</span> Extrair com jq -r</h2>
+<p>Pra tirar o texto puro de dentro do JSON, você usa <code>jq</code>. A diferença entre usar <code>-r</code> ou não é o que separa um valor <b>utilizável</b> de um cheio de aspas:</p>
+<pre><span class="c"># sem -r: devolve o valor JSON-encoded, com aspas</span>
+$ jq '.tool_input.command'
+"rm -rf build/"
+
+<span class="c"># com -r (raw): devolve o texto cru, pronto pra comparar</span>
+$ jq -r '.tool_input.command'
+rm -rf build/</pre>
+<p>Sem <code>-r</code>, as aspas continuam grudadas no valor e atrapalham qualquer comparação de texto. Guarde o hábito: em hook de shell, <code>jq -r</code> é praticamente sempre o que você quer.</p>
+<div class="mobfig" data-mobfig="2"></div>
+<div class="quiz" data-answer="a">
+<p class="qk">Teste-se</p>
+<p class="q">Qual a diferença entre <code>jq '.x'</code> e <code>jq -r '.x'</code>?</p>
+<button class="opt" data-fb="-r (raw output) remove as aspas do JSON e devolve o texto cru — o formato que dá pra comparar direto num grep ou case." data-k="a">-r remove as aspas do JSON e devolve texto cru</button>
+<button class="opt" data-k="b">-r roda o jq duas vezes mais rápido</button>
+<button class="opt" data-k="c">não existe diferença nenhuma</button>
+<p class="qfb"></p>
+</div>
+<button class="readbtn" data-read="s2">marcar como lido</button>
+</section>
+<section class="step" data-fig="3">
+<h2><span class="n">03</span> Casar padrões perigosos (grep/case)</h2>
+<p>Com o texto em mãos, comparar com <b>vários</b> padrões de uma vez é rotina. Duas formas equivalentes — escolha a que ler melhor no seu script:</p>
+<pre><span class="c"># com grep -E (alternância "|")</span>
+cmd=$(jq -r '.tool_input.command')
+echo "$cmd" | grep -qE 'rm -rf|git push --force|:\(\)\{ :' &amp;&amp; exit 2
+
+<span class="c"># com case (mais legível quando a lista cresce)</span>
+case "$cmd" in
+  *"rm -rf"*|*"push --force"*) echo "trava: padrão perigoso" &gt;&amp;2; exit 2 ;;
+esac
+exit 0</pre>
+<p><code>grep -E</code> é mais curto pra poucos padrões; <code>case</code> fica mais legível quando a lista de padrões cresce e cada um merece um comentário. As duas fazem a mesma coisa: <b>casar</b> o comando com uma lista do que é perigoso.</p>
+<div class="mobfig" data-mobfig="3"></div>
+<button class="readbtn" data-read="s3">marcar como lido</button>
+</section>
+<section class="step" data-fig="4">
+<h2><span class="n">04</span> Falso positivo e aspas: cuidado com escape</h2>
+<p>Ler o comando bem tem duas armadilhas comuns:</p>
+<ul>
+<li><b>Falso positivo</b> — um <code>grep</code> largo demais pega coisa inocente (ex.: <code>rm -rf</code> dentro de um comentário ou de uma string). Prefira padrões específicos ao invés de uma palavra solta.</li>
+<li><b>Nunca reinterpole o comando num shell novo</b> — pegar <code>$cmd</code> e jogar de volta num <code>eval</code> ou noutro <code>bash -c "$cmd"</code> abre a porta pra <b>injeção de comando</b>. Sua trava só deve <b>ler e comparar</b> o texto, nunca executá-lo de novo.</li>
+</ul>
+<p>Sempre use <code>"$cmd"</code> entre aspas duplas ao manipular a variável (evita que espaços quebrem a comparação), e trate o valor como <b>dado</b>, não como código pra rodar.</p>
+<div class="mobfig" data-mobfig="4"></div>
+<div class="quiz" data-answer="b">
+<p class="qk">Teste-se</p>
+<p class="q">Por que NÃO se deve reinterpolar <code>$cmd</code> num novo shell (ex.: <code>eval "$cmd"</code>) dentro do próprio hook?</p>
+<button class="opt" data-k="a">porque o jq já apaga a variável depois de usada</button>
+<button class="opt" data-fb="Reinterpolar o texto do comando num shell novo (eval, bash -c) é a porta clássica pra injeção de comando — sua trava deve só ler e comparar, nunca reexecutar." data-k="b">porque isso abre risco de injeção de comando</button>
+<button class="opt" data-k="c">porque deixa o hook mais lento</button>
+<p class="qfb"></p>
+</div>
+<button class="readbtn" data-read="s4">marcar como lido</button>
+</section>
+<section class="practice" data-practice="p2">
+<p class="pk">Pratique agora <span class="pcount">0/4 feito</span></p>
+<h3 class="ph">Barrar um git push --force</h3>
+<p class="pgoal">Um hook que lê o comando de verdade e barra um push forçado — o tipo de acidente que reescreve o histórico dos outros. ~5 min.</p>
+<div class="pcodewrap"><button class="pcopy" type="button">copiar</button><pre class="pcode">{
+  <span class="k">"hooks"</span>: {
+    <span class="k">"PreToolUse"</span>: [
+      {
+        <span class="k">"matcher"</span>: "Bash",
+        <span class="k">"hooks"</span>: [
+          { "type": "command", "command": "jq -r '.tool_input.command' | grep -qE 'push.*(--force|-f)' &amp;&amp; { echo 'trava: push --force bloqueado' &gt;&amp;2; exit 2; }; exit 0" }
+        ]
+      }
+    ]
+  }
+}</pre></div>
+<ol class="psteps">
+<li><label><input data-ptask="1" type="checkbox"/> Cole o bloco no seu <code>.claude/settings.json</code> e salve.</label></li>
+<li><label><input data-ptask="2" type="checkbox"/> Num repositório de teste, peça ao Claude pra rodar <code>git push --force origin main</code>.</label></li>
+<li><label><input data-ptask="3" type="checkbox"/> Veja o bloqueio e o motivo aparecendo pro Claude.</label></li>
+<li><label><input data-ptask="4" type="checkbox"/> Peça um <code>git push</code> normal (sem <code>--force</code>) e confirme que passa.</label></li>
+</ol>
+<p class="pdone">✓ A trava agora <b>lê</b> o comando antes de decidir — não é mais um padrão fixo isolado, é uma regra que examina o texto de verdade. (Repare que o padrão <code>-f</code> sozinho é largo — é o "falso positivo" do passo 04; ajuste-o se seu projeto usa <code>-f</code> pra outra coisa.)</p>
+</section>
+</div>
+<aside class="rail"><div class="railsticky">
+<div class="figstage">
+<div class="fig on" data-cap="&lt;b&gt;Fig.&lt;/b&gt; tool_input.command dentro do stdin JSON" data-fig="1">
+<svg aria-hidden="true" fill="none" viewbox="0 0 220 200">
+<rect fill="#15131d" height="120" rx="10" stroke="#37324a" width="172" x="24" y="34"></rect>
+<text fill="#948DA6" font-family="Space Mono" font-size="9" x="36" y="58">tool_name: "Bash"</text>
+<rect class="breathe" fill="none" height="30" rx="6" stroke="#7CE0C6" width="150" x="34" y="70"></rect>
+<text fill="#7CE0C6" font-family="Space Mono" font-size="9" x="42" y="89">tool_input.command</text>
+<text fill="#948DA6" font-family="Space Mono" font-size="9" x="36" y="120">cwd, session_id…</text>
+</svg>
+</div>
+<div class="fig" data-cap="&lt;b&gt;Fig.&lt;/b&gt; jq '.x' com aspas · jq -r '.x' sem aspas" data-fig="2">
+<svg aria-hidden="true" fill="none" viewbox="0 0 220 200">
+<rect fill="#221f2e" height="34" rx="8" stroke="#37324a" width="160" x="30" y="46"></rect><text fill="#948DA6" font-family="Space Mono" font-size="10" text-anchor="middle" x="110" y="67">"rm -rf build/"</text>
+<path class="breathe" d="M110 84 V102" stroke="#37324a" stroke-width="1.5"></path>
+<rect class="breathe" fill="none" height="34" rx="8" stroke="#7CE0C6" width="160" x="30" y="106"></rect><text fill="#7CE0C6" font-family="Space Mono" font-size="10" text-anchor="middle" x="110" y="127">rm -rf build/</text>
+<text fill="#C7C2D0" font-family="Newsreader, serif" font-size="12" font-style="italic" text-anchor="middle" x="110" y="164">-r tira as aspas</text>
+</svg>
+</div>
+<div class="fig" data-cap="&lt;b&gt;Fig.&lt;/b&gt; grep -E ou case: casar vários padrões" data-fig="3">
+<svg aria-hidden="true" fill="none" viewbox="0 0 220 200">
+<rect fill="#15131d" height="120" rx="8" stroke="#37324a" width="60" x="20" y="30"></rect>
+<text fill="#C7C2D0" font-family="Space Mono" font-size="8" x="30" y="52">rm -rf</text>
+<text fill="#C7C2D0" font-family="Space Mono" font-size="8" x="30" y="72">push -f</text>
+<text fill="#C7C2D0" font-family="Space Mono" font-size="8" x="30" y="92">:(){:;};:</text>
+<path class="breathe" d="M84 90 H120" stroke="#948DA6" stroke-width="2"></path><path d="M120 84 l9 6 -9 6z" fill="#948DA6"></path>
+<rect fill="#221f2e" height="40" rx="8" stroke="#37324a" width="60" x="130" y="70"></rect><text fill="#F2B45C" font-family="Space Mono" font-size="10" text-anchor="middle" x="160" y="94">exit 2</text>
+</svg>
+</div>
+<div class="fig" data-cap="&lt;b&gt;Fig.&lt;/b&gt; nunca reinterpolar $cmd num shell novo" data-fig="4">
+<svg aria-hidden="true" fill="none" viewbox="0 0 220 200">
+<rect fill="#221f2e" height="34" rx="8" stroke="#37324a" width="70" x="30" y="70"></rect><text fill="#C7C2D0" font-family="Space Mono" font-size="9" text-anchor="middle" x="65" y="91">$cmd</text>
+<path class="breathe" d="M100 87 H128" stroke="#F2B45C" stroke-width="2"></path>
+<path class="breathe" d="M112 76 l24 24 M136 76 l-24 24" stroke="#F2B45C" stroke-linecap="round" stroke-width="3"></path>
+<rect fill="none" height="34" rx="8" stroke="#948DA6" width="60" x="146" y="70"></rect><text fill="#948DA6" font-family="Space Mono" font-size="9" text-anchor="middle" x="176" y="91">eval</text>
+<text fill="#C7C2D0" font-family="Newsreader, serif" font-size="12" font-style="italic" text-anchor="middle" x="110" y="140">leia e compare, nunca reexecute</text>
+</svg>
+</div>
+</div>
+<p class="railcap"></p>
+<div class="steps-ind"></div>
+<p class="sidenote">Grife qualquer trecho do texto para virar um <b>flashcard</b> de revisão.</p>
+</div></aside>
+</div>
+<nav class="lnav"><a href="#aula-1">← Aula 1</a><a href="#aula-3">Aula 3 · Casos que valem a pena →</a></nav>
+<footer>Aula 2 de 4 · Trilha 02 · Guardrails · INEMA.CLUB PRO</footer>
+<script id="cards-2" type="application/json">
+[
+  {"front":"Onde vem o comando que o Bash vai rodar?","back":"No JSON do stdin do PreToolUse, em tool_input.command."},
+  {"front":"Por que usar jq -r em vez de jq puro?","back":"jq -r (raw output) remove as aspas do JSON e devolve o texto cru, pronto pra comparar."},
+  {"front":"Duas formas de casar vários padrões perigosos num comando?","back":"grep -E com alternância (|) ou um case/esac com múltiplos padrões."},
+  {"front":"Por que não reinterpolar $cmd num eval ou bash -c dentro do hook?","back":"Abre risco de injeção de comando — o hook deve só ler e comparar o texto, nunca reexecutá-lo."},
+  {"front":"Que campos do stdin estão SEMPRE presentes, em qualquer evento?","back":"session_id, transcript_path, cwd e hook_event_name."}
+]
+</script>
+</section>
+<!-- ===================== VIEW: AULA 3 ===================== -->
+<section class="view" data-aula="3" id="v-aula-3">
+<header class="hero"><div class="hero-inner">
+<div>
+<p class="kicker">Trilha 02 · Aula 3 · Intermediário</p>
+<h1>Casos que<br/>valem a <em>pena</em></h1>
+<p class="lead">Você não precisa travar tudo — só os erros caros. Quatro casos que pagam a trava sozinhos, na primeira vez que evitam um estrago.</p>
+<p class="cue"><span class="arw">↓</span> role para estudar</p>
+</div>
+<div class="herofig">
+<svg aria-hidden="true" fill="none" viewbox="0 0 300 240">
+<rect fill="none" height="34" rx="9" stroke="#F2B45C" width="240" x="30" y="46"></rect><text fill="#F2B45C" font-family="Space Mono, monospace" font-size="11" text-anchor="middle" x="150" y="68">rm -rf / · ~ · ..</text>
+<rect fill="none" height="34" rx="9" stroke="#F2B45C" width="240" x="30" y="92"></rect><text fill="#F2B45C" font-family="Space Mono, monospace" font-size="11" text-anchor="middle" x="150" y="114">push --force → main</text>
+<rect class="breathe" fill="none" height="34" rx="9" stroke="#7CE0C6" width="240" x="30" y="138"></rect><text fill="#7CE0C6" font-family="Space Mono, monospace" font-size="11" text-anchor="middle" x="150" y="160">.env · *.pem · id_rsa</text>
+<text fill="#C7C2D0" font-family="Newsreader, serif" font-size="15" font-style="italic" text-anchor="middle" x="150" y="204">os quatro que mais doem</text>
+</svg>
+</div>
+</div></header>
+<div class="layout">
+<div class="col">
+<section class="step" data-fig="1">
+<h2><span class="n">01</span> rm -rf e caminhos fora do projeto</h2>
+<p>O perigo real não é a palavra "rm -rf" isolada — é o <b>alvo</b>. Um <code>rm -rf</code> dentro da pasta <code>build/</code> do projeto é chato de recuperar; um <code>rm -rf /</code>, <code>rm -rf ~</code> ou <code>rm -rf ..</code> é catastrófico. Trave alvos amplos, não a sintaxe:</p>
+<pre>jq -r '.tool_input.command' | grep -qE 'rm -rf (/|~|\.\.)($| )' &amp;&amp; exit 2</pre>
+<p>Uma checagem extra vale o esforço: comparar o caminho contra <code>$CLAUDE_PROJECT_DIR</code> (a raiz do projeto) garante que o alvo do comando não sai da pasta que você está de fato disposto a arriscar.</p>
+<div class="mobfig" data-mobfig="1"></div>
+<div class="quiz" data-answer="a">
+<p class="qk">Teste-se</p>
+<p class="q">Por que travar <code>rm -rf /</code> ou <code>rm -rf ~</code> é mais urgente que travar <code>rm -rf build/</code>?</p>
+<button class="opt" data-fb="O alvo é o que importa: apagar a raiz do sistema ou o home é irreversível e catastrófico; apagar uma pasta de build do projeto é chato, mas recuperável." data-k="a">porque o alvo fica fora do projeto e é irreversível</button>
+<button class="opt" data-k="b">porque o comando fica mais longo de digitar</button>
+<button class="opt" data-k="c">não há diferença nenhuma entre os dois</button>
+<p class="qfb"></p>
+</div>
+<button class="readbtn" data-read="s1">marcar como lido</button>
+</section>
+<section class="step" data-fig="2">
+<h2><span class="n">02</span> push/force na branch principal</h2>
+<p><code>git push --force</code> reescreve o histórico remoto — se for na <code>main</code> ou <code>master</code>, o estrago é do time inteiro. Trave o combo específico (força + branch protegida), não só a força isolada:</p>
+<pre>cmd=$(jq -r '.tool_input.command')
+echo "$cmd" | grep -qE -- '--force' &amp;&amp; echo "$cmd" | grep -qE '\b(main|master)\b' &amp;&amp;
+  { echo "trava: push --force direto na main/master" &gt;&amp;2; exit 2; }
+exit 0</pre>
+<p>Note as <b>duas</b> condições combinadas: precisa ter força <b>e</b> apontar pra branch principal. Isso deixa passar um <code>--force</code> inofensivo numa branch de feature sua, e barra só o que ameaça o time.</p>
+<div class="mobfig" data-mobfig="2"></div>
+<button class="readbtn" data-read="s2">marcar como lido</button>
+</section>
+<section class="step" data-fig="3">
+<h2><span class="n">03</span> Tocar .env e segredos</h2>
+<p>Editar arquivos é outro evento: aqui o hook olha pra <b class="gterm" data-def="Campo do tool_input em Edit/Write com o caminho do arquivo que está prestes a ser editado ou criado." tabindex="0">tool_input.file_path</b>, não pra <code>command</code>. Barre a edição de segredos antes de acontecer:</p>
+<pre><span class="c"># PreToolUse, matcher "Edit|Write"</span>
+file=$(jq -r '.tool_input.file_path')
+case "$file" in
+  *.env|*.pem|*id_rsa*|*credentials*)
+    echo "trava: arquivo protegido ($file)" &gt;&amp;2; exit 2 ;;
+esac
+exit 0</pre>
+<p>Isso barra a criação e a edição — inclusive a "primeira vez" que alguém tentaria colar uma chave dentro de um <code>.env</code> versionado sem querer.</p>
+<div class="mobfig" data-mobfig="3"></div>
+<div class="quiz" data-answer="b">
+<p class="qk">Teste-se</p>
+<p class="q">Pra travar a edição de um arquivo (e não um comando de terminal), qual campo do <code>tool_input</code> você lê?</p>
+<button class="opt" data-k="a">tool_input.command</button>
+<button class="opt" data-fb="Em Edit/Write, o campo relevante é file_path — o caminho do arquivo que está prestes a ser editado ou criado. command é só para Bash." data-k="b">tool_input.file_path</button>
+<button class="opt" data-k="c">tool_input.session_id</button>
+<p class="qfb"></p>
+</div>
+<button class="readbtn" data-read="s3">marcar como lido</button>
+</section>
+<section class="step" data-fig="4">
+<h2><span class="n">04</span> Editar arquivos protegidos, de forma geral</h2>
+<p>A mesma técnica do passo anterior generaliza: qualquer arquivo que você não quer que mude sem revisão vira uma entrada na lista — <code>package-lock.json</code>, <code>.github/workflows/*</code>, o próprio <code>.claude/settings.json</code>. O molde é sempre:</p>
+<ul>
+<li><b>Evento</b>: <code>PreToolUse</code>.</li>
+<li><b>Matcher</b>: <code>Edit|Write</code> (pega edição <i>ou</i> criação de arquivo).</li>
+<li><b>Checagem</b>: comparar <code>tool_input.file_path</code> com a sua lista de protegidos.</li>
+</ul>
+<p>Não existe lista perfeita de primeira. Comece pelos segredos (passo 03), depois adicione o que te morder — cada susto vira uma linha nova na trava.</p>
+<div class="mobfig" data-mobfig="4"></div>
+<button class="readbtn" data-read="s4">marcar como lido</button>
+</section>
+<section class="practice" data-practice="p3">
+<p class="pk">Pratique agora <span class="pcount">0/4 feito</span></p>
+<h3 class="ph">Proteger o .env</h3>
+<p class="pgoal">Uma trava que barra qualquer edição ou criação de arquivo <code>.env</code> no projeto. ~5 min, e testável sem risco nenhum.</p>
+<div class="pcodewrap"><button class="pcopy" type="button">copiar</button><pre class="pcode">{
+  <span class="k">"hooks"</span>: {
+    <span class="k">"PreToolUse"</span>: [
+      {
+        <span class="k">"matcher"</span>: "Edit|Write",
+        <span class="k">"hooks"</span>: [
+          { "type": "command", "command": "jq -r '.tool_input.file_path' | grep -qE '\\.env$' &amp;&amp; { echo 'trava: .env é protegido' &gt;&amp;2; exit 2; }; exit 0" }
+        ]
+      }
+    ]
+  }
+}</pre></div>
+<ol class="psteps">
+<li><label><input data-ptask="1" type="checkbox"/> Cole o bloco no seu <code>.claude/settings.json</code> e salve.</label></li>
+<li><label><input data-ptask="2" type="checkbox"/> Peça ao Claude pra criar ou editar um arquivo <code>.env</code> no projeto.</label></li>
+<li><label><input data-ptask="3" type="checkbox"/> Veja o bloqueio — o Claude não conseguiu tocar no arquivo protegido.</label></li>
+<li><label><input data-ptask="4" type="checkbox"/> Peça pra editar um arquivo comum (ex.: <code>README.md</code>) e confirme que passa normal.</label></li>
+</ol>
+<p class="pdone">✓ Agora você trava por <b>arquivo</b>, não só por comando — o mesmo molde (matcher Edit|Write + file_path) protege qualquer arquivo sensível que você listar.</p>
+</section>
+</div>
+<aside class="rail"><div class="railsticky">
+<div class="figstage">
+<div class="fig on" data-cap="&lt;b&gt;Fig.&lt;/b&gt; o alvo importa: dentro do projeto × / · ~ · .." data-fig="1">
+<svg aria-hidden="true" fill="none" viewbox="0 0 220 200">
+<rect fill="none" height="80" rx="10" stroke="#7CE0C6" stroke-width="1.5" width="100" x="60" y="60"></rect><text fill="#7CE0C6" font-family="Space Mono" font-size="9" text-anchor="middle" x="110" y="104">projeto/</text>
+<circle class="breathe" cx="30" cy="40" fill="none" r="14" stroke="#F2B45C"></circle><text fill="#F2B45C" font-family="Space Mono" font-size="9" text-anchor="middle" x="30" y="44">/</text>
+<circle class="breathe" cx="190" cy="40" fill="none" r="14" stroke="#F2B45C" style="animation-delay:.3s"></circle><text fill="#F2B45C" font-family="Space Mono" font-size="9" text-anchor="middle" x="190" y="44">~</text>
+<circle class="breathe" cx="190" cy="160" fill="none" r="14" stroke="#F2B45C" style="animation-delay:.6s"></circle><text fill="#F2B45C" font-family="Space Mono" font-size="9" text-anchor="middle" x="190" y="164">..</text>
+</svg>
+</div>
+<div class="fig" data-cap="&lt;b&gt;Fig.&lt;/b&gt; força + main/master = barrado" data-fig="2">
+<svg aria-hidden="true" fill="none" viewbox="0 0 220 200">
+<rect fill="none" height="30" rx="7" stroke="#948DA6" width="80" x="20" y="60"></rect><text fill="#948DA6" font-family="Space Mono" font-size="9" text-anchor="middle" x="60" y="80">--force</text>
+<text fill="#C7C2D0" font-family="Space Mono" font-size="12" text-anchor="middle" x="106" y="80">+</text>
+<rect fill="none" height="30" rx="7" stroke="#948DA6" width="88" x="112" y="60"></rect><text fill="#948DA6" font-family="Space Mono" font-size="9" text-anchor="middle" x="156" y="80">main/master</text>
+<path class="breathe" d="M110 96 V120" stroke="#F2B45C" stroke-width="2"></path>
+<rect class="breathe" fill="none" height="30" rx="7" stroke="#F2B45C" width="100" x="60" y="122"></rect><text fill="#F2B45C" font-family="Space Mono" font-size="10" text-anchor="middle" x="110" y="142">exit 2</text>
+</svg>
+</div>
+<div class="fig" data-cap="&lt;b&gt;Fig.&lt;/b&gt; file_path casado contra a lista de segredos" data-fig="3">
+<svg aria-hidden="true" fill="none" viewbox="0 0 220 200">
+<rect class="breathe" fill="none" height="28" rx="7" stroke="#F2B45C" width="160" x="30" y="34"></rect><text fill="#F2B45C" font-family="Space Mono" font-size="10" text-anchor="middle" x="110" y="53">.env</text>
+<rect class="breathe" fill="none" height="28" rx="7" stroke="#F2B45C" style="animation-delay:.3s" width="160" x="30" y="76"></rect><text fill="#F2B45C" font-family="Space Mono" font-size="10" text-anchor="middle" x="110" y="95">*.pem</text>
+<rect class="breathe" fill="none" height="28" rx="7" stroke="#F2B45C" style="animation-delay:.6s" width="160" x="30" y="118"></rect><text fill="#F2B45C" font-family="Space Mono" font-size="10" text-anchor="middle" x="110" y="137">id_rsa / credentials</text>
+</svg>
+</div>
+<div class="fig" data-cap="&lt;b&gt;Fig.&lt;/b&gt; molde: evento · matcher · checagem" data-fig="4">
+<svg aria-hidden="true" fill="none" viewbox="0 0 220 210">
+<rect fill="#221f2e" height="26" rx="6" stroke="#37324a" width="140" x="30" y="24"></rect><text fill="#7CE0C6" font-family="Space Mono" font-size="10" x="44" y="41">PreToolUse</text>
+<path d="M44 50 V66 H60" stroke="#37324a"></path>
+<rect fill="#221f2e" height="26" rx="6" stroke="#37324a" width="130" x="60" y="68"></rect><text fill="#C7C2D0" font-family="Space Mono" font-size="10" x="74" y="85">Edit|Write</text>
+<path d="M74 94 V110 H90" stroke="#37324a"></path>
+<rect class="breathe" fill="none" height="26" rx="6" stroke="#F2B45C" width="112" x="90" y="112"></rect><text fill="#F2B45C" font-family="Space Mono" font-size="10" text-anchor="middle" x="146" y="129">file_path</text>
+</svg>
+</div>
+</div>
+<p class="railcap"></p>
+<div class="steps-ind"></div>
+<p class="sidenote">Grife qualquer trecho do texto para virar um <b>flashcard</b> de revisão.</p>
+</div></aside>
+</div>
+<nav class="lnav"><a href="#aula-2">← Aula 2</a><a href="#aula-4">Aula 4 · allow / ask / deny + higiene →</a></nav>
+<footer>Aula 3 de 4 · Trilha 02 · Guardrails · INEMA.CLUB PRO</footer>
+<script id="cards-3" type="application/json">
+[
+  {"front":"Por que rm -rf / ou rm -rf ~ é mais urgente de travar que rm -rf build/?","back":"O alvo sai do projeto e é irreversível — build/ é recuperável, / ou ~ não são."},
+  {"front":"Para barrar push --force com segurança (sem travar branches de feature), o que checar?","back":"A combinação: força (--force/-f) E a branch ser main/master, não força isolada."},
+  {"front":"Qual campo do tool_input um hook lê para travar edição de arquivo?","back":"tool_input.file_path (não command, que é só de Bash)."},
+  {"front":"Qual matcher pega tanto edição quanto criação de arquivo?","back":"\"Edit|Write\"."},
+  {"front":"Além do .env, que outros arquivos costumam entrar numa lista de protegidos?","back":"*.pem, id_rsa/credenciais, package-lock.json, .github/workflows/*, o próprio .claude/settings.json."}
+]
+</script>
+</section>
+<!-- ===================== VIEW: AULA 4 ===================== -->
+<section class="view" data-aula="4" id="v-aula-4">
+<header class="hero"><div class="hero-inner">
+<div>
+<p class="kicker">Trilha 02 · Aula 4 · Avançado</p>
+<h1>Allow, ask,<br/><em>deny</em> — e higiene</h1>
+<p class="lead">Vá além do exit 2: devolva uma decisão estruturada em JSON, falhe sempre pro lado seguro, e trate seu hook como o código de produção que ele é.</p>
+<p class="cue"><span class="arw">↓</span> role para estudar</p>
+</div>
+<div class="herofig">
+<svg aria-hidden="true" fill="none" viewbox="0 0 300 240">
+<circle cx="70" cy="120" fill="none" r="34" stroke="#7CE0C6" stroke-width="1.5"></circle><text fill="#7CE0C6" font-family="Space Mono, monospace" font-size="11" text-anchor="middle" x="70" y="124">allow</text>
+<circle cx="150" cy="120" fill="none" r="34" stroke="#F2B45C" stroke-width="1.5"></circle><text fill="#F2B45C" font-family="Space Mono, monospace" font-size="11" text-anchor="middle" x="150" y="124">deny</text>
+<circle class="breathe" cx="230" cy="120" fill="none" r="34" stroke="#C7C2D0" stroke-width="1.5"></circle><text fill="#C7C2D0" font-family="Space Mono, monospace" font-size="11" text-anchor="middle" x="230" y="124">ask</text>
+<text fill="#C7C2D0" font-family="Newsreader, serif" font-size="15" font-style="italic" text-anchor="middle" x="150" y="200">a mesma trava, um motivo estruturado</text>
+</svg>
+</div>
+</div></header>
+<div class="layout">
+<div class="col">
+<section class="step" data-fig="1">
+<h2><span class="n">01</span> Além do exit 2: JSON de decisão</h2>
+<p>Exit code é rápido, mas rústico: só barra ou não, e o motivo é um texto solto no stderr. Existe um segundo caminho — seu hook imprime um <b class="gterm" data-def="Formato de saída de um hook, impresso no stdout, que descreve uma decisão estruturada (aprovar/bloquear/pedir confirmação) em vez de só usar o código de saída." tabindex="0">JSON de decisão</b> no <code>stdout</code>, e sai com <code>exit 0</code> mesmo quando está barrando:</p>
+<pre>{
+  "decision": "approve" | "block",
+  "reason": "string",
+  "hookSpecificOutput": {
+    "permissionDecision": "allow" | "deny" | "ask"
+  }
+}</pre>
+<p>Note a virada: no caminho do exit code, <code>exit 2</code> É a decisão. No caminho JSON, <code>exit 0</code> é quase sempre a resposta — quem decide é o conteúdo impresso no stdout.</p>
+<div class="mobfig" data-mobfig="1"></div>
+<div class="quiz" data-answer="c">
+<p class="qk">Teste-se</p>
+<p class="q">No caminho do JSON de decisão, com que código o hook normalmente sai — mesmo quando está barrando a ação?</p>
+<button class="opt" data-k="a">exit 2, igual ao caminho simples</button>
+<button class="opt" data-k="b">exit 1</button>
+<button class="opt" data-fb="No caminho JSON, o hook sai com exit 0 e comunica a decisão pelo conteúdo impresso no stdout — quem barra é o JSON, não o exit code." data-k="c">exit 0 — a decisão vai no JSON impresso</button>
+<p class="qfb"></p>
+</div>
+<button class="readbtn" data-read="s1">marcar como lido</button>
+</section>
+<section class="step" data-fig="2">
+<h2><span class="n">02</span> permissionDecision: allow, ask, deny</h2>
+<p>Dentro de <code>hookSpecificOutput</code>, o campo <b class="gterm" data-def="Campo do JSON de saída de um hook PreToolUse que expressa a decisão: allow (libera), deny (barra) ou ask (pausa e pede confirmação)." tabindex="0">permissionDecision</b> tem três posturas — e um <code>permissionDecisionReason</code> pra explicar qual delas e por quê:</p>
+<pre>{ "hookSpecificOutput": {
+    "hookEventName": "PreToolUse",
+    "permissionDecision": "deny",
+    "permissionDecisionReason": "push --force na main não é permitido por aqui" } }</pre>
+<ul>
+<li><b>allow</b> — libera, sem perguntar (útil pra baixar o atrito num caso que você já confia).</li>
+<li><b>deny</b> — barra, equivalente ao <code>exit 2</code>, só que com motivo estruturado.</li>
+<li><b>ask</b> — pausa e pede <b>confirmação</b> ao humano. Use quando o certo depende do contexto que só você tem.</li>
+</ul>
+<div class="mobfig" data-mobfig="2"></div>
+<div class="quiz" data-answer="b">
+<p class="qk">Teste-se</p>
+<p class="q">Qual valor de <code>permissionDecision</code> PAUSA a ação e pede confirmação ao humano, em vez de decidir sozinho?</p>
+<button class="opt" data-k="a">allow</button>
+<button class="opt" data-fb="ask pausa a ação e pede confirmação — ideal quando o certo depende do contexto, diferente de allow (libera) e deny (barra)." data-k="b">ask</button>
+<button class="opt" data-k="c">deny</button>
+<p class="qfb"></p>
+</div>
+<button class="readbtn" data-read="s2">marcar como lido</button>
+</section>
+<section class="step" data-fig="3">
+<h2><span class="n">03</span> fail-open: nunca trave por um bug seu</h2>
+<p>Um hook é só um script — e scripts quebram (o <code>jq</code> falha, uma variável vem vazia, uma sintaxe erra). A pergunta que importa: quando <b>seu próprio hook</b> tem um bug, o que deve acontecer? A resposta certa é <b class="gterm" data-def="Postura em que, se o próprio hook falhar (bug, erro de sintaxe, dependência ausente), o padrão é LIBERAR a ação e avisar — não travar o projeto inteiro por um erro que não é do usuário." tabindex="0">fail-open</b>: liberar e avisar, nunca travar o projeto inteiro por um erro que não é do usuário.</p>
+<pre><span class="c"># logo no topo do script</span>
+set +e
+trap 'exit 0' ERR
+<span class="c"># … resto do hook …</span></pre>
+<p>O <code>trap</code> garante que, se algo dentro do script explodir, o hook ainda sai com <code>exit 0</code> — o Claude segue trabalhando, e o bug fica pra você investigar depois, sem travar ninguém no meio do caminho. Fail-open não é desculpa pra escrever a trava com pouco cuidado — é uma rede de segurança para quando ela falhar de um jeito que você não previu.</p>
+<div class="mobfig" data-mobfig="3"></div>
+<button class="readbtn" data-read="s3">marcar como lido</button>
+</section>
+<section class="step" data-fig="4">
+<h2><span class="n">04</span> Hook é poder: quoting, validar, não vazar segredo</h2>
+<p>Um hook roda com <b>todas as suas permissões de usuário</b> — não é uma sandbox. Trate-o como código de produção, com quatro regras de higiene:</p>
+<ul>
+<li><b>Quoting</b> — sempre <code>"$var"</code> entre aspas; nunca reinterpole <code>tool_input</code> direto num shell novo.</li>
+<li><b>Valide caminhos</b> — cheque que um <code>file_path</code> não sai do projeto (sem <code>../</code> escapando pra fora).</li>
+<li><b>Proteja segredos</b> — <code>.env</code>, credenciais, <code>.ssh</code>, <code>.git</code>, chaves privadas nunca devem aparecer em log nenhum, nem no motivo impresso.</li>
+<li><b>Fail-open</b> — como no passo anterior: bug seu não pode virar trava permanente.</li>
+</ul>
+<p>Essas quatro regras cabem numa frase: um hook rápido, idempotente e sem vazar segredo — que fecha esta trilha e vira hábito daqui pra frente.</p>
+<div class="mobfig" data-mobfig="4"></div>
+<details>
+<summary>Indo mais fundo</summary>
+<p>Nomes de ferramenta são <b>case-sensitive</b> (<code>Bash</code>, <code>Edit</code>, <code>Read</code>, <code>Write</code>), o timeout de um hook é em segundos (padrão generoso de 600s para comandos — vale encurtar), e hooks não podem ser interativos — todas essas gotchas empurram na mesma direção: escreva hooks curtos, previsíveis, e que falham de um jeito seguro.</p>
+</details>
+<button class="readbtn" data-read="s4">marcar como lido</button>
+</section>
+<section class="practice" data-practice="p4">
+<p class="pk">Pratique agora <span class="pcount">0/4 feito</span></p>
+<h3 class="ph">Capstone: um guard que fala allow/ask/deny</h3>
+<p class="pgoal">Troque o exit 2 cru por uma decisão estruturada: o mesmo alvo da Aula 1 (<code>rm -rf</code>), agora devolvendo <code>deny</code> com motivo via JSON no stdout. ~7 min.</p>
+<div class="pcodewrap"><button class="pcopy" type="button">copiar</button><pre class="pcode">{
+  <span class="k">"hooks"</span>: {
+    <span class="k">"PreToolUse"</span>: [
+      {
+        <span class="k">"matcher"</span>: "Bash",
+        <span class="k">"hooks"</span>: [
+          { "type": "command", "command": "cmd=$(jq -r '.tool_input.command'); echo \"$cmd\" | grep -qE 'rm -rf' &amp;&amp; printf '{\"hookSpecificOutput\":{\"hookEventName\":\"PreToolUse\",\"permissionDecision\":\"deny\",\"permissionDecisionReason\":\"trava: rm -rf bloqueado\"}}'; exit 0" }
+        ]
+      }
+    ]
+  }
+}</pre></div>
+<ol class="psteps">
+<li><label><input data-ptask="1" type="checkbox"/> Cole o bloco no seu <code>.claude/settings.json</code> (substitua a trava simples da Aula 1, se ainda estiver lá) e salve.</label></li>
+<li><label><input data-ptask="2" type="checkbox"/> Peça ao Claude pra rodar um <code>rm -rf</code> de teste.</label></li>
+<li><label><input data-ptask="3" type="checkbox"/> Veja a decisão <code>deny</code> com o motivo estruturado chegando pro Claude — não é mais só um texto solto no stderr.</label></li>
+<li><label><input data-ptask="4" type="checkbox"/> Troque <code>"deny"</code> por <code>"ask"</code> no comando e rode de novo — repare que agora ele <b>pausa</b> pra confirmar, em vez de barrar direto.</label></li>
+</ol>
+<p class="pdone">✓ Fim da trilha: você foi do <code>exit 2</code> cru até um guard que fala a língua allow/ask/deny — a mesma trava, agora com uma decisão explícita e um motivo que o Claude realmente lê.</p>
+</section>
+</div>
+<aside class="rail"><div class="railsticky">
+<div class="figstage">
+<div class="fig on" data-cap="&lt;b&gt;Fig.&lt;/b&gt; exit code (stderr) × JSON no stdout (exit 0)" data-fig="1">
+<svg aria-hidden="true" fill="none" viewbox="0 0 220 200">
+<rect fill="none" height="40" rx="8" stroke="#948DA6" width="80" x="20" y="40"></rect><text fill="#948DA6" font-family="Space Mono" font-size="9" text-anchor="middle" x="60" y="64">exit 2</text>
+<rect class="breathe" fill="none" height="40" rx="8" stroke="#7CE0C6" width="80" x="120" y="40"></rect><text fill="#7CE0C6" font-family="Space Mono" font-size="9" text-anchor="middle" x="160" y="64">JSON+exit 0</text>
+<text fill="#C7C2D0" font-family="Newsreader, serif" font-size="12" font-style="italic" text-anchor="middle" x="110" y="120">dois jeitos, mesma trava</text>
+</svg>
+</div>
+<div class="fig" data-cap="&lt;b&gt;Fig.&lt;/b&gt; allow · deny · ask" data-fig="2">
+<svg aria-hidden="true" fill="none" viewbox="0 0 220 200">
+<circle cx="56" cy="100" fill="none" r="26" stroke="#7CE0C6"></circle><text fill="#7CE0C6" font-family="Space Mono" font-size="9" text-anchor="middle" x="56" y="104">allow</text>
+<circle cx="126" cy="100" fill="none" r="26" stroke="#F2B45C"></circle><text fill="#F2B45C" font-family="Space Mono" font-size="9" text-anchor="middle" x="126" y="104">deny</text>
+<circle class="breathe" cx="182" cy="56" fill="none" r="18" stroke="#C7C2D0"></circle><text fill="#C7C2D0" font-family="Space Mono" font-size="9" text-anchor="middle" x="182" y="60">ask</text>
+</svg>
+</div>
+<div class="fig" data-cap="&lt;b&gt;Fig.&lt;/b&gt; hook quebra → fail-open → exit 0" data-fig="3">
+<svg aria-hidden="true" fill="none" viewbox="0 0 220 200">
+<rect fill="#221f2e" height="40" rx="8" stroke="#37324a" width="70" x="30" y="60"></rect><text fill="#948DA6" font-family="Space Mono" font-size="9" text-anchor="middle" x="65" y="84">hook</text>
+<path class="pulse" d="M58 68 l-10 24 M84 68 l10 24" stroke="#F2B45C" stroke-linecap="round" stroke-width="2"></path>
+<path class="breathe" d="M104 80 H140" stroke="#7CE0C6" stroke-width="2"></path><path d="M140 74 l10 6 -10 6z" fill="#7CE0C6"></path>
+<rect fill="none" height="40" rx="8" stroke="#7CE0C6" width="56" x="150" y="60"></rect><text fill="#7CE0C6" font-family="Space Mono" font-size="9" text-anchor="middle" x="178" y="84">exit 0</text>
+<text fill="#C7C2D0" font-family="Newsreader, serif" font-size="12" font-style="italic" text-anchor="middle" x="110" y="140">bug seu não trava o time</text>
+</svg>
+</div>
+<div class="fig" data-cap="&lt;b&gt;Fig.&lt;/b&gt; quoting · validar caminho · sem vazar segredo" data-fig="4">
+<svg aria-hidden="true" fill="none" viewbox="0 0 220 200">
+<rect class="breathe" fill="none" height="26" rx="7" stroke="#7CE0C6" width="160" x="30" y="30"></rect><text fill="#7CE0C6" font-family="Space Mono" font-size="9" text-anchor="middle" x="110" y="47">"$var" entre aspas</text>
+<rect class="breathe" fill="none" height="26" rx="7" stroke="#7CE0C6" style="animation-delay:.3s" width="160" x="30" y="66"></rect><text fill="#7CE0C6" font-family="Space Mono" font-size="9" text-anchor="middle" x="110" y="83">valida caminho</text>
+<rect class="breathe" fill="none" height="26" rx="7" stroke="#F2B45C" style="animation-delay:.6s" width="160" x="30" y="102"></rect><text fill="#F2B45C" font-family="Space Mono" font-size="9" text-anchor="middle" x="110" y="119">sem vazar segredo</text>
+</svg>
+</div>
+</div>
+<p class="railcap"></p>
+<div class="steps-ind"></div>
+<p class="sidenote">Grife qualquer trecho do texto para virar um <b>flashcard</b> de revisão.</p>
+</div></aside>
+</div>
+<nav class="lnav"><a href="#trilha">← trilha</a><a href="curso-automacao.html#trilha">Trilha 03 · Automação →</a></nav>
+<footer>Aula 4 de 4 · Trilha 02 · Guardrails · INEMA.CLUB PRO</footer>
+<script id="cards-4" type="application/json">
+[
+  {"front":"No caminho do JSON de decisão, com que exit code o hook normalmente sai?","back":"exit 0 — a decisão vai no conteúdo JSON impresso no stdout, não no código de saída."},
+  {"front":"Quais os três valores possíveis de permissionDecision?","back":"allow (libera), deny (barra) e ask (pausa e pede confirmação)."},
+  {"front":"O que é 'fail-open' num hook?","back":"Se o próprio hook quebrar (bug, erro), o padrão é liberar a ação (exit 0) e avisar — nunca travar o projeto inteiro por um erro que não é do usuário."},
+  {"front":"Com que permissões um hook roda?","back":"Com todas as permissões de usuário de quem está rodando o Claude Code — não é uma sandbox."},
+  {"front":"Quatro regras de higiene de um hook, segundo esta aula?","back":"Quoting correto (\"$var\"), validar caminhos de arquivo, nunca vazar segredo em log/motivo, e fail-open."}
+]
+</script>
+</section>
+<script src="assets/curso.js"></script>
+</body>
+</html>
