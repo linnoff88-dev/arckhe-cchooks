@@ -1,4 +1,4 @@
-﻿# cchooks â€” Hooks do Claude Code
+# cchooks â€” Hooks do Claude Code
 
 <div align="center">
   <img src="capa/logo.svg" alt="Arckhé AI" height="48" />
@@ -6,7 +6,7 @@
 </div>
 
 
-Curso web **self-contained** (HTML + fontes CDN + JS inline, sem build/backend, funciona em `file://`) inteiramente sobre **hooks do Claude Code**: dos fundamentos Ã s travas de seguranÃ§a, Ã  automaÃ§Ã£o e ao uso em equipe/CI. Formato-curso INEMA **v4** â€” dark editorial com movimento, leitura viva (uma ideia por seÃ§Ã£o + figura na margem) e uma camada de aprendizagem com retenÃ§Ã£o (progresso, marcar lido, teste-se, grifo â†’ flashcard, revisÃ£o espaÃ§ada, "pratique agora", "minha jornada").
+Curso web **self-contained** (HTML + fontes CDN + JS inline, sem build/backend, funciona em `file://`) inteiramente sobre **hooks do Claude Code**: dos fundamentos Ã s travas de seguranÃ§a, Ã  automaÃ§Ã£o e ao uso em equipe/CI. Formato-curso ARCKHÉ **v4** â€” dark editorial com movimento, leitura viva (uma ideia por seÃ§Ã£o + figura na margem) e uma camada de aprendizagem com retenÃ§Ã£o (progresso, marcar lido, teste-se, grifo â†’ flashcard, revisÃ£o espaÃ§ada, "pratique agora", "minha jornada").
 
 ## Estrutura
 
@@ -30,9 +30,9 @@ Cada trilha Ã© uma pÃ¡gina v4 independente (estado isolado por `<meta name="
 
 ## Publicado em
 
-GitHub Pages: https://inematds.github.io/cchooks/
+GitHub Pages: https://linnoff88-dev.github.io/
 
-> ConteÃºdo educativo sobre hooks do Claude Code â€” no formato-curso INEMA v4.
+> ConteÃºdo educativo sobre hooks do Claude Code â€” no formato-curso ARCKHÉ v4.
 
 ---
 
