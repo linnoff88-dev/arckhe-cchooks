@@ -5,18 +5,18 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
 <meta content="cchooks:fund" name="curso"/>
-<title>Fundamentos Â· Hooks de Claude Code Â· ARCKHÉ AI PRO</title>
+<title>Fundamentos êÂ· Hooks de Claude Code êÂ· ARCKHê AI PRO</title>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&amp;family=Inter:wght@400;500;600;700&amp;family=Space+Mono:wght@400;700&amp;display=swap" rel="stylesheet"/>
 <link href="../assets/aula.css" rel="stylesheet"/>
 <script>(function(){try{var m=document.querySelector('meta[name=curso]');var CK=(m&&m.content)||'v4:curso';var s=JSON.parse(localStorage.getItem(CK));if(s&&s.prefs&&s.prefs.theme)document.documentElement.setAttribute('data-theme',s.prefs.theme);}catch(e){}})();</script>
 <style>
-  /* ---- roteador de pÃ¡gina Ãºnica ---- */
+  /* ---- roteador de pêÂ¡gina êÂºnica ---- */
   .view{display:none}
   .view.active{display:block}
 
-  /* ---- navegaÃ§Ã£o entre aulas (rodapÃ© de cada aula) ---- */
+  /* ---- navegaêÂ§êÂ£o entre aulas (rodapêÂ© de cada aula) ---- */
   .lnav{max-width:1160px;margin:0 auto 5vh;padding:0 clamp(24px,5vw,60px);display:flex;justify-content:space-between;gap:12px}
   .lnav a{font-family:var(--mono);font-size:12px;color:var(--muted);text-decoration:none;border:1px solid var(--line2);border-radius:12px;padding:12px 16px;transition:border-color .2s,color .2s}
   .lnav a:hover{border-color:var(--accent);color:var(--ink)}
@@ -58,21 +58,21 @@
   @media(max-width:640px){#v-trilha .au{grid-template-columns:44px 1fr;gap:14px}#v-trilha .au .meta{grid-column:2;text-align:left;margin-top:6px}}
 </style>
 <link href="https://linnoff88-dev.github.io/ hreflang="pt-BR" rel="alternate"/><link href="https://linnoff88-dev.github.io/ hreflang="en" rel="alternate"/><link href="https://linnoff88-dev.github.io/ hreflang="es" rel="alternate"/></head>
-<body><div class="ARCKHÉ-lang" style="position:fixed;right:14px;bottom:14px;z-index:9999;display:flex;gap:2px;padding:4px;border-radius:10px;background:rgba(12,12,16,.82);border:1px solid rgba(226,162,59,.45);font:600 12px/1 Sora,Inter,system-ui,sans-serif;backdrop-filter:blur(8px)" translate="no"><a href="../curso.html" hreflang="pt-BR" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#e9e9ee">PT</a><a href="../en/curso.html" hreflang="en" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#e9e9ee">EN</a><a href="curso.html" hreflang="es" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#1a1206;background:#E2A23B">ES</a></div>
+<body><div class="ARCKHê-lang" style="position:fixed;right:14px;bottom:14px;z-index:9999;display:flex;gap:2px;padding:4px;border-radius:10px;background:rgba(12,12,16,.82);border:1px solid rgba(226,162,59,.45);font:600 12px/1 Sora,Inter,system-ui,sans-serif;backdrop-filter:blur(8px)" translate="no"><a href="../curso.html" hreflang="pt-BR" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#e9e9ee">PT</a><a href="../en/curso.html" hreflang="en" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#e9e9ee">EN</a><a href="curso.html" hreflang="es" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#1a1206;background:#E2A23B">ES</a></div>
 <div class="bar"><div class="bar-inner">
-<span class="brand"><a class="mark" href="https://ARCKHÉ AI" rel="noopener" target="_blank">ARCKHÉ AI</a><a class="pro" href="https://ARCKHÉ.pro" rel="noopener" target="_blank">PRO</a><a class="course" href="landing.html">Hooks de Claude Code</a></span>
-<a class="back" href="#trilha" style="display:none">â† ruta</a>
-<button class="pill" id="pill" style="display:none">0 leÃ­do</button>
+<span class="brand"><a class="mark" href="https://ARCKHê AI" rel="noopener" target="_blank">ARCKHê AI</a><a class="pro" href="https://ARCKHê.pro" rel="noopener" target="_blank">PRO</a><a class="course" href="landing.html">Hooks de Claude Code</a></span>
+<a class="back" href="#trilha" style="display:none">ê¢â Â ruta</a>
+<button class="pill" id="pill" style="display:none">0 leêÂ­do</button>
 <button id="revbtn">revisar <span id="revn">0</span></button>
 <button id="jorbtn">recorrido</button>
-<button aria-label="CÃ³mo funciona el curso" id="helpbtn">?</button>
+<button aria-label="CêÂ³mo funciona el curso" id="helpbtn">?</button>
 <button aria-label="Preferencias de lectura" id="prefsbtn">Aa</button>
 <button id="themebtn">tema: oscuro</button>
 </div>
 <div class="subnav"><div class="subnav-inner">
 <a class="cur" href="curso.html#trilha">01 Fundamentos</a>
 <a href="curso-guardrails.html#trilha">02 Guardrails</a>
-<a href="curso-automacao.html#trilha">03 AutomatizaciÃ³n</a>
+<a href="curso-automacao.html#trilha">03 AutomatizaciêÂ³n</a>
 <a href="curso-time.html#trilha">04 Equipo &amp; CI</a>
 </div></div>
 </div>
@@ -80,9 +80,9 @@
 <section class="view" id="v-trilha">
 <header class="t-hero"><div class="wrap">
 <p class="crumb"><a href="landing.html">Hooks de Claude Code</a> / Ruta 01</p>
-<p class="kicker">Ruta 01 Â· Fundamentos</p>
+<p class="kicker">Ruta 01 êÂ· Fundamentos</p>
 <h1>Fundamentos de los <em>hooks</em></h1>
-<p class="lead">QuÃ© es un hook, los eventos que activan cada uno y dÃ³nde vive todo en el <code style="font-family:var(--mono);font-size:.8em;color:var(--accent)">settings.json</code>, el JSON que llega y cÃ³mo decide tu hook quÃ© responder.</p>
+<p class="lead">QuêÂ© es un hook, los eventos que activan cada uno y dêÂ³nde vive todo en el <code style="font-family:var(--mono);font-size:.8em;color:var(--accent)">settings.json</code>, el JSON que llega y cêÂ³mo decide tu hook quêÂ© responder.</p>
 <div class="statcards">
 <div class="sc"><b>5</b><span>lecciones</span></div>
 <div class="sc"><b>~45</b><span>minutos</span></div>
@@ -97,63 +97,63 @@
 <div class="num">1</div>
 <div>
 <h3>Hooks: lo esencial</h3>
-<p>QuÃ© es un hook, los eventos, dÃ³nde configurarlo, cÃ³mo bloquear lo peligroso e ideas para empezar.</p>
+<p>QuêÂ© es un hook, los eventos, dêÂ³nde configurarlo, cêÂ³mo bloquear lo peligroso e ideas para empezar.</p>
 <div class="prog"><i></i></div>
 </div>
-<div class="meta">5 secciones Â· abrir â†’</div>
+<div class="meta">5 secciones êÂ· abrir ê¢â â</div>
 </a>
 <a class="au on" data-aula="2" href="#aula-2">
 <div class="num">2</div>
 <div>
 <h3>settings.json a fondo</h3>
-<p>Los tres lugares de los hooks, la anatomÃ­a eventoâ†’matcherâ†’comando, los matchers y lo que recibe el hook.</p>
+<p>Los tres lugares de los hooks, la anatomêÂ­a eventoê¢â âmatcherê¢â âcomando, los matchers y lo que recibe el hook.</p>
 <div class="prog"><i></i></div>
 </div>
-<div class="meta">4 secciones Â· abrir â†’</div>
+<div class="meta">4 secciones êÂ· abrir ê¢â â</div>
 </a>
 <a class="au on" data-aula="3" href="#aula-3">
 <div class="num">3</div>
 <div>
 <h3>Los eventos, uno por uno</h3>
-<p>El ciclo completo de una tarea, los eventos que existen y quiÃ©n puede bloquear realmente entre ellos.</p>
+<p>El ciclo completo de una tarea, los eventos que existen y quiêÂ©n puede bloquear realmente entre ellos.</p>
 <div class="prog"><i></i></div>
 </div>
-<div class="meta">5 secciones Â· abrir â†’</div>
+<div class="meta">5 secciones êÂ· abrir ê¢â â</div>
 </a>
 <a class="au on" data-aula="4" href="#aula-4">
 <div class="num">4</div>
 <div>
-<h3>QuÃ© recibe el hook</h3>
-<p>El JSON que llega por stdin: los campos comunes, tool_input/tool_response y cÃ³mo leerlo con jq.</p>
+<h3>QuêÂ© recibe el hook</h3>
+<p>El JSON que llega por stdin: los campos comunes, tool_input/tool_response y cêÂ³mo leerlo con jq.</p>
 <div class="prog"><i></i></div>
 </div>
-<div class="meta">4 secciones Â· abrir â†’</div>
+<div class="meta">4 secciones êÂ· abrir ê¢â â</div>
 </a>
 <a class="au on" data-aula="5" href="#aula-5">
 <div class="num">5</div>
 <div>
-<h3>CÃ³mo responde el hook</h3>
-<p>Exit code o JSON: decision, reason y permissionDecision, que solicita confirmaciÃ³n en lugar de bloquear.</p>
+<h3>CêÂ³mo responde el hook</h3>
+<p>Exit code o JSON: decision, reason y permissionDecision, que solicita confirmaciêÂ³n en lugar de bloquear.</p>
 <div class="prog"><i></i></div>
 </div>
-<div class="meta">4 secciones Â· abrir â†’</div>
+<div class="meta">4 secciones êÂ· abrir ê¢â â</div>
 </a>
 </div>
 <div class="nav">
-<a class="dis" href="#">â† inicio</a>
-<a href="curso-guardrails.html#trilha">Ruta 02 Â· Guardrails â†’</a>
+<a class="dis" href="#">ê¢â Â inicio</a>
+<a href="curso-guardrails.html#trilha">Ruta 02 êÂ· Guardrails ê¢â â</a>
 </div>
 </div></section>
-<footer><div class="wrap">Ruta 01 Â· Fundamentos Â· ARCKHÉ AI PRO</div></footer>
+<footer><div class="wrap">Ruta 01 êÂ· Fundamentos êÂ· ARCKHê AI PRO</div></footer>
 </section>
 <!-- ===================== VIEW: AULA 1 ===================== -->
 <section class="view" data-aula="1" id="v-aula-1">
 <header class="hero"><div class="hero-inner">
 <div>
-<p class="kicker">Ruta 01 Â· Clase 1 Â· Principiante</p>
+<p class="kicker">Ruta 01 êÂ· Clase 1 êÂ· Principiante</p>
 <h1>Hooks:<br/>o <em>esencial</em></h1>
-<p class="lead">Un hook es una instrucciÃ³n automÃ¡tica: Â«cada vez que ocurra esto, ejecuta aquelloÂ». AsÃ­ es como Claude Code sigue tus reglas por sÃ­ solo, sin depender de que las recuerdes.</p>
-<p class="cue"><span class="arw">â†“</span> desplÃ¡zate para estudiar</p>
+<p class="lead">Un hook es una instrucciêÂ³n automêÂ¡tica: êÂ«cada vez que ocurra esto, ejecuta aquelloêÂ». AsêÂ­ es como Claude Code sigue tus reglas por sêÂ­ solo, sin depender de que las recuerdes.</p>
+<p class="cue"><span class="arw">ê¢â â</span> desplêÂ¡zate para estudiar</p>
 </div>
 <div class="herofig">
 <svg aria-hidden="true" fill="none" viewbox="0 0 300 240">
@@ -165,45 +165,45 @@
 <text fill="#7CE0C6" font-family="Space Mono, monospace" font-size="12" x="184" y="76">$ fmt</text>
 <rect class="blink" fill="#7CE0C6" height="14" width="9" x="184" y="86"></rect>
 <text fill="#948DA6" font-family="Space Mono, monospace" font-size="10" text-anchor="middle" x="225" y="132">tu comando</text>
-<text fill="#C7C2D0" font-family="Newsreader, serif" font-size="17" font-style="italic" text-anchor="middle" x="150" y="188">cuando esto â†’ ejecuta aquello</text>
+<text fill="#C7C2D0" font-family="Newsreader, serif" font-size="17" font-style="italic" text-anchor="middle" x="150" y="188">cuando esto ê¢â â ejecuta aquello</text>
 </svg>
 </div>
 </div></header>
 <div class="layout">
 <div class="col">
 <section class="step" data-fig="1">
-<h2><span class="n">01</span> QuÃ© es un hook</h2>
-<p>Un hook es una <b>orden automÃ¡tico</b> que le das a Claude Code: Â«cada vez que ocurra <b>esto</b>, ejecuta <b>aquello</b>". O <b>esto</b> es un momento (un evento); <b>aquello</b> es un comando tuyo: un script, un formateador, un aviso. Claude lo ejecuta automÃ¡ticamente, sin que tengas que volver a pedirlo.</p>
-<p>Sin un hook, repites las mismas instrucciones ("formatea el cÃ³digo", "no ejecutes eso") en cada sesiÃ³n y esperas que se sigan. Con un hook, la regla se convierte en <b>parte del entorno</b>: automÃ¡tica y con el mismo comportamiento cada vez.</p>
+<h2><span class="n">01</span> QuêÂ© es un hook</h2>
+<p>Un hook es una <b>orden automêÂ¡tico</b> que le das a Claude Code: êÂ«cada vez que ocurra <b>esto</b>, ejecuta <b>aquello</b>". O <b>esto</b> es un momento (un evento); <b>aquello</b> es un comando tuyo: un script, un formateador, un aviso. Claude lo ejecuta automêÂ¡ticamente, sin que tengas que volver a pedirlo.</p>
+<p>Sin un hook, repites las mismas instrucciones ("formatea el cêÂ³digo", "no ejecutes eso") en cada sesiêÂ³n y esperas que se sigan. Con un hook, la regla se convierte en <b>parte del entorno</b>: automêÂ¡tica y con el mismo comportamiento cada vez.</p>
 <div class="mobfig" data-mobfig="1"></div>
 <div class="quiz" data-answer="b">
-<p class="qk">PruÃ©bate</p>
-<p class="q">En la prÃ¡ctica, un hook es:</p>
+<p class="qk">PruêÂ©bate</p>
+<p class="q">En la prêÂ¡ctica, un hook es:</p>
 <button class="opt" data-k="a">un tema visual nuevo del editor</button>
-<button class="opt" data-fb="Ã‰ isso: um evento dispara um comando seu. NÃ£o Ã© tema visual nem modelo de IA." data-k="b">una orden automÃ¡tica: cuando ocurre un evento, ejecuta un comando tuyo</button>
-<button class="opt" data-k="c">un modelo de IA mÃ¡s rÃ¡pido</button>
+<button class="opt" data-fb="êâ° isso: um evento dispara um comando seu. NêÂ£o êÂ© tema visual nem modelo de IA." data-k="b">una orden automêÂ¡tica: cuando ocurre un evento, ejecuta un comando tuyo</button>
+<button class="opt" data-k="c">un modelo de IA mêÂ¡s rêÂ¡pido</button>
 <p class="qfb"></p>
 </div>
-<button class="readbtn" data-read="s1">marcar como leÃ­do</button>
+<button class="readbtn" data-read="s1">marcar como leêÂ­do</button>
 </section>
 <section class="step" data-fig="2">
 <h2><span class="n">02</span> Los momentos (eventos)</h2>
-<p>Cada hook se conecta a un <b>evento</b> â€” un momento del trabajo de Claude. Los mÃ¡s importantes para empezar:</p>
+<p>Cada hook se conecta a un <b>evento</b> ê¢â¬â un momento del trabajo de Claude. Los mêÂ¡s importantes para empezar:</p>
 <ul>
-<li><b class="gterm" data-def="Evento de hook que dispara ANTES de o Claude usar uma ferramenta. Pode barrar a aÃ§Ã£o saindo com exit 2." tabindex="0">PreToolUse</b> â€” <i>antes</i> de que Claude use una herramienta (por ejemplo, antes de ejecutar un comando en el terminal).</li>
-<li><b class="gterm" data-def="Evento de hook que dispara DEPOIS de uma ferramenta rodar. Bom para formatar o arquivo recÃ©m-editado." tabindex="0">PostToolUse</b> â€” <i>despuÃ©s</i> (p. ej.: formatear el archivo en cuanto se edita).</li>
-<li><b>UserPromptSubmit</b> â€” cuando <i>tÃº</i> envÃ­a un mensaje.</li>
-<li><b>Stop</b> â€” cuando Claude <i>termina</i> de responder.</li>
-<li><b>SessionStart</b> â€” cuando la sesiÃ³n <i>empieza</i> (ideal para inyectar contexto del proyecto).</li>
+<li><b class="gterm" data-def="Evento de hook que dispara ANTES de o Claude usar uma ferramenta. Pode barrar a aêÂ§êÂ£o saindo com exit 2." tabindex="0">PreToolUse</b> ê¢â¬â <i>antes</i> de que Claude use una herramienta (por ejemplo, antes de ejecutar un comando en el terminal).</li>
+<li><b class="gterm" data-def="Evento de hook que dispara DEPOIS de uma ferramenta rodar. Bom para formatar o arquivo recêÂ©m-editado." tabindex="0">PostToolUse</b> ê¢â¬â <i>despuêÂ©s</i> (p. ej.: formatear el archivo en cuanto se edita).</li>
+<li><b>UserPromptSubmit</b> ê¢â¬â cuando <i>têÂº</i> envêÂ­a un mensaje.</li>
+<li><b>Stop</b> ê¢â¬â cuando Claude <i>termina</i> de responder.</li>
+<li><b>SessionStart</b> ê¢â¬â cuando la sesiêÂ³n <i>empieza</i> (ideal para inyectar contexto del proyecto).</li>
 </ul>
-<p>Cada evento entrega a tu comando los <b>detalles</b> de lo que estÃ¡ pasando (quÃ© herramienta, quÃ© archivo) en JSON por la entrada estÃ¡ndar. Tu comando lo lee y decide quÃ© hacer.</p>
+<p>Cada evento entrega a tu comando los <b>detalles</b> de lo que estêÂ¡ pasando (quêÂ© herramienta, quêÂ© archivo) en JSON por la entrada estêÂ¡ndar. Tu comando lo lee y decide quêÂ© hacer.</p>
 <div class="mobfig" data-mobfig="2"></div>
-<button class="readbtn" data-read="s2">marcar como leÃ­do</button>
+<button class="readbtn" data-read="s2">marcar como leêÂ­do</button>
 </section>
 <section class="step" data-fig="3">
-<h2><span class="n">03</span> DÃ³nde viven: settings.json</h2>
-<p>Los hooks viven en <code>settings.json</code> â€” en el proyecto (<code>.claude/settings.json</code>) o global (<code>~/.claude/settings.json</code>). TÃº dices el <b>evento</b>, un <b>matcher</b> (en quÃ© herramienta se aplica) y el <b>comando</b>:</p>
-<pre><span class="c">// .claude/settings.json â€” formatea todos los archivos editados</span>
+<h2><span class="n">03</span> DêÂ³nde viven: settings.json</h2>
+<p>Los hooks viven en <code>settings.json</code> ê¢â¬â en el proyecto (<code>.claude/settings.json</code>) o global (<code>~/.claude/settings.json</code>). TêÂº dices el <b>evento</b>, un <b>matcher</b> (en quêÂ© herramienta se aplica) y el <b>comando</b>:</p>
+<pre><span class="c">// .claude/settings.json ê¢â¬â formatea todos los archivos editados</span>
 {
   <span class="k">"hooks"</span>: {
     <span class="k">"PostToolUse"</span>: [
@@ -216,57 +216,57 @@
     ]
   }
 }</pre>
-<p>Lee de adentro hacia afuera: <b>en el evento</b> PostToolUse, <b>cuando</b> la herramienta es Edit o Write, <b>ejecute</b> el comando. Eso es todo: tres capas: evento â†’ matcher â†’ comando.</p>
+<p>Lee de adentro hacia afuera: <b>en el evento</b> PostToolUse, <b>cuando</b> la herramienta es Edit o Write, <b>ejecute</b> el comando. Eso es todo: tres capas: evento ê¢â â matcher ê¢â â comando.</p>
 <div class="mobfig" data-mobfig="3"></div>
 <div class="quiz" data-answer="c">
-<p class="qk">PruÃ©bate</p>
+<p class="qk">PruêÂ©bate</p>
 <p class="q">O <code>matcher</code> "Edit|Write" sirve para:</p>
 <button class="opt" data-k="a">elegir el color del hook</button>
 <button class="opt" data-k="b">ejecutar el comando dos veces</button>
-<button class="opt" data-fb="O matcher filtra por ferramenta; 'Edit|Write' pega ediÃ§Ã£o ou escrita de arquivo." data-k="c">decir en quÃ© herramientas se activa el hook</button>
+<button class="opt" data-fb="O matcher filtra por ferramenta; 'Edit|Write' pega ediêÂ§êÂ£o ou escrita de arquivo." data-k="c">decir en quêÂ© herramientas se activa el hook</button>
 <p class="qfb"></p>
 </div>
-<button class="readbtn" data-read="s3">marcar como leÃ­do</button>
+<button class="readbtn" data-read="s3">marcar como leêÂ­do</button>
 </section>
 <section class="step" data-fig="4">
 <h2><span class="n">04</span> Un hook que protege</h2>
-<p>En el <b>PreToolUse</b>, tu comando puede <b>bloquear</b> la acciÃ³n antes de que se ejecute. Si el comando <b>sale con cÃ³digo 2</b>, Claude no ejecuta eso, y el mensaje que imprimes se convierte en el <b>motivo</b> mostrado a esa persona. AsÃ­ es como bloqueas lo peligroso (un <code>rm -rf</code>, un push a main) antes de que ocurra.</p>
+<p>En el <b>PreToolUse</b>, tu comando puede <b>bloquear</b> la acciêÂ³n antes de que se ejecute. Si el comando <b>sale con cêÂ³digo 2</b>, Claude no ejecuta eso, y el mensaje que imprimes se convierte en el <b>motivo</b> mostrado a esa persona. AsêÂ­ es como bloqueas lo peligroso (un <code>rm -rf</code>, un push a main) antes de que ocurra.</p>
 <pre><span class="c"># bloquea rm -rf; recibe el comando por stdin (JSON)</span>
 grep -q "rm -rf" &amp;&amp; { echo "bloqueado: comando destrutivo" &gt;&amp;2; exit 2; }
 exit 0</pre>
-<p>Exit <code>0</code> = puedes continuar. Exit <code>2</code> = bloquea y devuelve el motivo. Simple y potente: conviertes Â«por favor, no lo hagasÂ» en una <b>bloqueo real</b>.</p>
+<p>Exit <code>0</code> = puedes continuar. Exit <code>2</code> = bloquea y devuelve el motivo. Simple y potente: conviertes êÂ«por favor, no lo hagasêÂ» en una <b>bloqueo real</b>.</p>
 <div class="mobfig" data-mobfig="4"></div>
 <div class="quiz" data-answer="c">
-<p class="qk">PruÃ©bate</p>
-<p class="q">Para el hook PreToolUse <i>bloquear</i> un comando, debe salir con cÃ³digo:</p>
+<p class="qk">PruêÂ©bate</p>
+<p class="q">Para el hook PreToolUse <i>bloquear</i> un comando, debe salir con cêÂ³digo:</p>
 <button class="opt" data-k="a">0</button>
 <button class="opt" data-k="b">1</button>
-<button class="opt" data-fb="exit 2 barra a aÃ§Ã£o, e o que vocÃª imprime no stderr vira o motivo. exit 0 libera." data-k="c">2</button>
+<button class="opt" data-fb="exit 2 barra a aêÂ§êÂ£o, e o que vocêÂª imprime no stderr vira o motivo. exit 0 libera." data-k="c">2</button>
 <p class="qfb"></p>
 </div>
-<button class="readbtn" data-read="s4">marcar como leÃ­do</button>
+<button class="readbtn" data-read="s4">marcar como leêÂ­do</button>
 </section>
 <section class="step" data-fig="5">
 <h2><span class="n">05</span> Ideas para empezar</h2>
-<p>No necesitas muchos. Empieza con <b>un</b> hook que te quite de la cabeza una preocupaciÃ³n recurrente:</p>
+<p>No necesitas muchos. Empieza con <b>un</b> hook que te quite de la cabeza una preocupaciêÂ³n recurrente:</p>
 <ul>
-<li><b>Formatear al guardar</b> â€” PostToolUse en Edit/Write ejecuta el formateador. Nunca mÃ¡s cÃ³digo desordenado.</li>
-<li><b>Avisar cuando termine</b> â€” Stop activa una notificaciÃ³n o un sonido.</li>
-<li><b>Registrar comandos</b> â€” PreToolUse en Bash guarda en un log todo lo que se ejecutÃ³.</li>
-<li><b>Inyectar las reglas del proyecto</b> â€” SessionStart imprime tu CLAUDE.md y Claude ya empieza alineado.</li>
+<li><b>Formatear al guardar</b> ê¢â¬â PostToolUse en Edit/Write ejecuta el formateador. Nunca mêÂ¡s cêÂ³digo desordenado.</li>
+<li><b>Avisar cuando termine</b> ê¢â¬â Stop activa una notificaciêÂ³n o un sonido.</li>
+<li><b>Registrar comandos</b> ê¢â¬â PreToolUse en Bash guarda en un log todo lo que se ejecutêÂ³.</li>
+<li><b>Inyectar las reglas del proyecto</b> ê¢â¬â SessionStart imprime tu CLAUDE.md y Claude ya empieza alineado.</li>
 </ul>
-<p>El mejor hook es el mÃ¡s tedioso de hacer a mano. Automatiza <b>ese</b> primero.</p>
+<p>El mejor hook es el mêÂ¡s tedioso de hacer a mano. Automatiza <b>ese</b> primero.</p>
 <details>
 <summary>Profundiza</summary>
-<p>AdemÃ¡s del exit code, los hooks pueden devolver <b>JSON</b> por la salida (una decisiÃ³n de aprobar/bloquear con un motivo), usar <b>matchers</b> mÃ¡s precisos, y hay otros eventos: <code>SubagentStop</code>, <code>Notification</code>, <code>PreCompact</code>, <code>SessionEnd</code>. ContinÃºa en las prÃ³ximas clases.</p>
+<p>AdemêÂ¡s del exit code, los hooks pueden devolver <b>JSON</b> por la salida (una decisiêÂ³n de aprobar/bloquear con un motivo), usar <b>matchers</b> mêÂ¡s precisos, y hay otros eventos: <code>SubagentStop</code>, <code>Notification</code>, <code>PreCompact</code>, <code>SessionEnd</code>. ContinêÂºa en las prêÂ³ximas clases.</p>
 </details>
 <div class="mobfig" data-mobfig="5"></div>
-<button class="readbtn" data-read="s5">marcar como leÃ­do</button>
+<button class="readbtn" data-read="s5">marcar como leêÂ­do</button>
 </section>
 <section class="practice" data-practice="p1">
 <p class="pk">Practica ahora <span class="pcount">0/4 hecho</span></p>
 <h3 class="ph">Tu primer hook: registrar comandos</h3>
-<p class="pgoal">Haz que Claude registre cada comando en un archivo y mira cÃ³mo funciona. Unos 5 minutos, y es seguro: el hook solo <b>observa</b> (sale con <code>exit 0</code>), no bloquea nada.</p>
+<p class="pgoal">Haz que Claude registre cada comando en un archivo y mira cêÂ³mo funciona. Unos 5 minutos, y es seguro: el hook solo <b>observa</b> (sale con <code>exit 0</code>), no bloquea nada.</p>
 <div class="pcodewrap"><button class="pcopy" type="button">copiar</button><pre class="pcode">{
   <span class="k">"hooks"</span>: {
     <span class="k">"PreToolUse"</span>: [
@@ -280,12 +280,12 @@ exit 0</pre>
   }
 }</pre></div>
 <ol class="psteps">
-<li><label><input data-ptask="1" type="checkbox"/> Crea el archivo <code>.claude/settings.json</code> en la raÃ­z de tu proyecto.</label></li>
+<li><label><input data-ptask="1" type="checkbox"/> Crea el archivo <code>.claude/settings.json</code> en la raêÂ­z de tu proyecto.</label></li>
 <li><label><input data-ptask="2" type="checkbox"/> Pega el bloque de arriba y guarda.</label></li>
-<li><label><input data-ptask="3" type="checkbox"/> PÃ­dele a Claude que ejecute cualquier comando (p. ej.: <code>ls</code>).</label></li>
-<li><label><input data-ptask="4" type="checkbox"/> En la terminal, ejecuta <code>cat .claude/cmd.log</code>. Â¿ApareciÃ³ lo que recibiÃ³ el hook?</label></li>
+<li><label><input data-ptask="3" type="checkbox"/> PêÂ­dele a Claude que ejecute cualquier comando (p. ej.: <code>ls</code>).</label></li>
+<li><label><input data-ptask="4" type="checkbox"/> En la terminal, ejecuta <code>cat .claude/cmd.log</code>. êÂ¿ApareciêÂ³ lo que recibiêÂ³ el hook?</label></li>
 </ol>
-<p class="pdone">âœ“ Listo: tu primer hook se ejecutÃ³ por sÃ­ solo. Es exactamente esto â€” <b>cuando esto â†’ ejecuta aquello</b>. En las prÃ³ximas clases serÃ¡ mÃ¡s hÃ¡bil: formatearÃ¡, avisarÃ¡ y bloquearÃ¡ lo peligroso.</p>
+<p class="pdone">ê¢Åâ Listo: tu primer hook se ejecutêÂ³ por sêÂ­ solo. Es exactamente esto ê¢â¬â <b>cuando esto ê¢â â ejecuta aquello</b>. En las prêÂ³ximas clases serêÂ¡ mêÂ¡s hêÂ¡bil: formatearêÂ¡, avisarêÂ¡ y bloquearêÂ¡ lo peligroso.</p>
 </section>
 </div>
 <aside class="rail"><div class="railsticky">
@@ -301,17 +301,17 @@ exit 0</pre>
 <text fill="#948DA6" font-family="Space Mono, monospace" font-size="9" text-anchor="middle" x="181" y="134">comando</text>
 </svg>
 </div>
-<div class="fig" data-cap="&lt;b&gt;Fig.&lt;/b&gt; os momentos: Pre Â· tool Â· Post Â· Stop" data-fig="2">
+<div class="fig" data-cap="&lt;b&gt;Fig.&lt;/b&gt; os momentos: Pre êÂ· tool êÂ· Post êÂ· Stop" data-fig="2">
 <svg aria-hidden="true" fill="none" viewbox="0 0 220 200">
 <line stroke="#37324a" stroke-width="1.5" x1="24" x2="196" y1="100" y2="100"></line>
-<circle cx="34" cy="100" fill="#948DA6" r="4"></circle><text fill="#948DA6" font-family="Space Mono" font-size="8" text-anchor="middle" x="34" y="122">tÃº</text>
+<circle cx="34" cy="100" fill="#948DA6" r="4"></circle><text fill="#948DA6" font-family="Space Mono" font-size="8" text-anchor="middle" x="34" y="122">têÂº</text>
 <circle class="breathe" cx="88" cy="100" fill="#7CE0C6" r="5"></circle><text fill="#7CE0C6" font-family="Space Mono" font-size="8" text-anchor="middle" x="88" y="84">Pre</text>
 <rect fill="#221f2e" height="16" rx="4" stroke="#37324a" width="26" x="102" y="92"></rect><text fill="#C7C2D0" font-family="Space Mono" font-size="8" text-anchor="middle" x="115" y="104">herramienta</text>
 <circle class="breathe" cx="150" cy="100" fill="#7CE0C6" r="5" style="animation-delay:.5s"></circle><text fill="#7CE0C6" font-family="Space Mono" font-size="8" text-anchor="middle" x="150" y="84">Post</text>
 <circle class="breathe" cx="190" cy="100" fill="#F2B45C" r="5" style="animation-delay:1s"></circle><text fill="#F2B45C" font-family="Space Mono" font-size="8" text-anchor="middle" x="190" y="122">Stop</text>
 </svg>
 </div>
-<div class="fig" data-cap="&lt;b&gt;Fig.&lt;/b&gt; settings.json: evento â†’ matcher â†’ comando" data-fig="3">
+<div class="fig" data-cap="&lt;b&gt;Fig.&lt;/b&gt; settings.json: evento ê¢â â matcher ê¢â â comando" data-fig="3">
 <svg aria-hidden="true" fill="none" viewbox="0 0 220 210">
 <rect fill="#221f2e" height="26" rx="7" stroke="#37324a" width="140" x="26" y="18"></rect><text fill="#7CE0C6" font-family="Space Mono" font-size="11" x="40" y="35">"hooks"</text>
 <path d="M40 44 V60 H60" stroke="#37324a" stroke-width="1.5"></path>
@@ -344,19 +344,19 @@ exit 0</pre>
 </div>
 <p class="railcap"></p>
 <div class="steps-ind"></div>
-<p class="sidenote">Resalta cualquier fragmento del texto para convertirlo en una <b>tarjeta de memoria</b> de revisiÃ³n: aparece en "revisar".</p>
+<p class="sidenote">Resalta cualquier fragmento del texto para convertirlo en una <b>tarjeta de memoria</b> de revisiêÂ³n: aparece en "revisar".</p>
 </div></aside>
 </div>
-<nav class="lnav"><a href="#trilha">â† ruta</a><a href="#aula-2">LecciÃ³n 2 Â· settings.json a fondo â†’</a></nav>
-<footer>LecciÃ³n 1 de 5 Â· Ruta 01 Â· Fundamentos Â· ARCKHÉ AI PRO</footer>
+<nav class="lnav"><a href="#trilha">ê¢â Â ruta</a><a href="#aula-2">LecciêÂ³n 2 êÂ· settings.json a fondo ê¢â â</a></nav>
+<footer>LecciêÂ³n 1 de 5 êÂ· Ruta 01 êÂ· Fundamentos êÂ· ARCKHê AI PRO</footer>
 <script id="cards-1" type="application/json">
 [
-  {"front":"O que Ã© um hook no Claude Code?","back":"Uma ordem automÃ¡tica: quando um evento acontece, roda um comando seu."},
+  {"front":"O que êÂ© um hook no Claude Code?","back":"Uma ordem automêÂ¡tica: quando um evento acontece, roda um comando seu."},
   {"front":"Qual evento roda DEPOIS de editar um arquivo?","back":"PostToolUse."},
   {"front":"Qual evento roda ANTES de uma ferramenta ser usada?","back":"PreToolUse."},
-  {"front":"Como um hook PreToolUse bloqueia uma aÃ§Ã£o?","back":"Saindo com cÃ³digo 2 (exit 2); a mensagem impressa vira o motivo."},
-  {"front":"Onde os hooks sÃ£o configurados?","back":"No settings.json (do projeto em .claude/ ou global em ~/.claude/)."},
-  {"front":"Qual evento Ã© Ã³timo para injetar contexto do projeto?","back":"SessionStart."}
+  {"front":"Como um hook PreToolUse bloqueia uma aêÂ§êÂ£o?","back":"Saindo com cêÂ³digo 2 (exit 2); a mensagem impressa vira o motivo."},
+  {"front":"Onde os hooks sêÂ£o configurados?","back":"No settings.json (do projeto em .claude/ ou global em ~/.claude/)."},
+  {"front":"Qual evento êÂ© êÂ³timo para injetar contexto do projeto?","back":"SessionStart."}
 ]
 </script>
 </section>
@@ -364,10 +364,10 @@ exit 0</pre>
 <section class="view" data-aula="2" id="v-aula-2">
 <header class="hero"><div class="hero-inner">
 <div>
-<p class="kicker">Ruta 01 Â· Clase 2 Â· Principiante</p>
+<p class="kicker">Ruta 01 êÂ· Clase 2 êÂ· Principiante</p>
 <h1>settings.json<br/><em>a fondo</em></h1>
-<p class="lead">DÃ³nde viven los hooks, cÃ³mo se compone cada uno y quÃ© le entrega Claude a tu comando al ejecutarlo.</p>
-<p class="cue"><span class="arw">â†“</span> desplÃ¡zate para estudiar</p>
+<p class="lead">DêÂ³nde viven los hooks, cêÂ³mo se compone cada uno y quêÂ© le entrega Claude a tu comando al ejecutarlo.</p>
+<p class="cue"><span class="arw">ê¢â â</span> desplêÂ¡zate para estudiar</p>
 </div>
 <div class="herofig">
 <svg aria-hidden="true" fill="none" viewbox="0 0 300 240">
@@ -377,7 +377,7 @@ exit 0</pre>
 <text fill="#7CE0C6" font-family="Space Mono, monospace" font-size="12" x="76" y="117">.claude/</text>
 <rect class="pulse" fill="#15131d" height="40" rx="10" stroke="#37324a" stroke-width="1.5" width="180" x="60" y="144"></rect>
 <text fill="#F2B45C" font-family="Space Mono, monospace" font-size="12" x="76" y="169">.local.json</text>
-<text fill="#C7C2D0" font-family="Newsreader, serif" font-size="15" font-style="italic" text-anchor="middle" x="150" y="212">gana el mÃ¡s especÃ­fico</text>
+<text fill="#C7C2D0" font-family="Newsreader, serif" font-size="15" font-style="italic" text-anchor="middle" x="150" y="212">gana el mêÂ¡s especêÂ­fico</text>
 </svg>
 </div>
 </div></header>
@@ -387,25 +387,25 @@ exit 0</pre>
 <h2><span class="n">01</span> Tres lugares para los hooks</h2>
 <p>Un hook puede estar en tres archivos, y todos se aplican al mismo tiempo:</p>
 <ul>
-<li><b>Global</b> â€” <code>~/.claude/settings.json</code>. Aplica a <b>todos</b> tus proyectos.</li>
-<li><b>Proyecto</b> â€” <code>.claude/settings.json</code>. Va a Git; <b>todo el equipo</b> hereda.</li>
-<li><b>Local</b> â€” <code>.claude/settings.local.json</code>. EstÃ¡ en <code>.gitignore</code>; Ã© <b>solo tuyo</b>.</li>
+<li><b>Global</b> ê¢â¬â <code>~/.claude/settings.json</code>. Aplica a <b>todos</b> tus proyectos.</li>
+<li><b>Proyecto</b> ê¢â¬â <code>.claude/settings.json</code>. Va a Git; <b>todo el equipo</b> hereda.</li>
+<li><b>Local</b> ê¢â¬â <code>.claude/settings.local.json</code>. EstêÂ¡ en <code>.gitignore</code>; êÂ© <b>solo tuyo</b>.</li>
 </ul>
-<p>Cuando hay un conflicto, el <b>gana el mÃ¡s especÃ­fico</b>: la configuraciÃ³n local prevalece sobre la del proyecto, que prevalece sobre la global. Regla prÃ¡ctica: lo que es del equipo va en <code>.claude/settings.json</code>; lo que es una preferencia tuya va en el <code>.local.json</code>.</p>
+<p>Cuando hay un conflicto, el <b>gana el mêÂ¡s especêÂ­fico</b>: la configuraciêÂ³n local prevalece sobre la del proyecto, que prevalece sobre la global. Regla prêÂ¡ctica: lo que es del equipo va en <code>.claude/settings.json</code>; lo que es una preferencia tuya va en el <code>.local.json</code>.</p>
 <div class="mobfig" data-mobfig="1"></div>
 <div class="quiz" data-answer="c">
-<p class="qk">PruÃ©bate</p>
-<p class="q">Â¿QuÃ© archivo es personal y NO va a Git?</p>
+<p class="qk">PruêÂ©bate</p>
+<p class="q">êÂ¿QuêÂ© archivo es personal y NO va a Git?</p>
 <button class="opt" data-k="a">~/.claude/settings.json</button>
 <button class="opt" data-k="b">.claude/settings.json</button>
-<button class="opt" data-fb="O .local.json fica no .gitignore, Ã© sÃ³ seu. Os outros dois vÃ£o pro time (projeto) ou pra todos (global)." data-k="c">.claude/settings.local.json</button>
+<button class="opt" data-fb="O .local.json fica no .gitignore, êÂ© sêÂ³ seu. Os outros dois vêÂ£o pro time (projeto) ou pra todos (global)." data-k="c">.claude/settings.local.json</button>
 <p class="qfb"></p>
 </div>
-<button class="readbtn" data-read="s1">marcar como leÃ­do</button>
+<button class="readbtn" data-read="s1">marcar como leêÂ­do</button>
 </section>
 <section class="step" data-fig="2">
-<h2><span class="n">02</span> AnatomÃ­a de un hook</h2>
-<p>Todo hook tiene la misma forma de muÃ±ecas rusas: el <b>evento</b> guarda una lista; cada elemento tiene un <b>matcher</b> y una lista de <b>hooks</b>; cada hook es un <b>comando</b>.</p>
+<h2><span class="n">02</span> AnatomêÂ­a de un hook</h2>
+<p>Todo hook tiene la misma forma de muêÂ±ecas rusas: el <b>evento</b> guarda una lista; cada elemento tiene un <b>matcher</b> y una lista de <b>hooks</b>; cada hook es un <b>comando</b>.</p>
 <pre>{
   <span class="k">"hooks"</span>: {
     <span class="k">"PreToolUse"</span>: [
@@ -420,46 +420,46 @@ exit 0</pre>
 }</pre>
 <p>Puede haber <b>varios hooks</b> en el mismo matcher: se ejecutan <b>en orden</b>. Y varios matchers en el mismo evento. Empieza con uno; la estructura puede crecer.</p>
 <div class="mobfig" data-mobfig="2"></div>
-<button class="readbtn" data-read="s2">marcar como leÃ­do</button>
+<button class="readbtn" data-read="s2">marcar como leêÂ­do</button>
 </section>
 <section class="step" data-fig="3">
-<h2><span class="n">03</span> El matcher: dÃ³nde se activa el hook</h2>
+<h2><span class="n">03</span> El matcher: dêÂ³nde se activa el hook</h2>
 <p>Para <code>PreToolUse</code> e <code>PostToolUse</code>, el matcher coincide con el <b>nombre de la herramienta</b>. Tres formas:</p>
 <ul>
-<li><b>Nombre exacto</b> â€” <code>"Bash"</code> toma solo la terminal.</li>
-<li><b>Alternancia</b> â€” <code>"Edit|Write"</code> toma la ediciÃ³n <i>o</i> escritura de archivos.</li>
-<li><b>Todo</b> â€” <code>"*"</code> (o vacÃ­o) captura cualquier herramienta.</li>
+<li><b>Nombre exacto</b> ê¢â¬â <code>"Bash"</code> toma solo la terminal.</li>
+<li><b>Alternancia</b> ê¢â¬â <code>"Edit|Write"</code> toma la ediciêÂ³n <i>o</i> escritura de archivos.</li>
+<li><b>Todo</b> ê¢â¬â <code>"*"</code> (o vacêÂ­o) captura cualquier herramienta.</li>
 </ul>
 <p>Los eventos que no son de herramienta (como <code>SessionStart</code> o <code>Stop</code>) no usan un matcher de herramienta: simplemente se activan en ese momento.</p>
 <div class="mobfig" data-mobfig="3"></div>
 <div class="quiz" data-answer="b">
-<p class="qk">PruÃ©bate</p>
+<p class="qk">PruêÂ©bate</p>
 <p class="q">Para que un hook detecte tanto Edit como Write, el matcher es:</p>
 <button class="opt" data-k="a">"Edit,Write"</button>
-<button class="opt" data-fb="A barra vertical | Ã© alternÃ¢ncia: pega Edit OU Write. VÃ­rgula ou 'e' nÃ£o funcionam." data-k="b">"Edit|Write"</button>
+<button class="opt" data-fb="A barra vertical | êÂ© alternêÂ¢ncia: pega Edit OU Write. VêÂ­rgula ou 'e' nêÂ£o funcionam." data-k="b">"Edit|Write"</button>
 <button class="opt" data-k="c">"Edit y Write"</button>
 <p class="qfb"></p>
 </div>
-<button class="readbtn" data-read="s3">marcar como leÃ­do</button>
+<button class="readbtn" data-read="s3">marcar como leêÂ­do</button>
 </section>
 <section class="step" data-fig="4">
-<h2><span class="n">04</span> QuÃ© recibe el hook</h2>
-<p>Al ejecutarse, Claude le entrega a tu comando un <b>JSON por la entrada estÃ¡ndar</b> (stdin) con el contexto: quÃ© evento ocurriÃ³, quÃ© herramienta se usÃ³ y cuÃ¡l fue su entrada.</p>
+<h2><span class="n">04</span> QuêÂ© recibe el hook</h2>
+<p>Al ejecutarse, Claude le entrega a tu comando un <b>JSON por la entrada estêÂ¡ndar</b> (stdin) con el contexto: quêÂ© evento ocurriêÂ³, quêÂ© herramienta se usêÂ³ y cuêÂ¡l fue su entrada.</p>
 <pre><span class="c"># lee el comando que Bash iba a ejecutar</span>
 cmd=$(jq -r '.tool_input.command')
-<span class="c"># lee el archivo que se editÃ³</span>
+<span class="c"># lee el archivo que se editêÂ³</span>
 file=$(jq -r '.tool_input.file_path')</pre>
-<p>TambiÃ©n estÃ¡ la variable <code>$CLAUDE_PROJECT_DIR</code> apuntando a la raÃ­z del proyecto â€” Ãºtil para encontrar tus scripts. Con stdin + jq, tu hook <b>sabe exactamente</b> lo que estÃ¡ a punto de suceder.</p>
+<p>TambiêÂ©n estêÂ¡ la variable <code>$CLAUDE_PROJECT_DIR</code> apuntando a la raêÂ­z del proyecto ê¢â¬â êÂºtil para encontrar tus scripts. Con stdin + jq, tu hook <b>sabe exactamente</b> lo que estêÂ¡ a punto de suceder.</p>
 <div class="mobfig" data-mobfig="4"></div>
 <details>
 <summary>Profundiza</summary>
-<p>El JSON trae mÃ¡s campos (<code>session_id</code>, <code>cwd</code>, <code>hook_event_name</code>â€¦). Rara vez necesitas todos: <code>tool_name</code> e <code>tool_input</code> resuelven la mayorÃ­a de los hooks. La LecciÃ³n 4 de esta ruta desglosa ese JSON campo por campo.</p>
+<p>El JSON trae mêÂ¡s campos (<code>session_id</code>, <code>cwd</code>, <code>hook_event_name</code>ê¢â¬Â¦). Rara vez necesitas todos: <code>tool_name</code> e <code>tool_input</code> resuelven la mayorêÂ­a de los hooks. La LecciêÂ³n 4 de esta ruta desglosa ese JSON campo por campo.</p>
 </details>
-<button class="readbtn" data-read="s4">marcar como leÃ­do</button>
+<button class="readbtn" data-read="s4">marcar como leêÂ­do</button>
 </section>
 <section class="practice" data-practice="p2">
 <p class="pk">Practica ahora <span class="pcount">0/4 hecho</span></p>
-<h3 class="ph">Mira quÃ© recibe el hook</h3>
+<h3 class="ph">Mira quêÂ© recibe el hook</h3>
 <p class="pgoal">Registra el JSON que Claude entrega al hook y lee con tus propios ojos el <code>tool_input</code>. ~5 min, seguro (solo observa).</p>
 <div class="pcodewrap"><button class="pcopy" type="button">copiar</button><pre class="pcode">{
   <span class="k">"hooks"</span>: {
@@ -475,24 +475,24 @@ file=$(jq -r '.tool_input.file_path')</pre>
 }</pre></div>
 <ol class="psteps">
 <li><label><input data-ptask="1" type="checkbox"/> Coloca el bloque en tu <code>.claude/settings.json</code> y guarda.</label></li>
-<li><label><input data-ptask="2" type="checkbox"/> PÃ­dele a Claude que edite cualquier archivo.</label></li>
+<li><label><input data-ptask="2" type="checkbox"/> PêÂ­dele a Claude que edite cualquier archivo.</label></li>
 <li><label><input data-ptask="3" type="checkbox"/> Ejecuta <code>cat .claude/edits.log</code> en la terminal.</label></li>
-<li><label><input data-ptask="4" type="checkbox"/> Encuentra el <code>file_path</code> dentro del <code>tool_input</code> â€” de ahÃ­ viene el <code>jq</code> quita el valor.</label></li>
+<li><label><input data-ptask="4" type="checkbox"/> Encuentra el <code>file_path</code> dentro del <code>tool_input</code> ê¢â¬â de ahêÂ­ viene el <code>jq</code> quita el valor.</label></li>
 </ol>
-<p class="pdone">âœ“ Viste el payload real. El matcher <code>Edit|Write</code> y stdin dejan de ser una abstracciÃ³n: este es el JSON que lee el hook.</p>
+<p class="pdone">ê¢Åâ Viste el payload real. El matcher <code>Edit|Write</code> y stdin dejan de ser una abstracciêÂ³n: este es el JSON que lee el hook.</p>
 </section>
 </div>
 <aside class="rail"><div class="railsticky">
 <div class="figstage">
-<div class="fig on" data-cap="&lt;b&gt;Fig.&lt;/b&gt; global Â· projeto Â· local (o mais especÃ­fico ganha)" data-fig="1">
+<div class="fig on" data-cap="&lt;b&gt;Fig.&lt;/b&gt; global êÂ· projeto êÂ· local (o mais especêÂ­fico ganha)" data-fig="1">
 <svg aria-hidden="true" fill="none" viewbox="0 0 220 200">
-<rect fill="#221f2e" height="34" rx="8" stroke="#37324a" width="160" x="30" y="34"></rect><text fill="#948DA6" font-family="Space Mono" font-size="10" x="44" y="55">~/.claude Â· global</text>
-<rect fill="#221f2e" height="34" rx="8" stroke="#37324a" width="160" x="30" y="80"></rect><text fill="#7CE0C6" font-family="Space Mono" font-size="10" x="44" y="101">.claude Â· proyecto</text>
-<rect class="breathe" fill="none" height="34" rx="8" stroke="#F2B45C" width="160" x="30" y="126"></rect><text fill="#F2B45C" font-family="Space Mono" font-size="10" x="44" y="147">.local Â· tÃº</text>
+<rect fill="#221f2e" height="34" rx="8" stroke="#37324a" width="160" x="30" y="34"></rect><text fill="#948DA6" font-family="Space Mono" font-size="10" x="44" y="55">~/.claude êÂ· global</text>
+<rect fill="#221f2e" height="34" rx="8" stroke="#37324a" width="160" x="30" y="80"></rect><text fill="#7CE0C6" font-family="Space Mono" font-size="10" x="44" y="101">.claude êÂ· proyecto</text>
+<rect class="breathe" fill="none" height="34" rx="8" stroke="#F2B45C" width="160" x="30" y="126"></rect><text fill="#F2B45C" font-family="Space Mono" font-size="10" x="44" y="147">.local êÂ· têÂº</text>
 <path d="M200 51 V143" stroke="#37324a" stroke-dasharray="3 4" stroke-width="1.5"></path><path d="M195 138 l5 8 5 -8z" fill="#37324a"></path>
 </svg>
 </div>
-<div class="fig" data-cap="&lt;b&gt;Fig.&lt;/b&gt; evento â€º matcher â€º hooks[] â€º comando" data-fig="2">
+<div class="fig" data-cap="&lt;b&gt;Fig.&lt;/b&gt; evento ê¢â¬Âº matcher ê¢â¬Âº hooks[] ê¢â¬Âº comando" data-fig="2">
 <svg aria-hidden="true" fill="none" viewbox="0 0 220 210">
 <rect fill="#221f2e" height="24" rx="6" stroke="#37324a" width="120" x="30" y="20"></rect><text fill="#7CE0C6" font-family="Space Mono" font-size="10" x="42" y="36">evento</text>
 <path d="M42 44 V62 H58" stroke="#37324a"></path>
@@ -503,19 +503,19 @@ file=$(jq -r '.tool_input.file_path')</pre>
 <rect class="breathe" fill="none" height="24" rx="6" stroke="#7CE0C6" width="82" x="114" y="152"></rect><text fill="#7CE0C6" font-family="Space Mono" font-size="10" text-anchor="middle" x="155" y="168">command</text>
 </svg>
 </div>
-<div class="fig" data-cap="&lt;b&gt;Fig.&lt;/b&gt; matcher: exato Â· alternÃ¢ncia Â· tudo" data-fig="3">
+<div class="fig" data-cap="&lt;b&gt;Fig.&lt;/b&gt; matcher: exato êÂ· alternêÂ¢ncia êÂ· tudo" data-fig="3">
 <svg aria-hidden="true" fill="none" viewbox="0 0 220 200">
 <rect class="breathe" fill="none" height="30" rx="8" stroke="#7CE0C6" width="140" x="40" y="40"></rect><text fill="#7CE0C6" font-family="Space Mono" font-size="11" text-anchor="middle" x="110" y="60">"Bash"</text>
 <rect class="breathe" fill="none" height="30" rx="8" stroke="#7CE0C6" style="animation-delay:.3s" width="140" x="40" y="84"></rect><text fill="#7CE0C6" font-family="Space Mono" font-size="11" text-anchor="middle" x="110" y="104">"Edit|Write"</text>
 <rect class="breathe" fill="none" height="30" rx="8" stroke="#F2B45C" style="animation-delay:.6s" width="140" x="40" y="128"></rect><text fill="#F2B45C" font-family="Space Mono" font-size="11" text-anchor="middle" x="110" y="148">"*" (todo)</text>
 </svg>
 </div>
-<div class="fig" data-cap="&lt;b&gt;Fig.&lt;/b&gt; stdin JSON â†’ jq â†’ vocÃª sabe o que vem" data-fig="4">
+<div class="fig" data-cap="&lt;b&gt;Fig.&lt;/b&gt; stdin JSON ê¢â â jq ê¢â â vocêÂª sabe o que vem" data-fig="4">
 <svg aria-hidden="true" fill="none" viewbox="0 0 220 200">
 <rect fill="#15131d" height="120" rx="10" stroke="#37324a" width="80" x="24" y="40"></rect>
 <text fill="#948DA6" font-family="Space Mono" font-size="8" x="34" y="62">{ tool_name</text>
 <text fill="#7CE0C6" font-family="Space Mono" font-size="8" x="34" y="80">  tool_input</text>
-<text fill="#948DA6" font-family="Space Mono" font-size="8" x="34" y="98">  cwd â€¦ }</text>
+<text fill="#948DA6" font-family="Space Mono" font-size="8" x="34" y="98">  cwd ê¢â¬Â¦ }</text>
 <text fill="#6C6580" font-family="Space Mono" font-size="8" text-anchor="middle" x="64" y="150">stdin</text>
 <path class="breathe" d="M108 100 H140" stroke="#7CE0C6" stroke-width="2"></path><path d="M140 94 l10 6 -10 6z" fill="#7CE0C6"></path>
 <rect fill="#221f2e" height="36" rx="8" stroke="#37324a" width="46" x="152" y="82"></rect><text fill="#7CE0C6" font-family="Space Mono" font-size="11" text-anchor="middle" x="175" y="105">jq</text>
@@ -524,18 +524,18 @@ file=$(jq -r '.tool_input.file_path')</pre>
 </div>
 <p class="railcap"></p>
 <div class="steps-ind"></div>
-<p class="sidenote">Resalta cualquier fragmento del texto para convertirlo en una <b>tarjeta de memoria</b> de revisiÃ³n.</p>
+<p class="sidenote">Resalta cualquier fragmento del texto para convertirlo en una <b>tarjeta de memoria</b> de revisiêÂ³n.</p>
 </div></aside>
 </div>
-<nav class="lnav"><a href="#aula-1">â† LecciÃ³n 1</a><a href="#aula-3">LecciÃ³n 3 Â· Los eventos, uno por uno â†’</a></nav>
-<footer>LecciÃ³n 2 de 5 Â· Ruta 01 Â· Fundamentos Â· ARCKHÉ AI PRO</footer>
+<nav class="lnav"><a href="#aula-1">ê¢â Â LecciêÂ³n 1</a><a href="#aula-3">LecciêÂ³n 3 êÂ· Los eventos, uno por uno ê¢â â</a></nav>
+<footer>LecciêÂ³n 2 de 5 êÂ· Ruta 01 êÂ· Fundamentos êÂ· ARCKHê AI PRO</footer>
 <script id="cards-2" type="application/json">
 [
-  {"front":"Quais sÃ£o os trÃªs lugares onde um hook pode viver?","back":"Global (~/.claude/settings.json), projeto (.claude/settings.json) e local (.claude/settings.local.json)."},
-  {"front":"Em conflito de settings, qual vence?","back":"O mais especÃ­fico: local > projeto > global."},
-  {"front":"Qual matcher pega Edit OU Write?","back":"\"Edit|Write\" (alternÃ¢ncia com | )."},
-  {"front":"Como o hook recebe o contexto do que vai acontecer?","back":"Um JSON pela entrada padrÃ£o (stdin); lÃª-se com jq (ex.: .tool_input.command)."},
-  {"front":"Que variÃ¡vel aponta pra raiz do projeto?","back":"$CLAUDE_PROJECT_DIR."}
+  {"front":"Quais sêÂ£o os trêÂªs lugares onde um hook pode viver?","back":"Global (~/.claude/settings.json), projeto (.claude/settings.json) e local (.claude/settings.local.json)."},
+  {"front":"Em conflito de settings, qual vence?","back":"O mais especêÂ­fico: local > projeto > global."},
+  {"front":"Qual matcher pega Edit OU Write?","back":"\"Edit|Write\" (alternêÂ¢ncia com | )."},
+  {"front":"Como o hook recebe o contexto do que vai acontecer?","back":"Um JSON pela entrada padrêÂ£o (stdin); lêÂª-se com jq (ex.: .tool_input.command)."},
+  {"front":"Que variêÂ¡vel aponta pra raiz do projeto?","back":"$CLAUDE_PROJECT_DIR."}
 ]
 </script>
 </section>
@@ -543,17 +543,17 @@ file=$(jq -r '.tool_input.file_path')</pre>
 <section class="view" data-aula="3" id="v-aula-3">
 <header class="hero"><div class="hero-inner">
 <div>
-<p class="kicker">Ruta 01 Â· Clase 3 Â· Principiante</p>
+<p class="kicker">Ruta 01 êÂ· Clase 3 êÂ· Principiante</p>
 <h1>Los eventos,<br/>un <em>por un</em></h1>
-<p class="lead">Desde el inicio de la sesiÃ³n hasta el final de una tarea: los momentos en que un hook puede engancharse y cuÃ¡les de ellos realmente pueden bloquear algo.</p>
-<p class="cue"><span class="arw">â†“</span> desplÃ¡zate para estudiar</p>
+<p class="lead">Desde el inicio de la sesiêÂ³n hasta el final de una tarea: los momentos en que un hook puede engancharse y cuêÂ¡les de ellos realmente pueden bloquear algo.</p>
+<p class="cue"><span class="arw">ê¢â â</span> desplêÂ¡zate para estudiar</p>
 </div>
 <div class="herofig">
 <svg aria-hidden="true" fill="none" viewbox="0 0 300 240">
 <line stroke="#37324a" stroke-width="1.5" x1="20" x2="280" y1="120" y2="120"></line>
 <circle cx="30" cy="120" fill="#948DA6" r="5"></circle><text fill="#948DA6" font-family="Space Mono, monospace" font-size="9" text-anchor="middle" x="30" y="142">start</text>
 <circle class="breathe" cx="95" cy="120" fill="#7CE0C6" r="5"></circle><text fill="#7CE0C6" font-family="Space Mono, monospace" font-size="9" text-anchor="middle" x="95" y="104">prompt</text>
-<circle class="breathe" cx="160" cy="120" fill="#7CE0C6" r="5" style="animation-delay:.3s"></circle><text fill="#7CE0C6" font-family="Space Mono, monospace" font-size="9" text-anchor="middle" x="160" y="142">preÂ·toolÂ·post</text>
+<circle class="breathe" cx="160" cy="120" fill="#7CE0C6" r="5" style="animation-delay:.3s"></circle><text fill="#7CE0C6" font-family="Space Mono, monospace" font-size="9" text-anchor="middle" x="160" y="142">preêÂ·toolêÂ·post</text>
 <circle class="breathe" cx="230" cy="120" fill="#F2B45C" r="5" style="animation-delay:.6s"></circle><text fill="#F2B45C" font-family="Space Mono, monospace" font-size="9" text-anchor="middle" x="230" y="104">stop</text>
 <circle cx="270" cy="120" fill="#948DA6" r="5"></circle><text fill="#948DA6" font-family="Space Mono, monospace" font-size="9" text-anchor="middle" x="270" y="142">end</text>
 <text fill="#C7C2D0" font-family="Newsreader, serif" font-size="16" font-style="italic" text-anchor="middle" x="150" y="200">ventanas para enganchar, una por una</text>
@@ -563,91 +563,91 @@ file=$(jq -r '.tool_input.file_path')</pre>
 <div class="layout">
 <div class="col">
 <section class="step" data-fig="1">
-<h2><span class="n">01</span> El ciclo de una tarea (lÃ­nea de tiempo)</h2>
-<p>Una sesiÃ³n de Claude Code tiene un ciclo de vida, y cada vuelta abre una ventana para un hook. En orden: la sesiÃ³n <b>empieza</b>, tÃº <b>envÃ­a un mensaje</b>, Claude eventualmente <b>usa herramientas</b> (una por una, antes y despuÃ©s de cada una), <b>termina</b> de responder, y â€” tarde o temprano â€” la sesiÃ³n <b>termina</b>.</p>
-<p>Pensar en los hooks como puntos en una <b>lÃ­nea de tiempo</b> ayuda mÃ¡s que memorizar nombres sueltos: cada evento es solo Â«esto acaba de pasarÂ» â€” y el resto de la lecciÃ³n consiste en ver, uno por uno, quÃ© permite hacer cada punto.</p>
+<h2><span class="n">01</span> El ciclo de una tarea (lêÂ­nea de tiempo)</h2>
+<p>Una sesiêÂ³n de Claude Code tiene un ciclo de vida, y cada vuelta abre una ventana para un hook. En orden: la sesiêÂ³n <b>empieza</b>, têÂº <b>envêÂ­a un mensaje</b>, Claude eventualmente <b>usa herramientas</b> (una por una, antes y despuêÂ©s de cada una), <b>termina</b> de responder, y ê¢â¬â tarde o temprano ê¢â¬â la sesiêÂ³n <b>termina</b>.</p>
+<p>Pensar en los hooks como puntos en una <b>lêÂ­nea de tiempo</b> ayuda mêÂ¡s que memorizar nombres sueltos: cada evento es solo êÂ«esto acaba de pasarêÂ» ê¢â¬â y el resto de la lecciêÂ³n consiste en ver, uno por uno, quêÂ© permite hacer cada punto.</p>
 <div class="mobfig" data-mobfig="1"></div>
-<button class="readbtn" data-read="s1">marcar como leÃ­do</button>
+<button class="readbtn" data-read="s1">marcar como leêÂ­do</button>
 </section>
 <section class="step" data-fig="2">
-<h2><span class="n">02</span> Antes y despuÃ©s de la herramienta</h2>
-<p>Cada vez que Claude usa una herramienta â€” Bash, Edit, Write o cualquiera â€” dos eventos la rodean:</p>
+<h2><span class="n">02</span> Antes y despuêÂ©s de la herramienta</h2>
+<p>Cada vez que Claude usa una herramienta ê¢â¬â Bash, Edit, Write o cualquiera ê¢â¬â dos eventos la rodean:</p>
 <ul>
-<li><b class="gterm" data-def="Dispara antes de QUALQUER ferramenta executar. Pode bloquear saindo com exit 2. SÃ³ recebe tool_name e tool_input â€” a ferramenta ainda nÃ£o rodou." tabindex="0">PreToolUse</b> â€” activa <b>antes</b> de cualquier herramienta ejecutarse. Puede bloquear (exit 2); solo recibe <code>tool_name</code> e <code>tool_input</code>, porque la herramienta todavÃ­a no se ejecutÃ³.</li>
-<li><b class="gterm" data-def="Dispara depois que a ferramenta completa com sucesso. Um exit 2 aqui nÃ£o bloqueia mais nada â€” a ferramenta jÃ¡ rodou. Pode ajustar a saÃ­da (ex.: formatar)." tabindex="0">PostToolUse</b> â€” activa <b>despuÃ©s</b> que la herramienta terminÃ³ correctamente. TambiÃ©n recibe el <code>tool_response</code> (el resultado). Un exit 2 aquÃ­ <b>no bloquea</b> â€” la herramienta ya se ejecutÃ³.</li>
+<li><b class="gterm" data-def="Dispara antes de QUALQUER ferramenta executar. Pode bloquear saindo com exit 2. SêÂ³ recebe tool_name e tool_input ê¢â¬â a ferramenta ainda nêÂ£o rodou." tabindex="0">PreToolUse</b> ê¢â¬â activa <b>antes</b> de cualquier herramienta ejecutarse. Puede bloquear (exit 2); solo recibe <code>tool_name</code> e <code>tool_input</code>, porque la herramienta todavêÂ­a no se ejecutêÂ³.</li>
+<li><b class="gterm" data-def="Dispara depois que a ferramenta completa com sucesso. Um exit 2 aqui nêÂ£o bloqueia mais nada ê¢â¬â a ferramenta jêÂ¡ rodou. Pode ajustar a saêÂ­da (ex.: formatar)." tabindex="0">PostToolUse</b> ê¢â¬â activa <b>despuêÂ©s</b> que la herramienta terminêÂ³ correctamente. TambiêÂ©n recibe el <code>tool_response</code> (el resultado). Un exit 2 aquêÂ­ <b>no bloquea</b> ê¢â¬â la herramienta ya se ejecutêÂ³.</li>
 </ul>
-<p>Es la misma herramienta, pero en dos momentos con poderes diferentes: Pre decide <i>si</i> se ejecuta; Post reacciona a <i>lo que</i> se ejecutÃ³.</p>
+<p>Es la misma herramienta, pero en dos momentos con poderes diferentes: Pre decide <i>si</i> se ejecuta; Post reacciona a <i>lo que</i> se ejecutêÂ³.</p>
 <div class="mobfig" data-mobfig="2"></div>
 <div class="quiz" data-answer="a">
-<p class="qk">PruÃ©bate</p>
-<p class="q">Â¿Por quÃ© solo PreToolUse puede impedir que se ejecute una herramienta?</p>
-<button class="opt" data-fb="Exatamente: o Post jÃ¡ roda depois que a ferramenta terminou. Nesse ponto nÃ£o tem mais como impedir â€” sÃ³ reagir ao resultado." data-k="a">porque se ejecuta antes; PostToolUse solo se ejecuta despuÃ©s de que la herramienta ya terminÃ³</button>
+<p class="qk">PruêÂ©bate</p>
+<p class="q">êÂ¿Por quêÂ© solo PreToolUse puede impedir que se ejecute una herramienta?</p>
+<button class="opt" data-fb="Exatamente: o Post jêÂ¡ roda depois que a ferramenta terminou. Nesse ponto nêÂ£o tem mais como impedir ê¢â¬â sêÂ³ reagir ao resultado." data-k="a">porque se ejecuta antes; PostToolUse solo se ejecuta despuêÂ©s de que la herramienta ya terminêÂ³</button>
 <button class="opt" data-k="b">porque Post no existe realmente</button>
 <button class="opt" data-k="c">ambos pueden hacer lo mismo, solo cambia el nombre</button>
 <p class="qfb"></p>
 </div>
-<button class="readbtn" data-read="s2">marcar como leÃ­do</button>
+<button class="readbtn" data-read="s2">marcar como leêÂ­do</button>
 </section>
 <section class="step" data-fig="3">
-<h2><span class="n">03</span> TÃº hablas, Claude se detiene</h2>
-<p>No todos los eventos tienen que ver con herramientas. Algunos marcan el ir y venir de la conversaciÃ³n:</p>
+<h2><span class="n">03</span> TêÂº hablas, Claude se detiene</h2>
+<p>No todos los eventos tienen que ver con herramientas. Algunos marcan el ir y venir de la conversaciêÂ³n:</p>
 <ul>
-<li><b class="gterm" data-def="Dispara quando vocÃª envia uma mensagem, antes de o Claude processÃ¡-la. Bom pra injetar contexto extra ou registrar o que foi pedido." tabindex="0">UserPromptSubmit</b> â€” se activa cuando <i>tÃº</i> envÃ­a un mensaje.</li>
-<li><b class="gterm" data-def="Dispara quando o Claude termina um turno. Ã‰ um dos dois Ãºnicos eventos que bloqueiam de verdade (exit 2) â€” Ãºtil pra obrigar uma checagem antes de encerrar." tabindex="0">Stop</b> â€” se activa cuando Claude <b>termina un turno</b>. TambiÃ©n puedes bloquear con exit 2 â€” no para bloquear una herramienta, sino para obligar a Claude a continuar (p. ej., Â«todavÃ­a falta actualizar el PLAN.mdÂ»).</li>
-<li><b class="gterm" data-def="VersÃ£o do Stop para quando Ã© um subagente (nÃ£o a conversa principal) que termina seu turno. NÃ£o bloqueia." tabindex="0">SubagentStop</b> â€” igual que Stop, pero se detiene cuando es un <b>subagente</b> que termina. No bloquea.</li>
+<li><b class="gterm" data-def="Dispara quando vocêÂª envia uma mensagem, antes de o Claude processêÂ¡-la. Bom pra injetar contexto extra ou registrar o que foi pedido." tabindex="0">UserPromptSubmit</b> ê¢â¬â se activa cuando <i>têÂº</i> envêÂ­a un mensaje.</li>
+<li><b class="gterm" data-def="Dispara quando o Claude termina um turno. êâ° um dos dois êÂºnicos eventos que bloqueiam de verdade (exit 2) ê¢â¬â êÂºtil pra obrigar uma checagem antes de encerrar." tabindex="0">Stop</b> ê¢â¬â se activa cuando Claude <b>termina un turno</b>. TambiêÂ©n puedes bloquear con exit 2 ê¢â¬â no para bloquear una herramienta, sino para obligar a Claude a continuar (p. ej., êÂ«todavêÂ­a falta actualizar el PLAN.mdêÂ»).</li>
+<li><b class="gterm" data-def="VersêÂ£o do Stop para quando êÂ© um subagente (nêÂ£o a conversa principal) que termina seu turno. NêÂ£o bloqueia." tabindex="0">SubagentStop</b> ê¢â¬â igual que Stop, pero se detiene cuando es un <b>subagente</b> que termina. No bloquea.</li>
 </ul>
-<p>Observa la asimetrÃ­a: <code>Stop</code> es una de las dos puertas que realmente bloquean (la otra es <code>PreToolUse</code>); <code>UserPromptSubmit</code> e <code>SubagentStop</code> no bloquean: observan o inyectan contexto.</p>
+<p>Observa la asimetrêÂ­a: <code>Stop</code> es una de las dos puertas que realmente bloquean (la otra es <code>PreToolUse</code>); <code>UserPromptSubmit</code> e <code>SubagentStop</code> no bloquean: observan o inyectan contexto.</p>
 <div class="mobfig" data-mobfig="3"></div>
 <div class="quiz" data-answer="b">
-<p class="qk">PruÃ©bate</p>
-<p class="q">Â¿QuÃ© evento se activa cuando TÃš envÃ­as un mensaje, antes de que Claude lo procese?</p>
+<p class="qk">PruêÂ©bate</p>
+<p class="q">êÂ¿QuêÂ© evento se activa cuando TêÅ¡ envêÂ­as un mensaje, antes de que Claude lo procese?</p>
 <button class="opt" data-k="a">Stop</button>
-<button class="opt" data-fb="UserPromptSubmit Ã© o gancho no envio da sua mensagem. Stop Ã© quando o Claude termina de responder â€” o oposto." data-k="b">UserPromptSubmit</button>
+<button class="opt" data-fb="UserPromptSubmit êÂ© o gancho no envio da sua mensagem. Stop êÂ© quando o Claude termina de responder ê¢â¬â o oposto." data-k="b">UserPromptSubmit</button>
 <button class="opt" data-k="c">SubagentStop</button>
 <p class="qfb"></p>
 </div>
-<button class="readbtn" data-read="s3">marcar como leÃ­do</button>
+<button class="readbtn" data-read="s3">marcar como leêÂ­do</button>
 </section>
 <section class="step" data-fig="4">
-<h2><span class="n">04</span> SesiÃ³n y mantenimiento</h2>
-<p>Los Ãºltimos cuatro se encargan del entorno de la sesiÃ³n, no de una herramienta o mensaje especÃ­fico:</p>
+<h2><span class="n">04</span> SesiêÂ³n y mantenimiento</h2>
+<p>Los êÂºltimos cuatro se encargan del entorno de la sesiêÂ³n, no de una herramienta o mensaje especêÂ­fico:</p>
 <ul>
-<li><b class="gterm" data-def="Dispara quando a sessÃ£o comeÃ§a. Sem matcher. O que ele imprime pode virar contexto injetado pro Claude â€” Ã³timo pra estado do projeto." tabindex="0">SessionStart</b> â€” cuando la sesiÃ³n <b>empieza</b>. Sin matcher; ideal para inyectar contexto (rama, commits, reglas).</li>
-<li><b class="gterm" data-def="Dispara quando a sessÃ£o termina normalmente. Sem matcher, nÃ£o bloqueia, nÃ£o modifica nada â€” serve pra limpeza, mÃ©tricas, arquivamento." tabindex="0">SessionEnd</b> â€” cuando la sesiÃ³n <b>termina</b> normalmente. No bloquea ni modifica nada; sirve para limpiar, medir, archivar algo.</li>
-<li><b class="gterm" data-def="Dispara antes de o histÃ³rico da conversa ser compactado (resumido). Ã‰ o evento menos documentado oficialmente â€” trate com cautela, sem depender de detalhes finos do seu comportamento." tabindex="0">PreCompact</b> â€” antes de que el historial de la conversaciÃ³n sea <b>compactado</b> (resumido para que quepa en el contexto). Es el evento menos documentado; puedes usarlo para guardar algo antes de la compactaciÃ³n, pero no cuentes con detalles precisos.</li>
-<li><b class="gterm" data-def="Dispara quando o Claude precisa da sua atenÃ§Ã£o: ficou 60s+ parado, pede permissÃ£o, ou um MCP pede uma escolha. Tem matcher (permission_prompt, idle_prompt, auth_success, elicitation_dialog) e pode customizar a mensagem mostrada." tabindex="0">Notification</b> â€” cuando Claude <b>te necesita</b> (se quedÃ³ detenido, pide permiso, un MCP pregunta algo). El Ãºnico de este grupo con <b>matcher</b> (<code>permission_prompt</code>, <code>idle_prompt</code>, <code>auth_success</code>, <code>elicitation_dialog</code>) â€” e incluso puedes personalizar el mensaje que se muestra.</li>
+<li><b class="gterm" data-def="Dispara quando a sessêÂ£o comeêÂ§a. Sem matcher. O que ele imprime pode virar contexto injetado pro Claude ê¢â¬â êÂ³timo pra estado do projeto." tabindex="0">SessionStart</b> ê¢â¬â cuando la sesiêÂ³n <b>empieza</b>. Sin matcher; ideal para inyectar contexto (rama, commits, reglas).</li>
+<li><b class="gterm" data-def="Dispara quando a sessêÂ£o termina normalmente. Sem matcher, nêÂ£o bloqueia, nêÂ£o modifica nada ê¢â¬â serve pra limpeza, mêÂ©tricas, arquivamento." tabindex="0">SessionEnd</b> ê¢â¬â cuando la sesiêÂ³n <b>termina</b> normalmente. No bloquea ni modifica nada; sirve para limpiar, medir, archivar algo.</li>
+<li><b class="gterm" data-def="Dispara antes de o histêÂ³rico da conversa ser compactado (resumido). êâ° o evento menos documentado oficialmente ê¢â¬â trate com cautela, sem depender de detalhes finos do seu comportamento." tabindex="0">PreCompact</b> ê¢â¬â antes de que el historial de la conversaciêÂ³n sea <b>compactado</b> (resumido para que quepa en el contexto). Es el evento menos documentado; puedes usarlo para guardar algo antes de la compactaciêÂ³n, pero no cuentes con detalles precisos.</li>
+<li><b class="gterm" data-def="Dispara quando o Claude precisa da sua atenêÂ§êÂ£o: ficou 60s+ parado, pede permissêÂ£o, ou um MCP pede uma escolha. Tem matcher (permission_prompt, idle_prompt, auth_success, elicitation_dialog) e pode customizar a mensagem mostrada." tabindex="0">Notification</b> ê¢â¬â cuando Claude <b>te necesita</b> (se quedêÂ³ detenido, pide permiso, un MCP pregunta algo). El êÂºnico de este grupo con <b>matcher</b> (<code>permission_prompt</code>, <code>idle_prompt</code>, <code>auth_success</code>, <code>elicitation_dialog</code>) ê¢â¬â e incluso puedes personalizar el mensaje que se muestra.</li>
 </ul>
 <div class="mobfig" data-mobfig="4"></div>
 <details>
 <summary>Profundiza</summary>
-<p><code>SubagentStop</code> e <code>PreCompact</code> son los dos eventos con documentaciÃ³n oficial mÃ¡s incompleta; funcionan, pero espera menos previsibilidad detallada que en <code>PreToolUse</code> o <code>Stop</code>. PruÃ©balos siempre antes de confiarles algo crÃ­tico.</p>
+<p><code>SubagentStop</code> e <code>PreCompact</code> son los dos eventos con documentaciêÂ³n oficial mêÂ¡s incompleta; funcionan, pero espera menos previsibilidad detallada que en <code>PreToolUse</code> o <code>Stop</code>. PruêÂ©balos siempre antes de confiarles algo crêÂ­tico.</p>
 </details>
-<button class="readbtn" data-read="s4">marcar como leÃ­do</button>
+<button class="readbtn" data-read="s4">marcar como leêÂ­do</button>
 </section>
 <section class="step" data-fig="5">
-<h2><span class="n">05</span> QuiÃ©n puede bloquear</h2>
-<p>Con ocho nombres en mente, es fÃ¡cil pensar que cualquiera de ellos bloquea algo que sale con <code>exit 2</code>. No es asÃ­:</p>
+<h2><span class="n">05</span> QuiêÂ©n puede bloquear</h2>
+<p>Con ocho nombres en mente, es fêÂ¡cil pensar que cualquiera de ellos bloquea algo que sale con <code>exit 2</code>. No es asêÂ­:</p>
 <ul>
-<li><b>PreToolUse</b> â€” exit 2 <b>bloquea la herramienta</b> antes de que se ejecute.</li>
-<li><b>Stop</b> â€” exit 2 <b>bloquea el final del turno</b> (obliga a Claude a continuar).</li>
-<li><b>Todos los demÃ¡s</b> â€” PostToolUse, Notification, SessionStart, SessionEnd, SubagentStop, PreCompact, UserPromptSubmit â€” un exit diferente de 0 solo es <b>error no bloqueante</b>: la acciÃ³n continÃºa normalmente (fail-open). En PostToolUse en especial, ni tendrÃ­a sentido bloquear: la herramienta <b>ya se ejecutÃ³</b>.</li>
+<li><b>PreToolUse</b> ê¢â¬â exit 2 <b>bloquea la herramienta</b> antes de que se ejecute.</li>
+<li><b>Stop</b> ê¢â¬â exit 2 <b>bloquea el final del turno</b> (obliga a Claude a continuar).</li>
+<li><b>Todos los demêÂ¡s</b> ê¢â¬â PostToolUse, Notification, SessionStart, SessionEnd, SubagentStop, PreCompact, UserPromptSubmit ê¢â¬â un exit diferente de 0 solo es <b>error no bloqueante</b>: la acciêÂ³n continêÂºa normalmente (fail-open). En PostToolUse en especial, ni tendrêÂ­a sentido bloquear: la herramienta <b>ya se ejecutêÂ³</b>.</li>
 </ul>
-<p>Guarda esta regla: <b>solo Pre y Stop bloquean de verdad</b>. Esto evita la trampa de escribir un bloqueo en un evento que nunca impedirÃ¡ nada.</p>
+<p>Guarda esta regla: <b>solo Pre y Stop bloquean de verdad</b>. Esto evita la trampa de escribir un bloqueo en un evento que nunca impedirêÂ¡ nada.</p>
 <div class="mobfig" data-mobfig="5"></div>
 <div class="quiz" data-answer="c">
-<p class="qk">PruÃ©bate</p>
-<p class="q">Un hook <code>PostToolUse</code> sale con <code>exit 2</code>. Â¿QuÃ© ocurre?</p>
+<p class="qk">PruêÂ©bate</p>
+<p class="q">Un hook <code>PostToolUse</code> sale con <code>exit 2</code>. êÂ¿QuêÂ© ocurre?</p>
 <button class="opt" data-k="a">se deshace la herramienta</button>
-<button class="opt" data-k="b">se cierra toda la sesiÃ³n</button>
-<button class="opt" data-fb="SÃ³ PreToolUse e Stop bloqueiam com exit 2. No PostToolUse a ferramenta jÃ¡ rodou â€” exit 2 vira sÃ³ um erro nÃ£o-bloqueante." data-k="c">no se bloquea nada: la herramienta ya se ejecutÃ³; se trata como un error no bloqueante</button>
+<button class="opt" data-k="b">se cierra toda la sesiêÂ³n</button>
+<button class="opt" data-fb="SêÂ³ PreToolUse e Stop bloqueiam com exit 2. No PostToolUse a ferramenta jêÂ¡ rodou ê¢â¬â exit 2 vira sêÂ³ um erro nêÂ£o-bloqueante." data-k="c">no se bloquea nada: la herramienta ya se ejecutêÂ³; se trata como un error no bloqueante</button>
 <p class="qfb"></p>
 </div>
-<button class="readbtn" data-read="s5">marcar como leÃ­do</button>
+<button class="readbtn" data-read="s5">marcar como leêÂ­do</button>
 </section>
 <section class="practice" data-practice="p3">
 <p class="pk">Practica ahora <span class="pcount">0/4 hecho</span></p>
 <h3 class="ph">Un SessionStart que avisa la fecha y el branch</h3>
-<p class="pgoal">Haz que la sesiÃ³n imprima dÃ³nde y cuÃ¡ndo comenzÃ³: lo primero que se ejecuta, antes de cualquier herramienta. ~5 min, seguro (solo observa).</p>
+<p class="pgoal">Haz que la sesiêÂ³n imprima dêÂ³nde y cuêÂ¡ndo comenzêÂ³: lo primero que se ejecuta, antes de cualquier herramienta. ~5 min, seguro (solo observa).</p>
 <div class="pcodewrap"><button class="pcopy" type="button">copiar</button><pre class="pcode">{
   <span class="k">"hooks"</span>: {
     <span class="k">"SessionStart"</span>: [
@@ -661,26 +661,26 @@ file=$(jq -r '.tool_input.file_path')</pre>
 }</pre></div>
 <ol class="psteps">
 <li><label><input data-ptask="1" type="checkbox"/> Pega el bloque en el <code>.claude/settings.json</code> y guarda.</label></li>
-<li><label><input data-ptask="2" type="checkbox"/> Abre una sesiÃ³n nueva de Claude Code en este proyecto (o ejecuta <code>claude</code> de nuevo).</label></li>
-<li><label><input data-ptask="3" type="checkbox"/> Ejecuta <code>cat .claude/session.log</code> â€” Â¿aparecieron la fecha y la rama?</label></li>
-<li><label><input data-ptask="4" type="checkbox"/> Cambia de branch y abre otra sesiÃ³n â€” el registro crece con el nuevo branch.</label></li>
+<li><label><input data-ptask="2" type="checkbox"/> Abre una sesiêÂ³n nueva de Claude Code en este proyecto (o ejecuta <code>claude</code> de nuevo).</label></li>
+<li><label><input data-ptask="3" type="checkbox"/> Ejecuta <code>cat .claude/session.log</code> ê¢â¬â êÂ¿aparecieron la fecha y la rama?</label></li>
+<li><label><input data-ptask="4" type="checkbox"/> Cambia de branch y abre otra sesiêÂ³n ê¢â¬â el registro crece con el nuevo branch.</label></li>
 </ol>
-<p class="pdone">âœ“ SessionStart es la primera ventana del ciclo â€” sin matcher y sin depender de ninguna herramienta. Es el lugar indicado para cualquier contexto que Claude deberÃ­a conocer desde el primer segundo.</p>
+<p class="pdone">ê¢Åâ SessionStart es la primera ventana del ciclo ê¢â¬â sin matcher y sin depender de ninguna herramienta. Es el lugar indicado para cualquier contexto que Claude deberêÂ­a conocer desde el primer segundo.</p>
 </section>
 </div>
 <aside class="rail"><div class="railsticky">
 <div class="figstage">
-<div class="fig on" data-cap="&lt;b&gt;Fig.&lt;/b&gt; start â†’ prompt â†’ preÂ·toolÂ·post â†’ stop â†’ end" data-fig="1">
+<div class="fig on" data-cap="&lt;b&gt;Fig.&lt;/b&gt; start ê¢â â prompt ê¢â â preêÂ·toolêÂ·post ê¢â â stop ê¢â â end" data-fig="1">
 <svg aria-hidden="true" fill="none" viewbox="0 0 220 200">
 <line stroke="#37324a" stroke-width="1.5" x1="18" x2="202" y1="100" y2="100"></line>
 <circle cx="26" cy="100" fill="#948DA6" r="4"></circle><text fill="#948DA6" font-family="Space Mono" font-size="8" text-anchor="middle" x="26" y="122">start</text>
 <circle class="breathe" cx="72" cy="100" fill="#7CE0C6" r="4"></circle><text fill="#7CE0C6" font-family="Space Mono" font-size="8" text-anchor="middle" x="72" y="84">prompt</text>
-<circle class="breathe" cx="120" cy="100" fill="#7CE0C6" r="4" style="animation-delay:.3s"></circle><text fill="#7CE0C6" font-family="Space Mono" font-size="7" text-anchor="middle" x="120" y="122">preÂ·toolÂ·post</text>
+<circle class="breathe" cx="120" cy="100" fill="#7CE0C6" r="4" style="animation-delay:.3s"></circle><text fill="#7CE0C6" font-family="Space Mono" font-size="7" text-anchor="middle" x="120" y="122">preêÂ·toolêÂ·post</text>
 <circle class="breathe" cx="168" cy="100" fill="#F2B45C" r="4" style="animation-delay:.6s"></circle><text fill="#F2B45C" font-family="Space Mono" font-size="8" text-anchor="middle" x="168" y="84">stop</text>
 <circle cx="196" cy="100" fill="#948DA6" r="4"></circle><text fill="#948DA6" font-family="Space Mono" font-size="8" text-anchor="middle" x="196" y="122">end</text>
 </svg>
 </div>
-<div class="fig" data-cap="&lt;b&gt;Fig.&lt;/b&gt; Pre decide se roda Â· Post reage ao que rodou" data-fig="2">
+<div class="fig" data-cap="&lt;b&gt;Fig.&lt;/b&gt; Pre decide se roda êÂ· Post reage ao que rodou" data-fig="2">
 <svg aria-hidden="true" fill="none" viewbox="0 0 220 200">
 <circle class="breathe" cx="50" cy="100" fill="none" r="20" stroke="#7CE0C6"></circle><text fill="#7CE0C6" font-family="Space Mono" font-size="9" text-anchor="middle" x="50" y="104">Pre</text>
 <rect fill="#221f2e" height="36" rx="8" stroke="#37324a" width="48" x="86" y="82"></rect><text fill="#C7C2D0" font-family="Space Mono" font-size="9" text-anchor="middle" x="110" y="105">herramienta</text>
@@ -688,14 +688,14 @@ file=$(jq -r '.tool_input.file_path')</pre>
 <path d="M70 100 H86 M134 100 H150" stroke="#37324a" stroke-width="2"></path>
 </svg>
 </div>
-<div class="fig" data-cap="&lt;b&gt;Fig.&lt;/b&gt; UserPromptSubmit fala Â· Stop/SubagentStop param" data-fig="3">
+<div class="fig" data-cap="&lt;b&gt;Fig.&lt;/b&gt; UserPromptSubmit fala êÂ· Stop/SubagentStop param" data-fig="3">
 <svg aria-hidden="true" fill="none" viewbox="0 0 220 200">
 <rect class="breathe" fill="none" height="30" rx="8" stroke="#7CE0C6" width="160" x="30" y="40"></rect><text fill="#7CE0C6" font-family="Space Mono" font-size="10" text-anchor="middle" x="110" y="60">UserPromptSubmit</text>
 <rect class="breathe" fill="none" height="30" rx="8" stroke="#F2B45C" style="animation-delay:.3s" width="160" x="30" y="84"></rect><text fill="#F2B45C" font-family="Space Mono" font-size="10" text-anchor="middle" x="110" y="104">Stop</text>
 <rect class="breathe" fill="none" height="30" rx="8" stroke="#948DA6" style="animation-delay:.6s" width="160" x="30" y="128"></rect><text fill="#948DA6" font-family="Space Mono" font-size="10" text-anchor="middle" x="110" y="148">SubagentStop</text>
 </svg>
 </div>
-<div class="fig" data-cap="&lt;b&gt;Fig.&lt;/b&gt; SessionStart Â· SessionEnd Â· PreCompact Â· Notification" data-fig="4">
+<div class="fig" data-cap="&lt;b&gt;Fig.&lt;/b&gt; SessionStart êÂ· SessionEnd êÂ· PreCompact êÂ· Notification" data-fig="4">
 <svg aria-hidden="true" fill="none" viewbox="0 0 220 200">
 <rect class="breathe" fill="none" height="30" rx="7" stroke="#7CE0C6" width="86" x="20" y="24"></rect><text fill="#7CE0C6" font-family="Space Mono" font-size="8" text-anchor="middle" x="63" y="44">SessionStart</text>
 <rect class="breathe" fill="none" height="30" rx="7" stroke="#948DA6" style="animation-delay:.2s" width="86" x="114" y="24"></rect><text fill="#948DA6" font-family="Space Mono" font-size="8" text-anchor="middle" x="157" y="44">SessionEnd</text>
@@ -703,7 +703,7 @@ file=$(jq -r '.tool_input.file_path')</pre>
 <rect class="breathe" fill="none" height="30" rx="7" stroke="#F2B45C" style="animation-delay:.6s" width="86" x="114" y="66"></rect><text fill="#F2B45C" font-family="Space Mono" font-size="8" text-anchor="middle" x="157" y="86">Notification</text>
 </svg>
 </div>
-<div class="fig" data-cap="&lt;b&gt;Fig.&lt;/b&gt; sÃ³ Pre e Stop travam de verdade" data-fig="5">
+<div class="fig" data-cap="&lt;b&gt;Fig.&lt;/b&gt; sêÂ³ Pre e Stop travam de verdade" data-fig="5">
 <svg aria-hidden="true" fill="none" viewbox="0 0 220 200">
 <rect class="breathe" fill="none" height="30" rx="7" stroke="#F2B45C" width="70" x="30" y="30"></rect><text fill="#F2B45C" font-family="Space Mono" font-size="9" text-anchor="middle" x="65" y="50">Pre</text>
 <rect class="breathe" fill="none" height="30" rx="7" stroke="#F2B45C" style="animation-delay:.3s" width="70" x="120" y="30"></rect><text fill="#F2B45C" font-family="Space Mono" font-size="9" text-anchor="middle" x="155" y="50">Stop</text>
@@ -715,19 +715,19 @@ file=$(jq -r '.tool_input.file_path')</pre>
 </div>
 <p class="railcap"></p>
 <div class="steps-ind"></div>
-<p class="sidenote">Resalta cualquier fragmento del texto para convertirlo en una <b>tarjeta de memoria</b> de revisiÃ³n.</p>
+<p class="sidenote">Resalta cualquier fragmento del texto para convertirlo en una <b>tarjeta de memoria</b> de revisiêÂ³n.</p>
 </div></aside>
 </div>
-<nav class="lnav"><a href="#aula-2">â† LecciÃ³n 2</a><a href="#aula-4">LecciÃ³n 4 Â· QuÃ© recibe el hook â†’</a></nav>
-<footer>LecciÃ³n 3 de 5 Â· Ruta 01 Â· Fundamentos Â· ARCKHÉ AI PRO</footer>
+<nav class="lnav"><a href="#aula-2">ê¢â Â LecciêÂ³n 2</a><a href="#aula-4">LecciêÂ³n 4 êÂ· QuêÂ© recibe el hook ê¢â â</a></nav>
+<footer>LecciêÂ³n 3 de 5 êÂ· Ruta 01 êÂ· Fundamentos êÂ· ARCKHê AI PRO</footer>
 <script id="cards-3" type="application/json">
 [
-  {"front":"Qual evento dispara ANTES de qualquer ferramenta executar?","back":"PreToolUse â€” e Ã© um dos dois Ãºnicos que bloqueiam de verdade (exit 2)."},
-  {"front":"Qual evento dispara quando VOCÃŠ envia uma mensagem?","back":"UserPromptSubmit, antes de o Claude processÃ¡-la."},
-  {"front":"Quais os dois Ãºnicos eventos que bloqueiam com exit 2?","back":"PreToolUse (barra a ferramenta) e Stop (barra o fim do turno)."},
-  {"front":"O que acontece se PostToolUse sai com exit 2?","back":"Nada Ã© bloqueado â€” a ferramenta jÃ¡ rodou; Ã© tratado como erro nÃ£o-bloqueante (fail-open)."},
-  {"front":"Qual Ã© o Ãºnico evento de 'sessÃ£o e manutenÃ§Ã£o' que tem matcher?","back":"Notification (permission_prompt, idle_prompt, auth_success, elicitation_dialog)."},
-  {"front":"Quais dois eventos tÃªm a documentaÃ§Ã£o oficial mais incompleta?","back":"SubagentStop e PreCompact."}
+  {"front":"Qual evento dispara ANTES de qualquer ferramenta executar?","back":"PreToolUse ê¢â¬â e êÂ© um dos dois êÂºnicos que bloqueiam de verdade (exit 2)."},
+  {"front":"Qual evento dispara quando VOCêÅ  envia uma mensagem?","back":"UserPromptSubmit, antes de o Claude processêÂ¡-la."},
+  {"front":"Quais os dois êÂºnicos eventos que bloqueiam com exit 2?","back":"PreToolUse (barra a ferramenta) e Stop (barra o fim do turno)."},
+  {"front":"O que acontece se PostToolUse sai com exit 2?","back":"Nada êÂ© bloqueado ê¢â¬â a ferramenta jêÂ¡ rodou; êÂ© tratado como erro nêÂ£o-bloqueante (fail-open)."},
+  {"front":"Qual êÂ© o êÂºnico evento de 'sessêÂ£o e manutenêÂ§êÂ£o' que tem matcher?","back":"Notification (permission_prompt, idle_prompt, auth_success, elicitation_dialog)."},
+  {"front":"Quais dois eventos têÂªm a documentaêÂ§êÂ£o oficial mais incompleta?","back":"SubagentStop e PreCompact."}
 ]
 </script>
 </section>
@@ -735,10 +735,10 @@ file=$(jq -r '.tool_input.file_path')</pre>
 <section class="view" data-aula="4" id="v-aula-4">
 <header class="hero"><div class="hero-inner">
 <div>
-<p class="kicker">Ruta 01 Â· Clase 4 Â· Principiante</p>
-<h1>QuÃ© hace el<br/>hook <em>recibe</em></h1>
-<p class="lead">Todo hook empieza igual: un JSON entra por la entrada estÃ¡ndar. Aprende a leer ese payload â€” los campos que siempre estÃ¡n y los que cambian segÃºn el evento.</p>
-<p class="cue"><span class="arw">â†“</span> desplÃ¡zate para estudiar</p>
+<p class="kicker">Ruta 01 êÂ· Clase 4 êÂ· Principiante</p>
+<h1>QuêÂ© hace el<br/>hook <em>recibe</em></h1>
+<p class="lead">Todo hook empieza igual: un JSON entra por la entrada estêÂ¡ndar. Aprende a leer ese payload ê¢â¬â los campos que siempre estêÂ¡n y los que cambian segêÂºn el evento.</p>
+<p class="cue"><span class="arw">ê¢â â</span> desplêÂ¡zate para estudiar</p>
 </div>
 <div class="herofig">
 <svg aria-hidden="true" fill="none" viewbox="0 0 300 240">
@@ -746,7 +746,7 @@ file=$(jq -r '.tool_input.file_path')</pre>
 <text fill="#948DA6" font-family="Space Mono, monospace" font-size="10" x="44" y="74">{ session_id</text>
 <text fill="#7CE0C6" font-family="Space Mono, monospace" font-size="10" x="44" y="92">  tool_name</text>
 <text fill="#7CE0C6" font-family="Space Mono, monospace" font-size="10" x="44" y="110">  tool_input</text>
-<text fill="#948DA6" font-family="Space Mono, monospace" font-size="10" x="44" y="128">  cwd â€¦ }</text>
+<text fill="#948DA6" font-family="Space Mono, monospace" font-size="10" x="44" y="128">  cwd ê¢â¬Â¦ }</text>
 <text fill="#6C6580" font-family="Space Mono, monospace" font-size="9" text-anchor="middle" x="100" y="146">stdin</text>
 <path class="pulse" d="M172 105 H212" stroke="#7CE0C6" stroke-width="2"></path><path d="M212 99 l10 6 -10 6z" fill="#7CE0C6"></path>
 <rect fill="#221f2e" height="38" rx="10" stroke="#37324a" stroke-width="1.5" width="52" x="224" y="86"></rect><text fill="#7CE0C6" font-family="Space Mono, monospace" font-size="13" text-anchor="middle" x="250" y="110">jq</text>
@@ -758,72 +758,72 @@ file=$(jq -r '.tool_input.file_path')</pre>
 <div class="col">
 <section class="step" data-fig="1">
 <h2><span class="n">01</span> Todo llega por stdin (JSON)</h2>
-<p>No importa el evento: cuando se activa un hook, Claude Code crea un objeto <b>JSON</b> con el contexto de ese momento y entrega mediante la <b class="gterm" data-def="Entrada padrÃ£o: o canal por onde o Claude Code entrega o JSON de contexto ao seu comando. VocÃª lÃª com cat, jq, ou json.load(sys.stdin) em Python." tabindex="0">entrada estÃ¡ndar</b> (stdin) de tu comando. Tu script lee este texto â€” con <code>cat</code>, <code>jq</code>, un <code>json.load(sys.stdin)</code> en Python â€” y decide quÃ© hacer.</p>
-<p>Una consecuencia prÃ¡ctica: los hooks <b>no pueden ser interactivos</b>. Reciben todo de una vez, al principio, y responden de una vez, al final (mediante un cÃ³digo de salida o un JSON impreso). No puedes Â«preguntarlesÂ» nada a mitad del proceso.</p>
+<p>No importa el evento: cuando se activa un hook, Claude Code crea un objeto <b>JSON</b> con el contexto de ese momento y entrega mediante la <b class="gterm" data-def="Entrada padrêÂ£o: o canal por onde o Claude Code entrega o JSON de contexto ao seu comando. VocêÂª lêÂª com cat, jq, ou json.load(sys.stdin) em Python." tabindex="0">entrada estêÂ¡ndar</b> (stdin) de tu comando. Tu script lee este texto ê¢â¬â con <code>cat</code>, <code>jq</code>, un <code>json.load(sys.stdin)</code> en Python ê¢â¬â y decide quêÂ© hacer.</p>
+<p>Una consecuencia prêÂ¡ctica: los hooks <b>no pueden ser interactivos</b>. Reciben todo de una vez, al principio, y responden de una vez, al final (mediante un cêÂ³digo de salida o un JSON impreso). No puedes êÂ«preguntarlesêÂ» nada a mitad del proceso.</p>
 <div class="mobfig" data-mobfig="1"></div>
-<button class="readbtn" data-read="s1">marcar como leÃ­do</button>
+<button class="readbtn" data-read="s1">marcar como leêÂ­do</button>
 </section>
 <section class="step" data-fig="2">
 <h2><span class="n">02</span> Los campos comunes</h2>
 <p>Cuatro campos aparecen en <b>todo</b> hook, sin importar el evento:</p>
 <ul>
-<li><b class="gterm" data-def="Identifica a sessÃ£o atual do Claude Code. Ãštil pra correlacionar logs de vÃ¡rios hooks na mesma conversa." tabindex="0">session_id</b> â€” identifica la sesiÃ³n actual.</li>
-<li><code>cwd</code> â€” el directorio de trabajo en ese momento.</li>
-<li><b class="gterm" data-def="Caminho do arquivo de transcript da conversa. DÃ¡ pra ler o histÃ³rico completo a partir daqui, se o hook precisar de mais contexto do que o payload traz." tabindex="0">transcript_path</b> â€” ruta al archivo con el historial de la conversaciÃ³n.</li>
-<li><b class="gterm" data-def="Diz qual evento disparou o hook (ex.: 'PreToolUse', 'Stop'). Ãštil quando o mesmo script atende mais de um evento." tabindex="0">hook_event_name</b> â€” indica quÃ© evento es este (Ãºtil si el mismo script atiende mÃ¡s de un evento).</li>
+<li><b class="gterm" data-def="Identifica a sessêÂ£o atual do Claude Code. êÅ¡til pra correlacionar logs de vêÂ¡rios hooks na mesma conversa." tabindex="0">session_id</b> ê¢â¬â identifica la sesiêÂ³n actual.</li>
+<li><code>cwd</code> ê¢â¬â el directorio de trabajo en ese momento.</li>
+<li><b class="gterm" data-def="Caminho do arquivo de transcript da conversa. DêÂ¡ pra ler o histêÂ³rico completo a partir daqui, se o hook precisar de mais contexto do que o payload traz." tabindex="0">transcript_path</b> ê¢â¬â ruta al archivo con el historial de la conversaciêÂ³n.</li>
+<li><b class="gterm" data-def="Diz qual evento disparou o hook (ex.: 'PreToolUse', 'Stop'). êÅ¡til quando o mesmo script atende mais de um evento." tabindex="0">hook_event_name</b> ê¢â¬â indica quêÂ© evento es este (êÂºtil si el mismo script atiende mêÂ¡s de un evento).</li>
 </ul>
 <p>Piensa en ellos como el <b>sobre</b>: siempre aparece y te orienta incluso antes de mirar el resto del contenido.</p>
 <div class="mobfig" data-mobfig="2"></div>
 <div class="quiz" data-answer="b">
-<p class="qk">PruÃ©bate</p>
-<p class="q">Â¿CuÃ¡l de estos campos aparece en CUALQUIER hook, sea cual sea el evento?</p>
+<p class="qk">PruêÂ©bate</p>
+<p class="q">êÂ¿CuêÂ¡l de estos campos aparece en CUALQUIER hook, sea cual sea el evento?</p>
 <button class="opt" data-k="a">tool_response</button>
-<button class="opt" data-fb="session_id, cwd, transcript_path e hook_event_name sÃ£o o envelope comum â€” chegam sempre. tool_response sÃ³ existe em PostToolUse." data-k="b">session_id</button>
+<button class="opt" data-fb="session_id, cwd, transcript_path e hook_event_name sêÂ£o o envelope comum ê¢â¬â chegam sempre. tool_response sêÂ³ existe em PostToolUse." data-k="b">session_id</button>
 <button class="opt" data-k="c">notification_message</button>
 <p class="qfb"></p>
 </div>
-<button class="readbtn" data-read="s2">marcar como leÃ­do</button>
+<button class="readbtn" data-read="s2">marcar como leêÂ­do</button>
 </section>
 <section class="step" data-fig="3">
 <h2><span class="n">03</span> tool_input y tool_response</h2>
-<p>Aparte del sobre comÃºn, el resto del JSON cambia segÃºn el evento. En los eventos de herramientas, el par mÃ¡s importante es:</p>
+<p>Aparte del sobre comêÂºn, el resto del JSON cambia segêÂºn el evento. En los eventos de herramientas, el par mêÂ¡s importante es:</p>
 <ul>
-<li><b class="gterm" data-def="O que a ferramenta vai receber (ex.: o comando do Bash, o file_path de um Edit). Presente em PreToolUse e PostToolUse â€” mas NÃƒO em SessionStart." tabindex="0">tool_input</b> â€” lo que recibirÃ¡ la herramienta. EstÃ¡ presente en <code>PreToolUse</code> <i>e</i> <code>PostToolUse</code>.</li>
-<li><b class="gterm" data-def="O resultado da ferramenta depois de ela rodar. SÃ“ existe em PostToolUse â€” em PreToolUse a ferramenta ainda nÃ£o rodou, entÃ£o nÃ£o hÃ¡ resposta ainda." tabindex="0">tool_response</b> â€” el resultado despuÃ©s de que se ejecute la herramienta. Solo existe en <code>PostToolUse</code> â€” en <code>PreToolUse</code> la herramienta todavÃ­a no se ejecutÃ³.</li>
+<li><b class="gterm" data-def="O que a ferramenta vai receber (ex.: o comando do Bash, o file_path de um Edit). Presente em PreToolUse e PostToolUse ê¢â¬â mas NêÆO em SessionStart." tabindex="0">tool_input</b> ê¢â¬â lo que recibirêÂ¡ la herramienta. EstêÂ¡ presente en <code>PreToolUse</code> <i>e</i> <code>PostToolUse</code>.</li>
+<li><b class="gterm" data-def="O resultado da ferramenta depois de ela rodar. Sêâ existe em PostToolUse ê¢â¬â em PreToolUse a ferramenta ainda nêÂ£o rodou, entêÂ£o nêÂ£o hêÂ¡ resposta ainda." tabindex="0">tool_response</b> ê¢â¬â el resultado despuêÂ©s de que se ejecute la herramienta. Solo existe en <code>PostToolUse</code> ê¢â¬â en <code>PreToolUse</code> la herramienta todavêÂ­a no se ejecutêÂ³.</li>
 </ul>
-<p>Otros eventos traen sus propios campos: <code>Notification</code> viene con <code>notification_type</code> e <code>notification_message</code>; <code>SessionStart</code> no aporta ningÃºn dato de la herramienta (no hay nada que aportar: aÃºn no se ha ejecutado nada). Siempre revisa el <code>hook_event_name</code> antes de asumir que un campo estarÃ¡ ahÃ­.</p>
+<p>Otros eventos traen sus propios campos: <code>Notification</code> viene con <code>notification_type</code> e <code>notification_message</code>; <code>SessionStart</code> no aporta ningêÂºn dato de la herramienta (no hay nada que aportar: aêÂºn no se ha ejecutado nada). Siempre revisa el <code>hook_event_name</code> antes de asumir que un campo estarêÂ¡ ahêÂ­.</p>
 <div class="mobfig" data-mobfig="3"></div>
 <div class="quiz" data-answer="c">
-<p class="qk">PruÃ©bate</p>
-<p class="q">Â¿Por quÃ© el campo <code>tool_response</code> no aparece en el JSON de un <code>PreToolUse</code>?</p>
+<p class="qk">PruêÂ©bate</p>
+<p class="q">êÂ¿Por quêÂ© el campo <code>tool_response</code> no aparece en el JSON de un <code>PreToolUse</code>?</p>
 <button class="opt" data-k="a">es un error conocido</button>
 <button class="opt" data-k="b">porque PreToolUse tampoco recibe tool_input</button>
-<button class="opt" data-fb="PreToolUse dispara ANTES da ferramenta rodar â€” nÃ£o existe resposta ainda pra entregar. Ela sÃ³ aparece no PostToolUse." data-k="c">la herramienta todavÃ­a no se ejecutÃ³ en ese momento: aÃºn no existe una respuesta</button>
+<button class="opt" data-fb="PreToolUse dispara ANTES da ferramenta rodar ê¢â¬â nêÂ£o existe resposta ainda pra entregar. Ela sêÂ³ aparece no PostToolUse." data-k="c">la herramienta todavêÂ­a no se ejecutêÂ³ en ese momento: aêÂºn no existe una respuesta</button>
 <p class="qfb"></p>
 </div>
-<button class="readbtn" data-read="s3">marcar como leÃ­do</button>
+<button class="readbtn" data-read="s3">marcar como leêÂ­do</button>
 </section>
 <section class="step" data-fig="4">
 <h2><span class="n">04</span> Leer con jq</h2>
-<p>En la prÃ¡ctica, tres comandos resuelven casi todo:</p>
+<p>En la prêÂ¡ctica, tres comandos resuelven casi todo:</p>
 <pre><span class="c"># nombre de la herramienta</span>
 jq -r '.tool_name'
 <span class="c"># el comando que Bash iba a ejecutar</span>
 jq -r '.tool_input.command'
-<span class="c"># el archivo que se editÃ³</span>
+<span class="c"># el archivo que se editêÂ³</span>
 jq -r '.tool_input.file_path'</pre>
 <p>Para explorar un payload completo mientras aprendes, <code>jq .</code> (sin filtro) imprime todo con formato y de forma legible: sirve para depurar un hook nuevo antes de escribir el filtro correcto.</p>
 <div class="mobfig" data-mobfig="4"></div>
 <details>
 <summary>Profundiza</summary>
-<p>Sin <code>jq</code> instalado, puedes leer el mismo JSON en Python: <code>import sys, json; data = json.load(sys.stdin)</code>, y luego <code>data.get("tool_name")</code>. MÃ¡s verboso, pero funciona en cualquier mÃ¡quina con Python.</p>
+<p>Sin <code>jq</code> instalado, puedes leer el mismo JSON en Python: <code>import sys, json; data = json.load(sys.stdin)</code>, y luego <code>data.get("tool_name")</code>. MêÂ¡s verboso, pero funciona en cualquier mêÂ¡quina con Python.</p>
 </details>
-<button class="readbtn" data-read="s4">marcar como leÃ­do</button>
+<button class="readbtn" data-read="s4">marcar como leêÂ­do</button>
 </section>
 <section class="practice" data-practice="p4">
 <p class="pk">Practica ahora <span class="pcount">0/4 hecho</span></p>
 <h3 class="ph">Registra tool_name + command con jq</h3>
-<p class="pgoal">Registra en detalle quÃ© herramienta se ejecutÃ³ y quÃ© comando recibiÃ³ â€” directamente del JSON de stdin. ~5 min, seguro (solo observa).</p>
+<p class="pgoal">Registra en detalle quêÂ© herramienta se ejecutêÂ³ y quêÂ© comando recibiêÂ³ ê¢â¬â directamente del JSON de stdin. ~5 min, seguro (solo observa).</p>
 <div class="pcodewrap"><button class="pcopy" type="button">copiar</button><pre class="pcode">{
   <span class="k">"hooks"</span>: {
     <span class="k">"PreToolUse"</span>: [
@@ -838,11 +838,11 @@ jq -r '.tool_input.file_path'</pre>
 }</pre></div>
 <ol class="psteps">
 <li><label><input data-ptask="1" type="checkbox"/> Pega el bloque en el <code>.claude/settings.json</code> y guarda.</label></li>
-<li><label><input data-ptask="2" type="checkbox"/> PÃ­dele a Claude que ejecute un comando (p. ej.: <code>ls -la</code>).</label></li>
-<li><label><input data-ptask="3" type="checkbox"/> Ejecuta <code>cat .claude/tool.log</code> â€” Â¿apareciÃ³ Â«Bash ls -laÂ»?</label></li>
-<li><label><input data-ptask="4" type="checkbox"/> Cambia el filtro para que tambiÃ©n muestre el <code>cwd</code> (consejo: agrega un <code>+ " " + .cwd</code>).</label></li>
+<li><label><input data-ptask="2" type="checkbox"/> PêÂ­dele a Claude que ejecute un comando (p. ej.: <code>ls -la</code>).</label></li>
+<li><label><input data-ptask="3" type="checkbox"/> Ejecuta <code>cat .claude/tool.log</code> ê¢â¬â êÂ¿apareciêÂ³ êÂ«Bash ls -laêÂ»?</label></li>
+<li><label><input data-ptask="4" type="checkbox"/> Cambia el filtro para que tambiêÂ©n muestre el <code>cwd</code> (consejo: agrega un <code>+ " " + .cwd</code>).</label></li>
 </ol>
-<p class="pdone">âœ“ Pasaste del payload sin procesar a un registro legible con un filtro de una lÃ­nea. Esa es la distancia real entre Â«llegÃ³ un JSONÂ» y Â«mi hook decide algo con Ã©lÂ».</p>
+<p class="pdone">ê¢Åâ Pasaste del payload sin procesar a un registro legible con un filtro de una lêÂ­nea. Esa es la distancia real entre êÂ«llegêÂ³ un JSONêÂ» y êÂ«mi hook decide algo con êÂ©lêÂ».</p>
 </section>
 </div>
 <aside class="rail"><div class="railsticky">
@@ -850,9 +850,9 @@ jq -r '.tool_input.file_path'</pre>
 <div class="fig on" data-cap="&lt;b&gt;Fig.&lt;/b&gt; tudo chega por stdin, em JSON" data-fig="1">
 <svg aria-hidden="true" fill="none" viewbox="0 0 220 200">
 <rect fill="#15131d" height="100" rx="10" stroke="#37324a" width="90" x="24" y="50"></rect>
-<text fill="#948DA6" font-family="Space Mono" font-size="8" x="34" y="72">{ â€¦</text>
+<text fill="#948DA6" font-family="Space Mono" font-size="8" x="34" y="72">{ ê¢â¬Â¦</text>
 <text fill="#7CE0C6" font-family="Space Mono" font-size="8" x="34" y="90">  json</text>
-<text fill="#948DA6" font-family="Space Mono" font-size="8" x="34" y="108">  â€¦ }</text>
+<text fill="#948DA6" font-family="Space Mono" font-size="8" x="34" y="108">  ê¢â¬Â¦ }</text>
 <text fill="#6C6580" font-family="Space Mono" font-size="8" text-anchor="middle" x="69" y="136">stdin</text>
 <path class="breathe" d="M118 100 H150" stroke="#7CE0C6" stroke-width="2"></path><path d="M150 94 l10 6 -10 6z" fill="#7CE0C6"></path>
 <rect fill="none" height="36" rx="8" stroke="#7CE0C6" width="42" x="162" y="82"></rect><text fill="#7CE0C6" font-family="Space Mono" font-size="9" text-anchor="middle" x="183" y="105">hook</text>
@@ -866,7 +866,7 @@ jq -r '.tool_input.file_path'</pre>
 <rect class="breathe" fill="none" height="28" rx="7" stroke="#7CE0C6" style="animation-delay:.6s" width="160" x="30" y="132"></rect><text fill="#7CE0C6" font-family="Space Mono" font-size="9" text-anchor="middle" x="110" y="151">hook_event_name</text>
 </svg>
 </div>
-<div class="fig" data-cap="&lt;b&gt;Fig.&lt;/b&gt; tool_input (antes) â†’ tool_response (depois)" data-fig="3">
+<div class="fig" data-cap="&lt;b&gt;Fig.&lt;/b&gt; tool_input (antes) ê¢â â tool_response (depois)" data-fig="3">
 <svg aria-hidden="true" fill="none" viewbox="0 0 220 200">
 <rect fill="none" height="36" rx="8" stroke="#7CE0C6" width="70" x="20" y="82"></rect><text fill="#7CE0C6" font-family="Space Mono" font-size="9" text-anchor="middle" x="55" y="105">tool_input</text>
 <text fill="#948DA6" font-family="Space Mono" font-size="8" text-anchor="middle" x="55" y="134">Pre + Post</text>
@@ -875,7 +875,7 @@ jq -r '.tool_input.file_path'</pre>
 <text fill="#948DA6" font-family="Space Mono" font-size="8" text-anchor="middle" x="167" y="134">solo Post</text>
 </svg>
 </div>
-<div class="fig" data-cap="&lt;b&gt;Fig.&lt;/b&gt; jq lÃª o campo que importa" data-fig="4">
+<div class="fig" data-cap="&lt;b&gt;Fig.&lt;/b&gt; jq lêÂª o campo que importa" data-fig="4">
 <svg aria-hidden="true" fill="none" viewbox="0 0 220 200">
 <rect fill="#15131d" height="40" rx="8" stroke="#37324a" width="52" x="20" y="80"></rect><text fill="#948DA6" font-family="Space Mono" font-size="9" text-anchor="middle" x="46" y="104">stdin</text>
 <path class="breathe" d="M76 100 H104" stroke="#7CE0C6" stroke-width="2"></path><path d="M104 94 l9 6 -9 6z" fill="#7CE0C6"></path>
@@ -887,18 +887,18 @@ jq -r '.tool_input.file_path'</pre>
 </div>
 <p class="railcap"></p>
 <div class="steps-ind"></div>
-<p class="sidenote">Resalta cualquier fragmento del texto para convertirlo en una <b>tarjeta de memoria</b> de revisiÃ³n.</p>
+<p class="sidenote">Resalta cualquier fragmento del texto para convertirlo en una <b>tarjeta de memoria</b> de revisiêÂ³n.</p>
 </div></aside>
 </div>
-<nav class="lnav"><a href="#aula-3">â† LecciÃ³n 3</a><a href="#aula-5">LecciÃ³n 5 Â· CÃ³mo responde el hook â†’</a></nav>
-<footer>LecciÃ³n 4 de 5 Â· Ruta 01 Â· Fundamentos Â· ARCKHÉ AI PRO</footer>
+<nav class="lnav"><a href="#aula-3">ê¢â Â LecciêÂ³n 3</a><a href="#aula-5">LecciêÂ³n 5 êÂ· CêÂ³mo responde el hook ê¢â â</a></nav>
+<footer>LecciêÂ³n 4 de 5 êÂ· Ruta 01 êÂ· Fundamentos êÂ· ARCKHê AI PRO</footer>
 <script id="cards-4" type="application/json">
 [
-  {"front":"Como o Claude Code entrega o contexto a um hook?","back":"Um JSON pela entrada padrÃ£o (stdin) do comando."},
+  {"front":"Como o Claude Code entrega o contexto a um hook?","back":"Um JSON pela entrada padrêÂ£o (stdin) do comando."},
   {"front":"Quais quatro campos aparecem em QUALQUER hook?","back":"session_id, cwd, transcript_path e hook_event_name."},
   {"front":"Em quais eventos aparece tool_input?","back":"PreToolUse e PostToolUse (os eventos de ferramenta)."},
-  {"front":"Em qual evento aparece tool_response, e por quÃª?","back":"SÃ³ em PostToolUse â€” em PreToolUse a ferramenta ainda nÃ£o rodou."},
-  {"front":"Por que hooks nÃ£o podem ser interativos?","back":"Recebem tudo de uma vez no inÃ­cio (stdin) e respondem de uma vez no fim (exit code ou JSON) â€” nÃ£o hÃ¡ como perguntar no meio."}
+  {"front":"Em qual evento aparece tool_response, e por quêÂª?","back":"SêÂ³ em PostToolUse ê¢â¬â em PreToolUse a ferramenta ainda nêÂ£o rodou."},
+  {"front":"Por que hooks nêÂ£o podem ser interativos?","back":"Recebem tudo de uma vez no inêÂ­cio (stdin) e respondem de uma vez no fim (exit code ou JSON) ê¢â¬â nêÂ£o hêÂ¡ como perguntar no meio."}
 ]
 </script>
 </section>
@@ -906,16 +906,16 @@ jq -r '.tool_input.file_path'</pre>
 <section class="view" data-aula="5" id="v-aula-5">
 <header class="hero"><div class="hero-inner">
 <div>
-<p class="kicker">Ruta 01 Â· Clase 5 Â· Principiante</p>
-<h1>CÃ³mo responde el hook<br/><em>responde</em></h1>
-<p class="lead">Exit code es la seÃ±al sencilla. Pero un hook tambiÃ©n puede devolver un JSON y explicar la decisiÃ³n que tomÃ³ con un motivo.</p>
-<p class="cue"><span class="arw">â†“</span> desplÃ¡zate para estudiar</p>
+<p class="kicker">Ruta 01 êÂ· Clase 5 êÂ· Principiante</p>
+<h1>CêÂ³mo responde el hook<br/><em>responde</em></h1>
+<p class="lead">Exit code es la seêÂ±al sencilla. Pero un hook tambiêÂ©n puede devolver un JSON y explicar la decisiêÂ³n que tomêÂ³ con un motivo.</p>
+<p class="cue"><span class="arw">ê¢â â</span> desplêÂ¡zate para estudiar</p>
 </div>
 <div class="herofig">
 <svg aria-hidden="true" fill="none" viewbox="0 0 300 240">
 <rect fill="#15131d" height="60" rx="10" stroke="#37324a" stroke-width="1.5" width="80" x="30" y="90"></rect><text fill="#948DA6" font-family="Space Mono, monospace" font-size="11" text-anchor="middle" x="70" y="124">hook</text>
 <path class="pulse" d="M110 108 H160" stroke="#7CE0C6" stroke-width="2"></path><path d="M160 102 l10 6 -10 6z" fill="#7CE0C6"></path>
-<text fill="#7CE0C6" font-family="Space Mono, monospace" font-size="11" text-anchor="middle" x="220" y="94">cÃ³digo de salida</text>
+<text fill="#7CE0C6" font-family="Space Mono, monospace" font-size="11" text-anchor="middle" x="220" y="94">cêÂ³digo de salida</text>
 <path class="pulse" d="M110 132 H160" stroke="#F2B45C" stroke-width="2" style="animation-delay:.4s"></path><path d="M160 126 l10 6 -10 6z" fill="#F2B45C"></path>
 <text fill="#F2B45C" font-family="Space Mono, monospace" font-size="11" text-anchor="middle" x="220" y="150">JSON</text>
 <text fill="#C7C2D0" font-family="Newsreader, serif" font-size="16" font-style="italic" text-anchor="middle" x="150" y="204">dos formas de responder</text>
@@ -928,63 +928,63 @@ jq -r '.tool_input.file_path'</pre>
 <h2><span class="n">01</span> Dos formas de responder</h2>
 <p>Un hook se comunica con Claude Code de dos formas que pueden combinarse:</p>
 <ul>
-<li><b>Exit code</b> â€” la seÃ±al mÃ¡s simple: un nÃºmero. Es rÃ¡pido de escribir y cubre la mayorÃ­a de los casos.</li>
-<li><b>JSON en stdout</b> â€” cuando el nÃºmero no basta. Imprimes un objeto con una decisiÃ³n explÃ­cita, un <b>motivo</b> en texto, y ajustes precisos de comportamiento.</li>
+<li><b>Exit code</b> ê¢â¬â la seêÂ±al mêÂ¡s simple: un nêÂºmero. Es rêÂ¡pido de escribir y cubre la mayorêÂ­a de los casos.</li>
+<li><b>JSON en stdout</b> ê¢â¬â cuando el nêÂºmero no basta. Imprimes un objeto con una decisiêÂ³n explêÂ­cita, un <b>motivo</b> en texto, y ajustes precisos de comportamiento.</li>
 </ul>
-<p>Empieza siempre por el cÃ³digo de salida: es el camino rÃ¡pido de las clases anteriores. Migra a JSON cuando necesites mÃ¡s matices: pedir <b>confirmaciÃ³n</b> en lugar de bloquear, o explicar <b>por quÃ©</b> de una forma mÃ¡s completa que una lÃ­nea en stderr.</p>
+<p>Empieza siempre por el cêÂ³digo de salida: es el camino rêÂ¡pido de las clases anteriores. Migra a JSON cuando necesites mêÂ¡s matices: pedir <b>confirmaciêÂ³n</b> en lugar de bloquear, o explicar <b>por quêÂ©</b> de una forma mêÂ¡s completa que una lêÂ­nea en stderr.</p>
 <div class="mobfig" data-mobfig="1"></div>
-<button class="readbtn" data-read="s1">marcar como leÃ­do</button>
+<button class="readbtn" data-read="s1">marcar como leêÂ­do</button>
 </section>
 <section class="step" data-fig="2">
-<h2><span class="n">02</span> Los cÃ³digos de salida</h2>
-<p>Tres franjas de cÃ³digo, tres comportamientos muy diferentes:</p>
+<h2><span class="n">02</span> Los cêÂ³digos de salida</h2>
+<p>Tres franjas de cêÂ³digo, tres comportamientos muy diferentes:</p>
 <ul>
-<li><code>0</code> â€” si todo sale bien, continÃºa con normalidad.</li>
-<li><b class="gterm" data-def="Bloqueia a aÃ§Ã£o â€” mas sÃ³ em PreToolUse (barra a ferramenta) e Stop (barra o fim do turno). O que vocÃª imprime no stderr vira o motivo mostrado ao Claude." tabindex="0">exit 2</b> â€” bloquea, pero <b>solo</b> en <code>PreToolUse</code> e <code>Stop</code>. Lo que imprimes en el <code>stderr</code> se convierte en el motivo.</li>
-<li><code>1</code>, <code>3</code> o mÃ¡s â€” error <b>no bloqueante</b>: la acciÃ³n continÃºa (fail-open). Tu hook fallÃ³, pero Claude no se bloquea por eso.</li>
+<li><code>0</code> ê¢â¬â si todo sale bien, continêÂºa con normalidad.</li>
+<li><b class="gterm" data-def="Bloqueia a aêÂ§êÂ£o ê¢â¬â mas sêÂ³ em PreToolUse (barra a ferramenta) e Stop (barra o fim do turno). O que vocêÂª imprime no stderr vira o motivo mostrado ao Claude." tabindex="0">exit 2</b> ê¢â¬â bloquea, pero <b>solo</b> en <code>PreToolUse</code> e <code>Stop</code>. Lo que imprimes en el <code>stderr</code> se convierte en el motivo.</li>
+<li><code>1</code>, <code>3</code> o mêÂ¡s ê¢â¬â error <b>no bloqueante</b>: la acciêÂ³n continêÂºa (fail-open). Tu hook fallêÂ³, pero Claude no se bloquea por eso.</li>
 </ul>
-<p>Este Ãºltimo punto es deliberado: un hook mal formado no deberÃ­a poder bloquear todo Claude Code. Prefiere <b>fallar de forma abierta</b> â€” si tu script tiene un error, el peor escenario es que el hook no haga nada, no que Claude se quede detenido.</p>
+<p>Este êÂºltimo punto es deliberado: un hook mal formado no deberêÂ­a poder bloquear todo Claude Code. Prefiere <b>fallar de forma abierta</b> ê¢â¬â si tu script tiene un error, el peor escenario es que el hook no haga nada, no que Claude se quede detenido.</p>
 <div class="mobfig" data-mobfig="2"></div>
 <details>
 <summary>Profundiza</summary>
-<p>Este principio se llama <b>fail-open</b>: en tu script, siempre ten una ruta de salida garantizada (un <code>trap</code> en el shell, un <code>try/except</code> en Python) que devuelve <code>exit 0</code> si ocurre algo inesperado. Un hook de seguridad que se bloquea solo es peor que no tener ningÃºn hook.</p>
+<p>Este principio se llama <b>fail-open</b>: en tu script, siempre ten una ruta de salida garantizada (un <code>trap</code> en el shell, un <code>try/except</code> en Python) que devuelve <code>exit 0</code> si ocurre algo inesperado. Un hook de seguridad que se bloquea solo es peor que no tener ningêÂºn hook.</p>
 </details>
 <div class="quiz" data-answer="b">
-<p class="qk">PruÃ©bate</p>
-<p class="q">Un hook <code>Notification</code> sale con <code>exit 1</code> por un error en el script. Â¿QuÃ© sucede?</p>
-<button class="opt" data-k="a">la sesiÃ³n se queda bloqueada mientras espera al hook</button>
-<button class="opt" data-fb="Qualquer cÃ³digo diferente de 0 e de 2 (em Pre/Stop) Ã© erro nÃ£o-bloqueante: o fluxo segue normalmente, fail-open." data-k="b">se trata como un error no bloqueante; el flujo continÃºa con normalidad</button>
-<button class="opt" data-k="c">Claude recibe una notificaciÃ³n del error y se detiene por completo</button>
+<p class="qk">PruêÂ©bate</p>
+<p class="q">Un hook <code>Notification</code> sale con <code>exit 1</code> por un error en el script. êÂ¿QuêÂ© sucede?</p>
+<button class="opt" data-k="a">la sesiêÂ³n se queda bloqueada mientras espera al hook</button>
+<button class="opt" data-fb="Qualquer cêÂ³digo diferente de 0 e de 2 (em Pre/Stop) êÂ© erro nêÂ£o-bloqueante: o fluxo segue normalmente, fail-open." data-k="b">se trata como un error no bloqueante; el flujo continêÂºa con normalidad</button>
+<button class="opt" data-k="c">Claude recibe una notificaciêÂ³n del error y se detiene por completo</button>
 <p class="qfb"></p>
 </div>
-<button class="readbtn" data-read="s2">marcar como leÃ­do</button>
+<button class="readbtn" data-read="s2">marcar como leêÂ­do</button>
 </section>
 <section class="step" data-fig="3">
 <h2><span class="n">03</span> JSON de salida</h2>
-<p>En lugar de solo un exit code, el hook puede imprimir un <b>JSON</b> en stdout con una decisiÃ³n mÃ¡s expresiva:</p>
+<p>En lugar de solo un exit code, el hook puede imprimir un <b>JSON</b> en stdout con una decisiêÂ³n mêÂ¡s expresiva:</p>
 <pre>{
   "decision": "approve|block",
   "reason": "string",
   "suppressOutput": false,
   "continue": true
 }</pre>
-<p>Cada campo cumple una funciÃ³n:</p>
+<p>Cada campo cumple una funciêÂ³n:</p>
 <ul>
-<li><code>decision</code> â€” <code>"approve"</code> o <code>"block"</code>, la versiÃ³n explÃ­cita del cÃ³digo de salida.</li>
-<li><b class="gterm" data-def="Texto que explica a decisÃ£o do hook. Aparece pro Claude (e, dependendo do caso, pro usuÃ¡rio) como o motivo por trÃ¡s de um bloqueio ou de um pedido de confirmaÃ§Ã£o." tabindex="0">reason</b> â€” el motivo, en texto: lo que antes solo se enviaba por stderr.</li>
-<li><code>suppressOutput</code> â€” oculta la salida del hook del transcript cuando no le interesa a nadie.</li>
-<li><code>continue</code> â€” si <code>false</code>, para toda la sesiÃ³n, no solo para la acciÃ³n actual. Ãšsalo con cuidado.</li>
+<li><code>decision</code> ê¢â¬â <code>"approve"</code> o <code>"block"</code>, la versiêÂ³n explêÂ­cita del cêÂ³digo de salida.</li>
+<li><b class="gterm" data-def="Texto que explica a decisêÂ£o do hook. Aparece pro Claude (e, dependendo do caso, pro usuêÂ¡rio) como o motivo por trêÂ¡s de um bloqueio ou de um pedido de confirmaêÂ§êÂ£o." tabindex="0">reason</b> ê¢â¬â el motivo, en texto: lo que antes solo se enviaba por stderr.</li>
+<li><code>suppressOutput</code> ê¢â¬â oculta la salida del hook del transcript cuando no le interesa a nadie.</li>
+<li><code>continue</code> ê¢â¬â si <code>false</code>, para toda la sesiêÂ³n, no solo para la acciêÂ³n actual. êÅ¡salo con cuidado.</li>
 </ul>
 <div class="mobfig" data-mobfig="3"></div>
 <div class="quiz" data-answer="a">
-<p class="qk">PruÃ©bate</p>
-<p class="q">Â¿QuÃ© campo del JSON de salida explica, en texto, el motivo de una decisiÃ³n?</p>
-<button class="opt" data-fb="reason carrega o motivo em texto â€” a versÃ£o estruturada do que antes ia solto pelo stderr." data-k="a">reason</button>
+<p class="qk">PruêÂ©bate</p>
+<p class="q">êÂ¿QuêÂ© campo del JSON de salida explica, en texto, el motivo de una decisiêÂ³n?</p>
+<button class="opt" data-fb="reason carrega o motivo em texto ê¢â¬â a versêÂ£o estruturada do que antes ia solto pelo stderr." data-k="a">reason</button>
 <button class="opt" data-k="b">suppressOutput</button>
-<button class="opt" data-k="c">continÃºa</button>
+<button class="opt" data-k="c">continêÂºa</button>
 <p class="qfb"></p>
 </div>
-<button class="readbtn" data-read="s3">marcar como leÃ­do</button>
+<button class="readbtn" data-read="s3">marcar como leêÂ­do</button>
 </section>
 <section class="step" data-fig="4">
 <h2><span class="n">04</span> permissionDecision y contexto extra</h2>
@@ -993,17 +993,17 @@ jq -r '.tool_input.file_path'</pre>
   "hookSpecificOutput": {
     "permissionDecision": "allow|deny|ask"
   },
-  "reason": "confirmar antes de rodar em produÃ§Ã£o"
+  "reason": "confirmar antes de rodar em produêÂ§êÂ£o"
 }</pre>
-<p>Tres posturas, no dos: <b class="gterm" data-def="Uma das trÃªs posturas de permissionDecision: libera a aÃ§Ã£o, sem perguntar nada." tabindex="0">allow</b> (permite), <b class="gterm" data-def="Uma das trÃªs posturas de permissionDecision: barra a aÃ§Ã£o â€” equivalente, na prÃ¡tica, ao exit 2." tabindex="0">deny</b> (barra â€” equivalente a exit 2) y <b class="gterm" data-def="Uma das trÃªs posturas de permissionDecision: pausa e pede confirmaÃ§Ã£o ao usuÃ¡rio, em vez de decidir sozinho." tabindex="0">ask</b> (pausa y <b>pregunta</b> a ti, en lugar de decidir por su cuenta). Esta es la tercera opciÃ³n que el cÃ³digo de salida por sÃ­ solo no ofrece: no todo es blanco o negro, y a veces lo correcto es solo avisar.</p>
-<p>Algunos eventos tambiÃ©n aceptan un <code>additionalContext</code> dentro del JSON â€” texto adicional que entra en el contexto de Claude, ademÃ¡s de la decisiÃ³n en sÃ­. Es como inyectar una nota al pie en lo que estÃ¡ procesando.</p>
+<p>Tres posturas, no dos: <b class="gterm" data-def="Uma das trêÂªs posturas de permissionDecision: libera a aêÂ§êÂ£o, sem perguntar nada." tabindex="0">allow</b> (permite), <b class="gterm" data-def="Uma das trêÂªs posturas de permissionDecision: barra a aêÂ§êÂ£o ê¢â¬â equivalente, na prêÂ¡tica, ao exit 2." tabindex="0">deny</b> (barra ê¢â¬â equivalente a exit 2) y <b class="gterm" data-def="Uma das trêÂªs posturas de permissionDecision: pausa e pede confirmaêÂ§êÂ£o ao usuêÂ¡rio, em vez de decidir sozinho." tabindex="0">ask</b> (pausa y <b>pregunta</b> a ti, en lugar de decidir por su cuenta). Esta es la tercera opciêÂ³n que el cêÂ³digo de salida por sêÂ­ solo no ofrece: no todo es blanco o negro, y a veces lo correcto es solo avisar.</p>
+<p>Algunos eventos tambiêÂ©n aceptan un <code>additionalContext</code> dentro del JSON ê¢â¬â texto adicional que entra en el contexto de Claude, ademêÂ¡s de la decisiêÂ³n en sêÂ­. Es como inyectar una nota al pie en lo que estêÂ¡ procesando.</p>
 <div class="mobfig" data-mobfig="4"></div>
-<button class="readbtn" data-read="s4">marcar como leÃ­do</button>
+<button class="readbtn" data-read="s4">marcar como leêÂ­do</button>
 </section>
 <section class="practice" data-practice="p5">
-<p class="pk">Practica ahora <span class="pcount">0/4 hecho</span> <span style="color:var(--faint)">Â· capstone</span></p>
+<p class="pk">Practica ahora <span class="pcount">0/4 hecho</span> <span style="color:var(--faint)">êÂ· capstone</span></p>
 <h3 class="ph">Un PreToolUse que pregunta en vez de bloquear</h3>
-<p class="pgoal">Cierra la ruta haciendo que un hook responda con <code>permissionDecision: "ask"</code> y un motivo â€” sin borrar nada. ~5 min, seguro: solo pide confirmaciÃ³n.</p>
+<p class="pgoal">Cierra la ruta haciendo que un hook responda con <code>permissionDecision: "ask"</code> y un motivo ê¢â¬â sin borrar nada. ~5 min, seguro: solo pide confirmaciêÂ³n.</p>
 <div class="pcodewrap"><button class="pcopy" type="button">copiar</button><pre class="pcode">{
   <span class="k">"hooks"</span>: {
     <span class="k">"PreToolUse"</span>: [
@@ -1019,40 +1019,40 @@ jq -r '.tool_input.file_path'</pre>
 }</pre></div>
 <ol class="psteps">
 <li><label><input data-ptask="1" type="checkbox"/> Pega el bloque en el <code>.claude/settings.json</code> y guarda.</label></li>
-<li><label><input data-ptask="2" type="checkbox"/> PÃ­dele a Claude que ejecute <code>echo PEDECONFIRMACAO</code>.</label></li>
+<li><label><input data-ptask="2" type="checkbox"/> PêÂ­dele a Claude que ejecute <code>echo PEDECONFIRMACAO</code>.</label></li>
 <li><label><input data-ptask="3" type="checkbox"/> Mira a Claude <b>pausar y preguntar</b>, mostrando el motivo ("confirmar antes de ejecutar").</label></li>
-<li><label><input data-ptask="4" type="checkbox"/> Cambia <code>PEDECONFIRMACAO</code> por el patrÃ³n real que merece una confirmaciÃ³n (p. ej., un comando de deploy).</label></li>
+<li><label><input data-ptask="4" type="checkbox"/> Cambia <code>PEDECONFIRMACAO</code> por el patrêÂ³n real que merece una confirmaciêÂ³n (p. ej., un comando de deploy).</label></li>
 </ol>
-<p class="pdone">âœ“ Fin de la ruta: tu hook no solo decide (exit code), tambiÃ©n explica la decisiÃ³n en JSON, con <code>permissionDecision</code> y un motivo. Es el mismo <b>cuando esto â†’ ejecuta aquello</b> de la Aula 1, solo que ahora Claude entiende exactamente por quÃ©.</p>
+<p class="pdone">ê¢Åâ Fin de la ruta: tu hook no solo decide (exit code), tambiêÂ©n explica la decisiêÂ³n en JSON, con <code>permissionDecision</code> y un motivo. Es el mismo <b>cuando esto ê¢â â ejecuta aquello</b> de la Aula 1, solo que ahora Claude entiende exactamente por quêÂ©.</p>
 </section>
 </div>
 <aside class="rail"><div class="railsticky">
 <div class="figstage">
-<div class="fig on" data-cap="&lt;b&gt;Fig.&lt;/b&gt; exit code ou JSON â€” dois jeitos de responder" data-fig="1">
+<div class="fig on" data-cap="&lt;b&gt;Fig.&lt;/b&gt; exit code ou JSON ê¢â¬â dois jeitos de responder" data-fig="1">
 <svg aria-hidden="true" fill="none" viewbox="0 0 220 200">
 <rect fill="#221f2e" height="40" rx="8" stroke="#37324a" width="60" x="20" y="82"></rect><text fill="#C7C2D0" font-family="Space Mono" font-size="9" text-anchor="middle" x="50" y="106">hook</text>
 <path class="breathe" d="M84 92 H120" stroke="#7CE0C6" stroke-width="2"></path><path d="M120 86 l9 6 -9 6z" fill="#7CE0C6"></path>
-<text fill="#7CE0C6" font-family="Space Mono" font-size="9" text-anchor="middle" x="160" y="80">cÃ³digo de salida</text>
+<text fill="#7CE0C6" font-family="Space Mono" font-size="9" text-anchor="middle" x="160" y="80">cêÂ³digo de salida</text>
 <path class="breathe" d="M84 112 H120" stroke="#F2B45C" stroke-width="2" style="animation-delay:.4s"></path><path d="M120 106 l9 6 -9 6z" fill="#F2B45C"></path>
 <text fill="#F2B45C" font-family="Space Mono" font-size="9" text-anchor="middle" x="160" y="128">JSON</text>
 </svg>
 </div>
-<div class="fig" data-cap="&lt;b&gt;Fig.&lt;/b&gt; 0 segue Â· 2 barra (Pre/Stop) Â· outros = fail-open" data-fig="2">
+<div class="fig" data-cap="&lt;b&gt;Fig.&lt;/b&gt; 0 segue êÂ· 2 barra (Pre/Stop) êÂ· outros = fail-open" data-fig="2">
 <svg aria-hidden="true" fill="none" viewbox="0 0 220 200">
-<rect class="breathe" fill="none" height="30" rx="8" stroke="#7CE0C6" width="160" x="30" y="26"></rect><text fill="#7CE0C6" font-family="Space Mono" font-size="10" text-anchor="middle" x="110" y="46">0 â†’ continÃºa</text>
-<rect class="breathe" fill="none" height="30" rx="8" stroke="#F2B45C" style="animation-delay:.3s" width="160" x="30" y="70"></rect><text fill="#F2B45C" font-family="Space Mono" font-size="10" text-anchor="middle" x="110" y="90">2 â†’ bloquea (Pre/Stop)</text>
-<rect class="breathe" fill="none" height="30" rx="8" stroke="#948DA6" style="animation-delay:.6s" width="160" x="30" y="114"></rect><text fill="#948DA6" font-family="Space Mono" font-size="10" text-anchor="middle" x="110" y="134">otros â†’ fail-open</text>
+<rect class="breathe" fill="none" height="30" rx="8" stroke="#7CE0C6" width="160" x="30" y="26"></rect><text fill="#7CE0C6" font-family="Space Mono" font-size="10" text-anchor="middle" x="110" y="46">0 ê¢â â continêÂºa</text>
+<rect class="breathe" fill="none" height="30" rx="8" stroke="#F2B45C" style="animation-delay:.3s" width="160" x="30" y="70"></rect><text fill="#F2B45C" font-family="Space Mono" font-size="10" text-anchor="middle" x="110" y="90">2 ê¢â â bloquea (Pre/Stop)</text>
+<rect class="breathe" fill="none" height="30" rx="8" stroke="#948DA6" style="animation-delay:.6s" width="160" x="30" y="114"></rect><text fill="#948DA6" font-family="Space Mono" font-size="10" text-anchor="middle" x="110" y="134">otros ê¢â â fail-open</text>
 </svg>
 </div>
-<div class="fig" data-cap="&lt;b&gt;Fig.&lt;/b&gt; decision Â· reason Â· suppressOutput Â· continue" data-fig="3">
+<div class="fig" data-cap="&lt;b&gt;Fig.&lt;/b&gt; decision êÂ· reason êÂ· suppressOutput êÂ· continue" data-fig="3">
 <svg aria-hidden="true" fill="none" viewbox="0 0 220 210">
 <rect fill="#221f2e" height="26" rx="7" stroke="#37324a" width="160" x="30" y="18"></rect><text fill="#7CE0C6" font-family="Space Mono" font-size="10" x="44" y="35">decision</text>
 <rect fill="#221f2e" height="26" rx="7" stroke="#37324a" width="160" x="30" y="52"></rect><text fill="#C7C2D0" font-family="Space Mono" font-size="10" x="44" y="69">reason</text>
 <rect fill="#221f2e" height="26" rx="7" stroke="#37324a" width="160" x="30" y="86"></rect><text fill="#948DA6" font-family="Space Mono" font-size="10" x="44" y="103">suppressOutput</text>
-<rect class="breathe" fill="none" height="26" rx="7" stroke="#F2B45C" width="160" x="30" y="120"></rect><text fill="#F2B45C" font-family="Space Mono" font-size="10" x="44" y="137">continÃºa</text>
+<rect class="breathe" fill="none" height="26" rx="7" stroke="#F2B45C" width="160" x="30" y="120"></rect><text fill="#F2B45C" font-family="Space Mono" font-size="10" x="44" y="137">continêÂºa</text>
 </svg>
 </div>
-<div class="fig" data-cap="&lt;b&gt;Fig.&lt;/b&gt; allow Â· deny Â· ask" data-fig="4">
+<div class="fig" data-cap="&lt;b&gt;Fig.&lt;/b&gt; allow êÂ· deny êÂ· ask" data-fig="4">
 <svg aria-hidden="true" fill="none" viewbox="0 0 220 200">
 <circle cx="55" cy="100" fill="none" r="26" stroke="#7CE0C6"></circle><text fill="#7CE0C6" font-family="Space Mono" font-size="9" text-anchor="middle" x="55" y="104">allow</text>
 <circle cx="120" cy="100" fill="none" r="26" stroke="#F2B45C"></circle><text fill="#F2B45C" font-family="Space Mono" font-size="9" text-anchor="middle" x="120" y="104">deny</text>
@@ -1062,18 +1062,18 @@ jq -r '.tool_input.file_path'</pre>
 </div>
 <p class="railcap"></p>
 <div class="steps-ind"></div>
-<p class="sidenote">Resalta cualquier fragmento del texto para convertirlo en una <b>tarjeta de memoria</b> de revisiÃ³n.</p>
+<p class="sidenote">Resalta cualquier fragmento del texto para convertirlo en una <b>tarjeta de memoria</b> de revisiêÂ³n.</p>
 </div></aside>
 </div>
-<nav class="lnav"><a href="#aula-4">â† LecciÃ³n 4</a><a href="curso-guardrails.html#trilha">Ruta 02 Â· Guardrails â†’</a></nav>
-<footer>LecciÃ³n 5 de 5 Â· Ruta 01 Â· Fundamentos Â· ARCKHÉ AI PRO</footer>
+<nav class="lnav"><a href="#aula-4">ê¢â Â LecciêÂ³n 4</a><a href="curso-guardrails.html#trilha">Ruta 02 êÂ· Guardrails ê¢â â</a></nav>
+<footer>LecciêÂ³n 5 de 5 êÂ· Ruta 01 êÂ· Fundamentos êÂ· ARCKHê AI PRO</footer>
 <script id="cards-5" type="application/json">
 [
-  {"front":"Quais os dois jeitos de um hook responder?","back":"Exit code (simples) e JSON impresso no stdout (mais expressivo: decisÃ£o + motivo)."},
-  {"front":"O que exit 1 ou exit 3+ significam?","back":"Erro nÃ£o-bloqueante (fail-open): a aÃ§Ã£o segue normalmente, mesmo com o hook falhando."},
-  {"front":"Qual campo do JSON de saÃ­da carrega o motivo em texto?","back":"reason."},
-  {"front":"Quais as trÃªs posturas de permissionDecision?","back":"allow (libera), deny (barra, como exit 2) e ask (pausa e pede confirmaÃ§Ã£o)."},
-  {"front":"Por que design hooks para 'fail-open'?","back":"Um hook malformado nÃ£o deve travar o Claude Code inteiro â€” o pior cenÃ¡rio deve ser o hook nÃ£o fazer nada."}
+  {"front":"Quais os dois jeitos de um hook responder?","back":"Exit code (simples) e JSON impresso no stdout (mais expressivo: decisêÂ£o + motivo)."},
+  {"front":"O que exit 1 ou exit 3+ significam?","back":"Erro nêÂ£o-bloqueante (fail-open): a aêÂ§êÂ£o segue normalmente, mesmo com o hook falhando."},
+  {"front":"Qual campo do JSON de saêÂ­da carrega o motivo em texto?","back":"reason."},
+  {"front":"Quais as trêÂªs posturas de permissionDecision?","back":"allow (libera), deny (barra, como exit 2) e ask (pausa e pede confirmaêÂ§êÂ£o)."},
+  {"front":"Por que design hooks para 'fail-open'?","back":"Um hook malformado nêÂ£o deve travar o Claude Code inteiro ê¢â¬â o pior cenêÂ¡rio deve ser o hook nêÂ£o fazer nada."}
 ]
 </script>
 </section>
